@@ -7,6 +7,7 @@
 \usepackage{mathtools}
 \usepackage{tikz}
 \usepackage[normalem]{ulem}
+\usepackage{todonotes}
 \selectlanguage{english}
 
 \usepackage[T1]{fontenc}
@@ -30,6 +31,7 @@
 \newtheorem{consequence}[theorem]{Consequence}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
 
 \DeclareMathOperator\rad{rad}
@@ -58,14 +60,14 @@ Let's get \sout{physical} \emph{formal}.
     \label{equation:abc-equality}
     a+b=c
   \end{equation}
-  then for~$\epsilon>0$ there are only finitely many~$(a,b,c)\in\mathbb{N}^3$ such that
+  then for~$\epsilon>0$ there are only finitely many triples~$(a,b,c)\in\mathbb{N}^3$ such that
   \begin{equation}
     \label{equation:abc-inequality}
     c>\rad(abc)^{1+\epsilon}.
   \end{equation}
 \end{conjecture}
 
-The function~$\rad\colon\mathbb{N}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: in almost all cases we observe~$c<\rad(abc)$. I will give some examples.
+The function~$\rad\colon\mathbb{Z}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=\pm p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: in almost all cases we observe~$c<\rad(abc)$. I will give some examples.
 
 \begin{example}
   \label{example:abc-1}
@@ -141,21 +143,125 @@ We get the following table of highscores:
 
 which summarizes~\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}. Almost one year ago, only 234 triples with~$q>1.4$ were known.
 
-But this kind of computational approach is only interesting for information gathering, as Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$ is strictly smaller than the logarithmic integral
+But this computational approach is only interesting for information gathering, as Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$) is strictly smaller than the logarithmic integral
 \begin{equation}
   \operatorname{li}(x)=\int_0^x\frac{\mathrm{d}t}{\ln t}
 \end{equation}
-but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
-
-\begin{enumerate}
-  \item Introducing the $abc$-conjecture
-  \item Remarking that polynomials have a analogous properties
-  \item History
-\end{enumerate}
+but it is proved\todo{reference} that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
 
 
-\section{Formal statement and proof}
-\label{section:statement-and-proof}
+\subsection{Consequences}
+
+\todo{write about consequences of the $abc$-conjecture}
+
+
+\subsection{The Mason-Stothers theorem}
+
+Enough conjectural stuff, time for some \emph{facts}. Did you know~$\mathbb{Z}$ is an Euclidean domain?
+
+\begin{definition}
+  An \emph{Euclidian domain} is an integral domain~$R$ equipped with an \emph{Euclidean function}~$d\colon R\setminus\left\{ 0 \right\}\to\mathbb{N}$ such that for~$a$ and~$b$ in~$R$ with~$b\neq 0$ we have a division with a remainder, i.e., there exist~$q$ and~$r$ in~$R$ such that
+  \begin{equation}
+    a=bq+r
+  \end{equation}
+  and either~$r=0$ or~$d(r)<d(b)$. An additional requirement could be~$d(a)\leq d(ab)$ for nonzero~$a$ and~$b$ but it can be proved that every Euclidean function can be modified in order to satisfy this extra property.
+\end{definition}
+
+\begin{remark}
+  An Euclidean domain can be equipped with \emph{several} Euclidean functions. When there exists a single function we can call~$R$ Euclidean, but all scalar multiples suffice too for instance.
+\end{remark}
+
+But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$\todo{why?}.
+
+\begin{theorem}[Mason-Stothers]
+  \label{theorem:mason-stothers}
+  Let~$a(X)$, $b(X)$ and~$c(X)$ be three coprime polynomials (i.e., not sharing a common factor) such that
+  \begin{equation}
+    a(X)+b(X)=c(X)
+  \end{equation}
+  then there are \emph{no} triples~$(a(X),b(X),c(X))\in k[X]^3$ such that
+  \begin{equation}
+    \max\left\{ \deg a(X),\deg b(X),\deg c(X) \right\}>\deg\rad(abc(X))-1.
+  \end{equation}
+\end{theorem}
+
+The function~$\rad\colon k[X]\to k[X]$ now maps a polynomial~$f(X)$ to the polynomial of minimal degree such that it has the same roots as~$f$. Under the assumption of an algebraically closed field this is the same as removing the multiplicities of the linear terms. Can you see the analogy?
+
+\begin{remark}
+  My statement of the~$abc$\nobreakdash-conjecture was phrased in terms non-negative integers, removing the need for a maximum over the values of the Euclidean function~$|\cdot|$. The post introducing the~$abc$\nobreakdash-conjecture states the inequality in this more general form. In the statement of the Mason-Stothers theorem the presence of an Euclidean function is more obvious.
+\end{remark}
+
+But have you noticed it? The statement doesn't require an~$\epsilon$ and there are not finitely many counterexamples: there simply are \emph{no} counterexamples to the inequality! See Section~\ref{section:proof-and-consequences} for an actual proof. But first I want to throw some dates at you.
+
+
+\subsection{History}
+
+\begin{description}
+  \item[1981] Wilson Stothers states the theorem in his paper Polynomial identities and Hauptmoduln but the theorem is not remarked upon.
+  \item[1983] R.\ Mason rediscovers the theorem and publishes it in his book Diophantine Equations over Function Fields.
+  \item[1985] Joseph Oesterl\'e and David Masser conjecture what is now known as the~$abc$\nobreakdash-conjecture but might as well be (and sometimes is) called the Oesterl\'e-Masser conjecture.
+  \item[2000] Noah Snyder, while still in high school, gives an elementary proof of the Mason-Stothers theorem in the paper An alternate proof of Mason's theorem, which I will reproduce in Section~\ref{section:proof-and-consequences}.
+  \item[2006] ABC@Home begins its search.
+\end{description}
+
+
+\section{Proof of the Mason-Stothers theorem and consequences}
+\label{section:proof-and-consequences}
+
+\subsection{Proof}
+
+Consider the statement of Theorem~\ref{theorem:mason-stothers}. We'll prove some lemmas first. We'll denote the derivative of a polynomial~$f$ by $f'$.
+
+\begin{lemma}
+  Let~$f(X)\in k[X]$ then~$f$ has a multiple root if and only if~$f$ and~$f'$ have a common root.
+
+  \begin{proof}
+    If~$f$ has a root~$\alpha$ of multiplicity~$n$ it can be written as~$(X-\alpha)^ng(X)$ where~$g(\alpha)\neq 0$. Now~$f'$ is given by
+    \begin{equation}
+      n(X-\alpha)^{n-1}g(X)+(X-\alpha)^ng'(x)=(X-\alpha)^{n-1}\left( ng(X)+(x-\alpha)g(X) \right).
+    \end{equation}
+    If~$n=1$ evaluating~$f'$ in~$\alpha$ yields~$ng(\alpha)\neq 0$ as we've assumed characteristic~$0$. Likewise~$n\geq 2$ yields~$f'(\alpha)=0$ because~$(X-\alpha)^{n-1}$ doesn't vanish.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}
+  Let~$f(X)\in k[X]$ then~$\deg\gcd(f,f')=\deg f-\deg\rad(f)$.
+
+  \begin{proof}
+    Because we've assumed that~$k$ is algebraically closed we can write~$f$ as
+    \begin{equation}
+      \prod_{i=1}^m(X-\alpha_i)^{n_i}
+    \end{equation}
+    and~$\sum_{i=1}^mn_i=\deg f$. We now obtain
+    \begin{equation}
+      \gcd(f,f')=\prod_{i=1}^m(X-\alpha_i)^{n_i-1}
+    \end{equation}
+    so
+    \begin{equation}
+      \begin{aligned}
+        \deg\gcd(f,f')&=\sum_{i=1}^m(n_i-1) \\
+        &=\left( \sum_{i=1}^mn_i \right)-m \\
+        &=\deg f-m
+        &=\deg f-\deg\rad(f).
+      \end{aligned}
+    \end{equation}
+  \end{proof}
+\end{lemma}
+
+We are now ready for the actual proof. No need to develop an intersection theory on~$\mathbb{P}^1/\mathbb{F}_1\times\operatorname{Spec}\mathbb{Z}$.
+
+\begin{proof}[Proof of the Mason-Stothers theorem]
+  We have
+  \begin{equation}
+    \begin{aligned}
+      a'(X)b(X)-a(X)b'(X)&=a'(X)\left( c(X)-a(X) \right)-a(X)\left( c'(X)-a'(X) \right) \\
+      &=a'(X)c(X)-a(X)c'(X)
+    \end{aligned}
+  \end{equation}
+  by the linearity of the derivative.
+
+  Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ \dots\todo{finish this}
+\end{proof}<++>
 
 \begin{enumerate}
   \item Formal statement of the theorem
