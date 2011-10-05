@@ -17,6 +17,8 @@
 \frenchspacing
 
 \counterwithout{section}{chapter}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
 
 \usetikzlibrary{matrix}
 
@@ -38,16 +40,23 @@
 \DeclareMathOperator\quality{q}
 
 \begin{document}
-\title{\textls[20]{The Mason-Stothers theorem and some facts about the~$abc$-conjecture}}
+\title{The $abc$-conjecture, the Mason-Stothers theorem and some generalities about both}
 \author{Pieter Belmans}
 \maketitle
 
-\section{Introduction}
-\label{section:introduction}
+\listoftodos
+
+\tableofcontents*
 
 As the first attempt to student participation in the \#angs@t / angs+ seminar, I decided to tell something about the Mason-Stothers theorem. This is a statement for polynomials that is analogous to the major theme of this seminar: the~$abc$\nobreakdash-conjecture. And more importantly: it is a real theorem, with an easy proof. Alongside I will give some facts annex trivialities about the~$abc$\nobreakdash-conjecture.
 
-The outline: in Section~\ref{section:introduction} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with the promised trivialities. Then I will talk about the analogy, resulting in the Mason-Stothers theorem. To end the introduction I will discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture. In Section~\ref{section:statement-and-proof} I will give the theorem and the proof. To conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials.
+The outline: in Section~\ref{section:introduction} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with the promised trivialities. Then I will talk about the analogy, resulting in the Mason-Stothers theorem. To end the introduction I will discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture. In Section~\ref{section:statement-and-proof} I will give the theorem and the proof. To conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials\todo{fix introduction}.
+
+\clearpage
+
+
+\section{The $abc$-conjecture and some generalities}
+\label{section:abc}
 
 \subsection{The $abc$-conjecture}
 
@@ -100,8 +109,10 @@ So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're re
   \begin{equation}
     \rad(abc)=3\rad(b)<\frac{3c}{2^k}\quad\Leftrightarrow\quad c>\rad(abc)\frac{2^k}{3}
   \end{equation}
-  hence for~$k\geq 2$ we have a triple such that the linear variant of the inequality is satisfied. We definitely need the presence of an~$\epsilon$.
+  hence for~$k\geq 2$ we have a triple such that the linear variant of the inequality is satisfied. We definitely need the presence of an~$\epsilon$ of extra space in the exponent.
 \end{remark}
+
+\subsection{Another viewpoint}
 
 For some more facts, I'll introduce the notion of quality, which is a measurement of the relation between~$c$ and~$\rad(abc)$.
 
@@ -149,18 +160,32 @@ But this computational approach is only interesting for information gathering, a
 \end{equation}
 but it is proved\todo{reference} that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
 
-
 \subsection{Consequences}
 
-\todo{write about consequences of the $abc$-conjecture}
+Wikipedia lists a list of absolutely stupendous importance. Some highlights:
 
+\begin{description}
+  \item[Fermat's last theorem] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means, we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do. I will prove this below.
+
+  \item[Faltings' theorem] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before , the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
+
+  \item[Infinitely many non-Wieferich primes] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
+\end{description}
+
+\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq 6$]
+\end{proof}<++>
+
+\clearpage
+
+
+\section{The Mason-Stothers theorem and a history of both}
 
 \subsection{The Mason-Stothers theorem}
 
 Enough conjectural stuff, time for some \emph{facts}. Did you know~$\mathbb{Z}$ is an Euclidean domain?
 
 \begin{definition}
-  An \emph{Euclidian domain} is an integral domain~$R$ equipped with an \emph{Euclidean function}~$d\colon R\setminus\left\{ 0 \right\}\to\mathbb{N}$ such that for~$a$ and~$b$ in~$R$ with~$b\neq 0$ we have a division with a remainder, i.e., there exist~$q$ and~$r$ in~$R$ such that
+  An \emph{Euclidean domain} is an integral domain~$R$ equipped with an \emph{Euclidean function}~$d\colon R\setminus\left\{ 0 \right\}\to\mathbb{N}$ such that for~$a$ and~$b$ in~$R$ with~$b\neq 0$ we have a division with a remainder, i.e., there exist~$q$ and~$r$ in~$R$ such that
   \begin{equation}
     a=bq+r
   \end{equation}
@@ -193,7 +218,6 @@ The function~$\rad\colon k[X]\to k[X]$ now maps a polynomial~$f(X)$ to the polyn
 
 But have you noticed it? The statement doesn't require an~$\epsilon$ and there are not finitely many counterexamples: there simply are \emph{no} counterexamples to the inequality! See Section~\ref{section:proof-and-consequences} for an actual proof. But first I want to throw some dates at you.
 
-
 \subsection{History}
 
 \begin{description}
@@ -204,8 +228,10 @@ But have you noticed it? The statement doesn't require an~$\epsilon$ and there a
   \item[2006] ABC@Home begins its search.
 \end{description}
 
+\clearpage
 
-\section{Proof of the Mason-Stothers theorem and consequences}
+
+\section{Proof of the Mason-Stothers theorem and some consequences}
 \label{section:proof-and-consequences}
 
 \subsection{Proof}
@@ -261,13 +287,9 @@ We are now ready for the actual proof. No need to develop an intersection theory
   by the linearity of the derivative.
 
   Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ \dots\todo{finish this}
-\end{proof}<++>
+\end{proof}
 
-\begin{enumerate}
-  \item Formal statement of the theorem
-  \item Proof
-  \item Consequences
-\end{enumerate}
+\subsection{Consequences}
 
 
 \bibliographystyle{alpha}
