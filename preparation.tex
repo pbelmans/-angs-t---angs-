@@ -1,8 +1,8 @@
 \documentclass[11pt, a4paper, openany, oneside, article]{memoir}
-\usepackage{amsfonts}
 \usepackage[fleqn, leqno]{amsmath}
 \usepackage{amsthm}
 \usepackage[english]{babel}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -68,17 +68,19 @@ Let's get \sout{physical} \emph{formal}.
 The function~$\rad\colon\mathbb{N}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: in almost all cases we observe~$c<\rad(abc)$. I will give some examples.
 
 \begin{example}
+  \label{example:abc-1}
   Consider~$4+127=131$. We have~$\rad(4\cdot 127\cdot 131)=33274$ because~$127$ and~$131$ are both prime. And it is obvious that~$131<33274$.
 \end{example}
 
 \begin{example}
-  Now for an example of integers such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
+  \label{example:abc-2}
+  Now for an example of a triple such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
 \end{example}
 
 So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}). But maybe we could simplify the statement, dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
 
 \begin{remark}
-  The presence of an~$\epsilon$ in the exponent is necessary! If we drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class, for more general scenarios, please refer to~\cite{lower-bounds-abc-hits}.
+  The presence of an~$\epsilon$ in the exponent is necessary! If we drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
   
   Take~$a=1$ and~$c=3^{2^k}$, so~$b$ is obviously~$3^{2^k}-1$. We need to determine how many factors of~$2$ there are in~$b$. Let's look at~$k=6$. We have
   \begin{equation}
@@ -99,7 +101,6 @@ So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're re
   hence for~$k\geq 2$ we have a triple such that the linear variant of the inequality is satisfied. We definitely need the presence of an~$\epsilon$.
 \end{remark}
 
-
 For some more facts, I'll introduce the notion of quality, which is a measurement of the relation between~$c$ and~$\rad(abc)$.
 
 \begin{definition}
@@ -114,6 +115,29 @@ Now the~$abc$\nobreakdash-conjecture has a nice equivalent statement using this 
 \begin{conjecture}
   There are only finitely many~$(a,b,c)\in\mathbb{N}^3$ subject to the conditions in Conjecture~\ref{conjecture:abc} such that for~$\epsilon>0$ we have~$\quality(a,b,c)>1+\epsilon$.
 \end{conjecture}
+
+If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new concept we end up with
+\begin{equation}
+  \begin{aligned}
+    \quality(4,127,131)&=0.468\ldots \\
+    \quality(3,125,128)&=1.427\ldots
+  \end{aligned}
+\end{equation}
+
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. We get the following table of highscores:
+
+\begin{center}
+  \begin{tabular}{cllll}
+     & $\quality(a,b,c)$ & $a$ & $b$ & $c$ \\\midrule
+    $1$ & $1.6299\ldots$ & $2$ & $3^{10}109$ & $23^5$ \\
+    $2$ & $1.6260\ldots$ & $11^2$ & $3^25^67^3$ & $2^{21}23$ \\
+    $3$ & $1.6235\ldots$ & $19\cdot1307$ & $7\cdot29^231^8$ & $2^83^{22}5^4$ \\
+    $4$ & $1.5808\ldots$ & $283$ & $5^{11}13^2$ & $2^83^817^3$ \\
+    $5$ & $1.5679\ldots$ & $1$ & $2\cdot3^7$ & $5^47$ \\
+  \end{tabular}
+\end{center}
+
+which summarizes~\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}. Almost one year ago, only 234 triples with~$q>1.4$ were known.
 
 \begin{enumerate}
   \item Introducing the $abc$-conjecture
