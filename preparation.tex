@@ -124,7 +124,9 @@ If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new
   \end{aligned}
 \end{equation}
 
-Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. We get the following table of highscores:
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} for more information.
+
+We get the following table of highscores:
 
 \begin{center}
   \begin{tabular}{cllll}
@@ -138,6 +140,12 @@ Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,
 \end{center}
 
 which summarizes~\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}. Almost one year ago, only 234 triples with~$q>1.4$ were known.
+
+But this kind of computational approach is only interesting for information gathering, as Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$ is strictly smaller than the logarithmic integral
+\begin{equation}
+  \operatorname{li}(x)=\int_0^x\frac{\mathrm{d}t}{\ln t}
+\end{equation}
+but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
 
 \begin{enumerate}
   \item Introducing the $abc$-conjecture
