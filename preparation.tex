@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage[normalem]{ulem}
 \selectlanguage{english}
 
 \usepackage[T1]{fontenc}
@@ -13,6 +14,8 @@
 \usepackage[scaled]{beramono, berasans}
 \usepackage[draft = false]{microtype}
 \frenchspacing
+
+\counterwithout{section}{chapter}
 
 \usetikzlibrary{matrix}
 
@@ -22,14 +25,95 @@
 \setlength\parindent{0cm}
 
 \theoremstyle{definition}
-\newtheorem{exercise}{Oefening}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{consequence}[theorem]{Consequence}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator\rad{rad}
+\DeclareMathOperator\quality{q}
 
 \begin{document}
-\title{\textls[20]{The Mason-Stothers theorem}}
+\title{\textls[20]{The Mason-Stothers theorem and some facts about the~$abc$-conjecture}}
 \author{Pieter Belmans}
 \maketitle
 
 \section{Introduction}
+\label{section:introduction}
+
+As the first attempt to student participation in the \#angs@t / angs+ seminar, I decided to tell something about the Mason-Stothers theorem. This is a statement for polynomials that is analogous to the major theme of this seminar: the~$abc$\nobreakdash-conjecture. And more importantly: it is a real theorem, with an easy proof. Alongside I will give some facts annex trivialities about the~$abc$\nobreakdash-conjecture.
+
+The outline: in Section~\ref{section:introduction} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with the promised trivialities. Then I will talk about the analogy, resulting in the Mason-Stothers theorem. To end the introduction I will discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture. In Section~\ref{section:statement-and-proof} I will give the theorem and the proof. To conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials.
+
+\subsection{The $abc$-conjecture}
+
+Let's get \sout{physical} \emph{formal}.
+
+\begin{conjecture}
+  \label{conjecture:abc}
+  If~$a$, $b$ and~$c$ are coprime positive integers such that
+  \begin{equation}
+    \label{equation:abc-equality}
+    a+b=c
+  \end{equation}
+  then for~$\epsilon>0$ there are only finitely many~$(a,b,c)\in\mathbb{N}^3$ such that
+  \begin{equation}
+    \label{equation:abc-inequality}
+    c>\rad(abc)^{1+\epsilon}.
+  \end{equation}
+\end{conjecture}
+
+The function~$\rad\colon\mathbb{N}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: in almost all cases we observe~$c<\rad(abc)$. I will give some examples.
+
+\begin{example}
+  Consider~$4+127=131$. We have~$\rad(4\cdot 127\cdot 131)=33274$ because~$127$ and~$131$ are both prime. And it is obvious that~$131<33274$.
+\end{example}
+
+\begin{example}
+  Now for an example of integers such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
+\end{example}
+
+So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}). But maybe we could simplify the statement, dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
+
+\begin{remark}
+  The presence of an~$\epsilon$ in the exponent is necessary! If we drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class, for more general scenarios, please refer to~\cite{lower-bounds-abc-hits}.
+  
+  Take~$a=1$ and~$c=3^{2^k}$, so~$b$ is obviously~$3^{2^k}-1$. We need to determine how many factors of~$2$ there are in~$b$. Let's look at~$k=6$. We have
+  \begin{equation}
+    \begin{aligned}
+      3^{64}-1&=(3^{32}+1)(3^{32}-1) \\
+      &=\ldots \\
+      &=(3^{32}+1)(3^{16}+1)\cdots(3+1)(3-1)
+    \end{aligned}
+  \end{equation}
+  and every factor contributes a prime factor~$2$ but the second-to-last contributes two! So we end up with~$k+2$ times~$2$ in the general situation with~$b=3^{2^k}-1$. We obtain
+  \begin{equation}
+    \rad(b)\leq\frac{3^{2^k}-1}{2^{k+1}}<\frac{c}{2^{k}}
+  \end{equation}
+  because we can isolate the factor~$2$ from the radical knowing about its presence and dividing the remaining factors from~$b$. This leads to
+  \begin{equation}
+    \rad(abc)=3\rad(b)<\frac{3c}{2^k}\quad\Leftrightarrow\quad c>\rad(abc)\frac{2^k}{3}
+  \end{equation}
+  hence for~$k\geq 2$ we have a triple such that the linear variant of the inequality is satisfied. We definitely need the presence of an~$\epsilon$.
+\end{remark}
+
+
+For some more facts, I'll introduce the notion of quality, which is a measurement of the relation between~$c$ and~$\rad(abc)$.
+
+\begin{definition}
+  For integers~$a$, $b$ and~$c$ define the \emph{quality} of the triple~$(a,b,c)$ as
+  \begin{equation}
+    \quality(a,b,c)\coloneqq\frac{\ln(c)}{\ln\left( \rad(abc) \right)}.
+  \end{equation}
+\end{definition}
+
+Now the~$abc$\nobreakdash-conjecture has a nice equivalent statement using this notion of quality:
+
+\begin{conjecture}
+  There are only finitely many~$(a,b,c)\in\mathbb{N}^3$ subject to the conditions in Conjecture~\ref{conjecture:abc} such that for~$\epsilon>0$ we have~$\quality(a,b,c)>1+\epsilon$.
+\end{conjecture}
 
 \begin{enumerate}
   \item Introducing the $abc$-conjecture
@@ -39,11 +123,16 @@
 
 
 \section{Formal statement and proof}
+\label{section:statement-and-proof}
 
 \begin{enumerate}
   \item Formal statement of the theorem
   \item Proof
   \item Consequences
 \end{enumerate}
+
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
 
 \end{document}
