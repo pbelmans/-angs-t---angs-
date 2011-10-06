@@ -44,21 +44,28 @@
 \author{Pieter Belmans}
 \maketitle
 
-\listoftodos
-
 \tableofcontents*
-
-As the first attempt to student participation in the \#angs@t / angs+ seminar, I decided to tell something about the Mason-Stothers theorem. This is a statement for polynomials that is analogous to the major theme of this seminar: the~$abc$\nobreakdash-conjecture. And more importantly: it is a real theorem, with an easy proof. Alongside I will give some facts annex trivialities about the~$abc$\nobreakdash-conjecture.
-
-The outline: in Section~\ref{section:introduction} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with the promised trivialities. Then I will talk about the analogy, resulting in the Mason-Stothers theorem. To end the introduction I will discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture. In Section~\ref{section:statement-and-proof} I will give the theorem and the proof. To conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials\todo{fix introduction}.
 
 \clearpage
 
 
-\section{The $abc$-conjecture and some generalities}
+\section*{Introduction}
+
+As my first attempt to student participation in the \#angs@t / angs+ seminar, I decided to tell something about the the~$abc$\nobreakdash-conjecture and the related Mason-Stothers theorem. The first has been hinted at but not yet formally introduced and the second is a statement for polynomials that is analogous to the first. And more importantly: it is a real theorem, with an easy proof. I will introduce both, give facts about both and will prove \sout{both} \emph{the latter}.
+
+The outline: in Section~\ref{section:abc} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with some generalities about it. To end the section I discuss some consequences.
+
+Then in Section~\ref{section:mason-stothers} I will talk about the analogy for polynomials, resulting in the Mason-Stothers theorem. Afterwards I'll discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture.
+
+To end my attempt I will give in Section~\ref{section:proof-and-consequences} an easy proof of the Mason-Stothers theorem and to conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials. The three big parts of this will be written as three separate posts, each is intended as material for a lecture of half an hour, somewhere in the seminar.
+
+\clearpage
+
+
+\section[The abc-conjecture and some generalities]{The $abc$-conjecture and some generalities}
 \label{section:abc}
 
-\subsection{The $abc$-conjecture}
+\subsection[The abc-conjecture]{The $abc$-conjecture}
 
 Let's get \sout{physical} \emph{formal}.
 
@@ -158,27 +165,60 @@ But this computational approach is only interesting for information gathering, a
 \begin{equation}
   \operatorname{li}(x)=\int_0^x\frac{\mathrm{d}t}{\ln t}
 \end{equation}
-but it is proved\todo{reference} that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
+but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
 
 \subsection{Consequences}
 
-Wikipedia lists a list of absolutely stupendous importance. Some highlights:
+Wikipedia gives a list of consequences ranging from absolutely stupendous important to nice facts about prime numbers. A short selection, which has been assembled based on my personal taste and understanding of the statements:
 
 \begin{description}
-  \item[Fermat's last theorem] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means, we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do. I will prove this below.
+  \item[Fermat's last theorem] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do. I will prove this below.
 
-  \item[Faltings' theorem] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before , the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
+  \item[Faltings' theorem] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
 
   \item[Infinitely many non-Wieferich primes] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
+
+  \item[Fermat-Catalan conjecture] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is quite ambiguous, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
+    \begin{equation}
+      x^a-y^b=1
+    \end{equation}
+    where~$a,b,x,y>1$ only admit the described solution.
+
+    Combining Fermat and Catalan we obtain that
+    \begin{equation}
+      a^m+b^n=c^k
+    \end{equation}
+    has only finitely many solutions where~$a,b,c$ are coprime natural numbers and~$m,n,k$ are positive integers such that
+    \begin{equation}
+      \frac{1}{m}+\frac{1}{n}+\frac{1}{k}<1.
+    \end{equation}
+
+  \item[Szpiro's conjecture] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language.
 \end{description}
 
+As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence and 
+
+
 \begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq 6$]
-\end{proof}<++>
+  One can reduce the statement of Fermat's last theorem (but you should look at it as a conjecture now, whilst the~$abc$\nobreakdash-conjecture has just been proven by yourself and you wish to earn hard cash proving Fermat's conjecture) to a scenario with~$x$, $y$ and~$z$ coprime. Now let~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
+  \begin{equation}
+    \rad(x^ny^nz^n)\leq xyz\leq z^3
+  \end{equation}
+
+  Now assume that we have~$\epsilon_0>0$ such that there are \emph{no} solutions to the scenario of the~$abc$\nobreakdash-theorem, which must be possible as any~$\epsilon>0$ admits only finitely many counterexamples. We now obtain
+  \begin{equation}
+    z^n<(z^3)^{\epsilon_0}
+  \end{equation}
+  so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$!
+
+  It is believed that~$\epsilon_0\leq 2$ by the way.
+\end{proof}
 
 \clearpage
 
 
 \section{The Mason-Stothers theorem and a history of both}
+\label{section:mason-stothers}
 
 \subsection{The Mason-Stothers theorem}
 
@@ -196,12 +236,13 @@ Enough conjectural stuff, time for some \emph{facts}. Did you know~$\mathbb{Z}$ 
   An Euclidean domain can be equipped with \emph{several} Euclidean functions. When there exists a single function we can call~$R$ Euclidean, but all scalar multiples suffice too for instance.
 \end{remark}
 
-But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$\todo{why?}.
+But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$. This will be necessary: we'll split polynomials into linear factors and we'll use the first derivative. These will break in non-algebraically closed fields or fields with characteristic different from~$0$. What happens in~$\mathbb{F}_1$ is left as a trivial exercise.
 
 \begin{theorem}[Mason-Stothers]
   \label{theorem:mason-stothers}
   Let~$a(X)$, $b(X)$ and~$c(X)$ be three coprime polynomials (i.e., not sharing a common factor) such that
   \begin{equation}
+    \label{equation:mason-stothers-equality}
     a(X)+b(X)=c(X)
   \end{equation}
   then there are \emph{no} triples~$(a(X),b(X),c(X))\in k[X]^3$ such that
@@ -286,7 +327,7 @@ We are now ready for the actual proof. No need to develop an intersection theory
   \end{equation}
   by the linearity of the derivative.
 
-  Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ \dots\todo{finish this}
+  Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ \dots
 \end{proof}
 
 \subsection{Consequences}
