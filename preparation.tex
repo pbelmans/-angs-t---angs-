@@ -20,7 +20,10 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
-\usetikzlibrary{matrix}
+\newif\ifblog
+\newif\iftex
+\blogfalse
+\textrue
 
 \addtolength{\parskip}{.7ex}
 \relpenalty=10000
@@ -51,21 +54,46 @@
 
 \section*{Introduction}
 
-As my first attempt to student participation in the \#angs@t / angs+ seminar, I decided to tell something about the the~$abc$\nobreakdash-conjecture and the related Mason-Stothers theorem. The first has been hinted at but not yet formally introduced and the second is a statement for polynomials that is analogous to the first. And more importantly: it is a real theorem, with an easy proof. I will introduce both, give facts about both and will prove \sout{both} \emph{the latter}.
+As my first attempt to student participation in the {\iftex\#\fi\ifblog#\fi}angs@t / angs+ seminar, I decided to tell something about the the~$abc$\nobreakdash-conjecture and the related Mason-Stothers theorem. The first has been hinted at but not yet formally introduced and the second is a statement for polynomials that is analogous to the first. And more importantly: it is a real theorem, with an easy proof. I will introduce both, give facts about both and will prove \sout{both} \emph{the latter}.
 
+\iftex
 The outline: in Section~\ref{section:abc} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with some generalities about it. To end the section I discuss some consequences.
+\fi
+\ifblog
+The outline: in this first post I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with some generalities about it. To end the section I discuss some consequences.
+\fi
 
+\iftex
 Then in Section~\ref{section:mason-stothers} I will talk about the analogy for polynomials, resulting in the Mason-Stothers theorem. Afterwards I'll discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture.
+\fi
+\ifblog
+In the second post I will talk about the analogy for polynomials, resulting in the Mason-Stothers theorem. Afterwards I'll discuss the history of both the Mason-Stothers theorem and the~$abc$\nobreakdash-conjecture.
+\fi
 
+\iftex
 To end my attempt I will give in Section~\ref{section:proof-and-consequences} an easy proof of the Mason-Stothers theorem and to conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials. The three big parts of this will be written as three separate posts, each is intended as material for a lecture of half an hour, somewhere in the seminar.
+\fi
+\ifblog
+To end my attempt I will give in the third post an easy proof of the Mason-Stothers theorem and to conclude I will give some consequences, mainly the analogon of Fermat's last theorem for polynomials. The two post that follow this one will be put online when they are ready.
+\fi
 
 \clearpage
 
-
+\iftex
 \section[The abc-conjecture and some generalities]{The $abc$-conjecture and some generalities}
 \label{section:abc}
+\fi
+\ifblog
+\section{The $abc$-conjecture and some generalities}
+\label{section:abc}
+\fi
 
+\iftex
 \subsection[The abc-conjecture]{The $abc$-conjecture}
+\fi
+\ifblog
+\subsection{The $abc$-conjecture}
+\fi
 
 Let's get \sout{physical} \emph{formal}.
 
@@ -144,13 +172,13 @@ If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new
   \end{aligned}
 \end{equation}
 
-Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} for more information.
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}}\fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data}\fi for more information.
 
 We get the following table of highscores:
 
 \begin{center}
   \begin{tabular}{cllll}
-     & $\quality(a,b,c)$ & $a$ & $b$ & $c$ \\\midrule
+     & $\quality(a,b,c)$ & $a$ & $b$ & $c$ \\\iftex\midrule\fi
     $1$ & $1.6299\ldots$ & $2$ & $3^{10}109$ & $23^5$ \\
     $2$ & $1.6260\ldots$ & $11^2$ & $3^25^67^3$ & $2^{21}23$ \\
     $3$ & $1.6235\ldots$ & $19\cdot1307$ & $7\cdot29^231^8$ & $2^83^{22}5^4$ \\
@@ -159,7 +187,7 @@ We get the following table of highscores:
   \end{tabular}
 \end{center}
 
-which summarizes~\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}. Almost one year ago, only 234 triples with~$q>1.4$ were known.
+which summarizes~\iftex\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}\fi\ifblog\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{math.leidenuniv.nl/~desmit/abc/index.php?set=2}\fi. Almost one year ago, only 234 triples with~$q>1.4$ were known.
 
 But this computational approach is only interesting for information gathering, as Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$) is strictly smaller than the logarithmic integral
 \begin{equation}
@@ -172,13 +200,13 @@ but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cd
 Wikipedia gives a list of consequences ranging from absolutely stupendous important to nice facts about prime numbers. A short selection, which has been assembled based on my personal taste and understanding of the statements:
 
 \begin{description}
-  \item[Fermat's last theorem] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do. I will prove this below.
+  \item [\textbf{Fermat's last theorem}] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do (under a mild assumption). I will prove this below.
 
-  \item[Faltings' theorem] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
+  \item[\textbf{Faltings' theorem}] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
 
-  \item[Infinitely many non-Wieferich primes] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
+  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
 
-  \item[Fermat-Catalan conjecture] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is quite ambiguous, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
+  \item[\textbf{Fermat-Catalan conjecture}] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is quite ambiguous, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
     \begin{equation}
       x^a-y^b=1
     \end{equation}
@@ -193,7 +221,7 @@ Wikipedia gives a list of consequences ranging from absolutely stupendous import
       \frac{1}{m}+\frac{1}{n}+\frac{1}{k}<1.
     \end{equation}
 
-  \item[Szpiro's conjecture] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language.
+  \item[\textbf{Szpiro's conjecture}] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language.
 \end{description}
 
 As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence and 
@@ -262,11 +290,11 @@ But have you noticed it? The statement doesn't require an~$\epsilon$ and there a
 \subsection{History}
 
 \begin{description}
-  \item[1981] Wilson Stothers states the theorem in his paper Polynomial identities and Hauptmoduln but the theorem is not remarked upon.
-  \item[1983] R.\ Mason rediscovers the theorem and publishes it in his book Diophantine Equations over Function Fields.
-  \item[1985] Joseph Oesterl\'e and David Masser conjecture what is now known as the~$abc$\nobreakdash-conjecture but might as well be (and sometimes is) called the Oesterl\'e-Masser conjecture.
-  \item[2000] Noah Snyder, while still in high school, gives an elementary proof of the Mason-Stothers theorem in the paper An alternate proof of Mason's theorem, which I will reproduce in Section~\ref{section:proof-and-consequences}.
-  \item[2006] ABC@Home begins its search.
+  \item[\textbf{1981}] Wilson Stothers states the theorem in his paper Polynomial identities and Hauptmoduln but the theorem is not remarked upon.
+  \item[\textbf{1983}] R.\ Mason rediscovers the theorem and publishes it in his book Diophantine Equations over Function Fields.
+  \item[\textbf{1985}] Joseph Oesterl\'e and David Masser conjecture what is now known as the~$abc$\nobreakdash-conjecture but might as well be (and sometimes is) called the Oesterl\'e-Masser conjecture.
+  \item[\textbf{2000}] Noah Snyder, while still in high school, gives an elementary proof of the Mason-Stothers theorem in the paper An alternate proof of Mason's theorem, which I will reproduce in Section~\ref{section:proof-and-consequences}.
+  \item[\textbf{2006}] ABC@Home begins its search.
 \end{description}
 
 \clearpage
