@@ -54,7 +54,7 @@
 
 \section*{Introduction}
 
-As my first attempt to student participation in the {\iftex\#\fi\ifblog#\fi}angs@t / angs+ seminar, I decided to tell something about the the~$abc$\nobreakdash-conjecture and the related Mason-Stothers theorem. The first has been hinted at but not yet formally introduced and the second is a statement for polynomials that is analogous to the first. And more importantly: it is a real theorem, with an easy proof. I will introduce both, give facts about both and will prove \sout{both} \emph{the latter}.
+As my first attempt to student participation in the {\iftex\#\fi\ifblog#\fi}angs@t / angs+ seminar, I decided to tell something about the the~$abc$\nobreakdash-conjecture and the related Mason-Stothers theorem. The first has been hinted at but not yet formally introduced and the second is a statement for polynomials that is analogous to the first. And more importantly: it is a \emph{real theorem}, with an easy proof. I will introduce both, give facts about both and I will prove \sout{both} \emph{the latter}.
 
 \iftex
 The outline: in Section~\ref{section:abc} I will first give the formal statement of the $abc$-conjecture, it is already given online in \href{http://www.noncommutative.org/index.php/the-abc-conjecture.html}{the post of the same name} but we haven't seen it yet in the seminar. For personal reference I'll repeat this, together with some generalities about it. To end the section I discuss some consequences.
@@ -99,7 +99,7 @@ Let's get \sout{physical} \emph{formal}.
 
 \begin{conjecture}
   \label{conjecture:abc}
-  If~$a$, $b$ and~$c$ are coprime positive integers such that
+  If~$a$, $b$ and~$c$ are coprime (i.e.,~$\gcd(a,b,c)=1$) positive integers such that
   \begin{equation}
     \label{equation:abc-equality}
     a+b=c
@@ -111,7 +111,9 @@ Let's get \sout{physical} \emph{formal}.
   \end{equation}
 \end{conjecture}
 
-The function~$\rad\colon\mathbb{Z}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=\pm p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: in almost all cases we observe~$c<\rad(abc)$. I will give some examples.
+The function~$\rad\colon\mathbb{Z}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=\pm p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: (for the correct notion of) almost all cases we observe~$c<\rad(abc)$,~i.e.,~a number~$c$ subject to the given conditions is almost always smaller than the radical of the product~$abc$.
+
+I will give some examples.
 
 \begin{example}
   \label{example:abc-1}
@@ -123,10 +125,12 @@ The function~$\rad\colon\mathbb{Z}\to\mathbb{N}$ maps an integer to the product 
   Now for an example of a triple such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
 \end{example}
 
-So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}). But maybe we could simplify the statement, dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
+So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}).
+
+But maybe we could simplify the statement! Algebraists and geometers don't like~$\epsilon$'s so we could consider dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
 
 \begin{remark}
-  The presence of an~$\epsilon$ in the exponent is necessary! If we drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
+  But no! It turns out, the presence of an~$\epsilon$ in the exponent is necessary. If we decide to drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
   
   Take~$a=1$ and~$c=3^{2^k}$, so~$b$ is obviously~$3^{2^k}-1$. We need to determine how many factors of~$2$ there are in~$b$. Let's look at~$k=6$. We have
   \begin{equation}
@@ -172,10 +176,9 @@ If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new
   \end{aligned}
 \end{equation}
 
-Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}}\fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data}\fi for more information.
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} \fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data} \fi for more information.
 
 We get the following table of highscores:
-
 \begin{center}
   \begin{tabular}{cllll}
      & $\quality(a,b,c)$ & $a$ & $b$ & $c$ \\\iftex\midrule\fi
@@ -200,13 +203,13 @@ but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cd
 Wikipedia gives a list of consequences ranging from absolutely stupendous important to nice facts about prime numbers. A short selection, which has been assembled based on my personal taste and understanding of the statements:
 
 \begin{description}
-  \item [\textbf{Fermat's last theorem}] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial integers such that~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do (under a mild assumption). I will prove this below.
+  \item [\textbf{Fermat's last theorem}] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial solutions to~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do (under a mild assumption). I will prove this below.
 
   \item[\textbf{Faltings' theorem}] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
 
   \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
 
-  \item[\textbf{Fermat-Catalan conjecture}] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is quite ambiguous, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
+  \item[\textbf{Fermat-Catalan conjecture}] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is outdated, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
     \begin{equation}
       x^a-y^b=1
     \end{equation}
@@ -221,25 +224,29 @@ Wikipedia gives a list of consequences ranging from absolutely stupendous import
       \frac{1}{m}+\frac{1}{n}+\frac{1}{k}<1.
     \end{equation}
 
-  \item[\textbf{Szpiro's conjecture}] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language.
+  \item[\textbf{Szpiro's conjecture}] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language. The statement looks a lot like the statement of the~$abc$\nobreakdash-conjecture so it might be questionable whether this approach yields many \emph{new} insights.
 \end{description}
 
-As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence and 
+As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence while others are on par with the~$abc$-conjecture counterexamplewise. But now as promised, I'll give you a proof of Fermat's last theorem.
 
 
-\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq 6$]
-  One can reduce the statement of Fermat's last theorem (but you should look at it as a conjecture now, whilst the~$abc$\nobreakdash-conjecture has just been proven by yourself and you wish to earn hard cash proving Fermat's conjecture) to a scenario with~$x$, $y$ and~$z$ coprime. Now let~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
+\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq3\epsilon_0$]
+  One can reduce the statement of Fermat's last theorem (but you should look at it as a conjecture now, whilst the~$abc$\nobreakdash-conjecture has just been proven by yourself and you wish to earn hard cash proving Fermat's conjecture) to a scenario with~$x$, $y$ and~$z$ coprime.
+  
+  Now take~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
   \begin{equation}
     \rad(x^ny^nz^n)\leq xyz\leq z^3
   \end{equation}
 
-  Now assume that we have~$\epsilon_0>0$ such that there are \emph{no} solutions to the scenario of the~$abc$\nobreakdash-theorem, which must be possible as any~$\epsilon>0$ admits only finitely many counterexamples. We now obtain
+  Now assume that we have an~$\epsilon_0>0$ such that there are \emph{no} solutions to the scenario of the~$abc$\nobreakdash-theorem, which must be possible as any~$\epsilon>0$ admits only finitely many counterexamples so take~$\epsilon_0$ to be the maximum of the exponents such that~$c=\rad(abc)^{1+\epsilon}$ and add another~$\epsilon'$ to get a strict inequality.
+  
+  We obtain
   \begin{equation}
     z^n<(z^3)^{\epsilon_0}
   \end{equation}
   so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$!
 
-  It is believed that~$\epsilon_0\leq 2$ by the way.
+  It is believed that~$\epsilon_0\leq 2$ by the way. Now you just have to tackle some small cases, but these proofs are well-known (and rather easy, unlike Wiles' general version), for which I refer you to~\href{http://en.wikipedia.org/wiki/Fermat's_Last_Theorem#Proofs_for_specific_exponents}{this subject's Wikipedia page}.
 \end{proof}
 
 \clearpage
