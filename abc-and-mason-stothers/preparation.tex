@@ -125,15 +125,6 @@ I will give some examples.
   Now for an example of a triple such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
 \end{example}
 
-\begin{remark}
-  \label{remark:abc-with-factor}
-  We could also phrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
-  \begin{equation}
-    c\leq K_{\epsilon}\rad(abc)^{1+\epsilon}.
-  \end{equation}
-  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality in~\eqref{equation:abc-inequality}.
-\end{remark}
-
 So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}).
 
 But maybe we could simplify the statement! Algebraists and geometers don't like~$\epsilon$'s so we could consider dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
@@ -305,20 +296,15 @@ But have you noticed it? The statement doesn't require an~$\epsilon$ and there a
 
 \subsection{History}
 
-\iftex
-Some parts of this little overview use the alternative phrasing of the~$abc$\nobreakdash-conjecture as stated in Remark~\ref{remark:abc-with-factor}.
-\fi
-\ifblog
-I repeat a statement from the previous post, for sake of completeness.
+For the actual overview I need a preliminary remark, restating the~$abc$\nobreakdash-conjecture.
 \begin{remark}
   \label{remark:abc-with-factor}
   We could also phrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
   \begin{equation}
     c\leq K_{\epsilon}\rad(abc)^{1+\epsilon}.
   \end{equation}
-  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality~$c>\rad(abc)^{1+\epsilon}$.
+  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality in~\eqref{equation:abc-inequality}.
 \end{remark}
-\fi
 
 \begin{description}
   \item[\textbf{1981}] Wilson Stothers states the theorem in his paper Polynomial identities and Hauptmoduln but the theorem is not remarked upon.
@@ -350,6 +336,7 @@ I repeat a statement from the previous post, for sake of completeness.
       c<\exp\left( \frac{2^{10n+22}}{n^{n-4}}\rad(abc)(\log\rad(abc))^n \right)
     \end{equation}
     where~$n$ denotes the number of prime factors in~$abc$.
+  \item[\textbf{2011}] We have a seminar about it, relating it to geometry over~$\mathbb{F}_1$.
 \end{description}
 
 \clearpage
