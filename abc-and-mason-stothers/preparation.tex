@@ -125,6 +125,15 @@ I will give some examples.
   Now for an example of a triple such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
 \end{example}
 
+\begin{remark}
+  \label{remark:abc-with-factor}
+  We could also phrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
+  \begin{equation}
+    c\leq K_{\epsilon}\rad(abc)^{1+\epsilon}.
+  \end{equation}
+  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality in~\eqref{equation:abc-inequality}.
+\end{remark}
+
 So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}).
 
 But maybe we could simplify the statement! Algebraists and geometers don't like~$\epsilon$'s so we could consider dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
@@ -296,12 +305,51 @@ But have you noticed it? The statement doesn't require an~$\epsilon$ and there a
 
 \subsection{History}
 
+\iftex
+Some parts of this little overview use the alternative phrasing of the~$abc$\nobreakdash-conjecture as stated in Remark~\ref{remark:abc-with-factor}.
+\fi
+\ifblog
+I repeat a statement from the previous post, for sake of completeness.
+\begin{remark}
+  \label{remark:abc-with-factor}
+  We could also phrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
+  \begin{equation}
+    c\leq K_{\epsilon}\rad(abc)^{1+\epsilon}.
+  \end{equation}
+  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality~$c>\rad(abc)^{1+\epsilon}$.
+\end{remark}
+\fi
+
 \begin{description}
   \item[\textbf{1981}] Wilson Stothers states the theorem in his paper Polynomial identities and Hauptmoduln but the theorem is not remarked upon.
   \item[\textbf{1983}] R.\ Mason rediscovers the theorem and publishes it in his book Diophantine Equations over Function Fields.
   \item[\textbf{1985}] Joseph Oesterl\'e and David Masser conjecture what is now known as the~$abc$\nobreakdash-conjecture but might as well be (and sometimes is) called the Oesterl\'e-Masser conjecture.
+
+  \item[\textbf{1986}] A first upper bound of~$c$ in terms of~$\rad(abc)$ is given by Stewart and Tijdeman. They proved the existence of a computable constant~$K_{\epsilon}$ such that
+    \begin{equation}
+      z<\exp(K_{\epsilon}\rad(abc)^{15}).
+    \end{equation}
+  \item[\textbf{1991}] Stewart and Yu improve the upper bound to
+    \begin{equation}
+      c<\exp\left( \rad(abc)^{2/3+K_{\epsilon}/\log\log\rad(abc)} \right)
+    \end{equation}
+    with~$K_{\epsilon}$ a computable constant.
   \item[\textbf{2000}] Noah Snyder, while still in high school, gives an elementary proof of the Mason-Stothers theorem in the paper An alternate proof of Mason's theorem, which I will reproduce in Section~\ref{section:proof-and-consequences}.
+  \item[\textbf{2001}] Stewart and Yu again improve their bound, proving both
+    \begin{equation}
+      c<\exp\left( K_{\epsilon}\rad(abc)^{1/3}(\log\rad(abc))^3 \right).
+    \end{equation}
+    and
+    \begin{equation}
+      c<\exp\left( K_{\epsilon}\rad(abc)^{1/3+\epsilon} \right).
+    \end{equation}
   \item[\textbf{2006}] ABC@Home begins its search.
+
+  \item[\textbf{2007}] G\"yory and Yu improve a new bound on~$c$:
+    \begin{equation}
+      c<\exp\left( \frac{2^{10n+22}}{n^{n-4}}\rad(abc)(\log\rad(abc))^n \right)
+    \end{equation}
+    where~$n$ denotes the number of prime factors in~$abc$.
 \end{description}
 
 \clearpage
