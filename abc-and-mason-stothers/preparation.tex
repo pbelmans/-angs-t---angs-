@@ -207,7 +207,11 @@ Wikipedia gives a list of consequences ranging from absolutely stupendous import
 
   \item[\textbf{Faltings' theorem}] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
 
-  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is quite unlikely.
+  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is \emph{quite} unlikely: it would imply that from a certain number \emph{all} prime numbers are Wieferich primes. I.e., the distribution would have to change tremendously.
+
+    The notion of Wieferich primes relates to Mersenne numbers, i.e., numbers of the form~$M_n=2^n-1$. It is still an open problem whether or not all~$M_p$ with~$p$ prime are square-free. But if there would we a non-square-free~$M_q$ such that~$p^2\,|\,M_q$ then~$p$ is a Wieferich prime. So if there are only finitely many Wieferich primes (which is \emph{not} a consequenceof the~$abc$\nobreakdash-conjecture) there will be at most finitely many Mersenne numbers that are not square-free.
+
+    There is a distributed computing project devoted to finding Wieferich primes by the way: Wieferich@Home.
 
   \item[\textbf{Fermat-Catalan conjecture}] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is outdated, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
     \begin{equation}
@@ -235,7 +239,7 @@ As you can see: there are both theorems and conjectures. Some conjectures have o
   
   Now take~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
   \begin{equation}
-    \rad(x^ny^nz^n)\leq xyz\leq z^3
+    \rad(x^ny^nz^n)\leq xyz<z^3
   \end{equation}
 
   Now assume that we have an~$\epsilon_0>0$ such that there are \emph{no} solutions to the scenario of the~$abc$\nobreakdash-theorem, which must be possible as any~$\epsilon>0$ admits only finitely many counterexamples so take~$\epsilon_0$ to be the maximum of the exponents such that~$c=\rad(abc)^{1+\epsilon}$ and add another~$\epsilon'$ to get a strict inequality.
@@ -244,7 +248,7 @@ As you can see: there are both theorems and conjectures. Some conjectures have o
   \begin{equation}
     z^n<(z^3)^{\epsilon_0}
   \end{equation}
-  so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$!
+  where~$z^3$ comes from the previous inequality, so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$! Indeed, if~$n\geq 3\epsilon_0$ we have~$z^n<z^n$ which is a contradiction.
 
   It is believed that~$\epsilon_0\leq 2$ by the way. Now you just have to tackle some small cases, but these proofs are well-known (and rather easy, unlike Wiles' general version), for which I refer you to~\href{http://en.wikipedia.org/wiki/Fermat's_Last_Theorem#Proofs_for_specific_exponents}{this subject's Wikipedia page}.
 \end{proof}
@@ -347,49 +351,58 @@ For the actual overview I need a preliminary remark, restating the~$abc$\nobreak
 
 \subsection{Proof}
 
-Consider the statement of Theorem~\ref{theorem:mason-stothers}. We'll prove some lemmas first. We'll denote the derivative of a polynomial~$f$ by $f'$.
+Consider the statement of Theorem~\ref{theorem:mason-stothers}. We'll prove some lemmas first, in which we'll denote the derivative of a polynomial~$f(X)$ by $f'(X)$.
+
+The first is a well-known fact from one of our algebra courses, but for completeness' sake I repeat it:
 
 \begin{lemma}
-  Let~$f(X)\in k[X]$ then~$f$ has a multiple root if and only if~$f$ and~$f'$ have a common root.
+  Let~$f(X)\in k[X]$ then~$f$ has a multiple root if and only if~$f(X)$ and~$f'(X)$ have a common root.
 
   \begin{proof}
-    If~$f$ has a root~$\alpha$ of multiplicity~$n$ it can be written as~$(X-\alpha)^ng(X)$ where~$g(\alpha)\neq 0$. Now~$f'$ is given by
+    If~$f$ has a root~$\alpha$ of multiplicity~$n$ it can be written as~$(X-\alpha)^ng(X)$ where~$g(\alpha)\neq 0$. Now~$f'(X)$ is given by
     \begin{equation}
-      n(X-\alpha)^{n-1}g(X)+(X-\alpha)^ng'(x)=(X-\alpha)^{n-1}\left( ng(X)+(x-\alpha)g(X) \right).
+      n(X-\alpha)^{n-1}g(X)+(X-\alpha)^ng'(X)=(X-\alpha)^{n-1}\left( ng(X)+(X-\alpha)g(X) \right).
     \end{equation}
-    If~$n=1$ evaluating~$f'$ in~$\alpha$ yields~$ng(\alpha)\neq 0$ as we've assumed characteristic~$0$. Likewise~$n\geq 2$ yields~$f'(\alpha)=0$ because~$(X-\alpha)^{n-1}$ doesn't vanish.
+    If~$n=1$ evaluating~$f'(X)$ in~$\alpha$ yields~$ng(\alpha)\neq 0$ as we've assumed characteristic~$0$. Likewise~$n\geq 2$ yields~$f'(\alpha)=0$ because~$(X-\alpha)^{n-1}$ doesn't vanish.
   \end{proof}
 \end{lemma}
 
+Now the second lemma, which is a nice statement about the number of roots when they are not necessarily distinct.
+
 \begin{lemma}
-  Let~$f(X)\in k[X]$ then~$\deg\gcd(f,f')=\deg f-\deg\rad(f)$.
+  \label{lemma:number-of-roots}
+  Let~$f(X)\in k[X]$ then we have
+  \begin{equation}
+    \deg\gcd(f(X),f'(X))=\deg f(X)-\deg\rad f(X).
+  \end{equation}
 
   \begin{proof}
-    Because we've assumed that~$k$ is algebraically closed we can write~$f$ as
+    Because we've assumed that~$k$ is algebraically closed we can write~$f(X)$ as
     \begin{equation}
       \prod_{i=1}^m(X-\alpha_i)^{n_i}
     \end{equation}
     and~$\sum_{i=1}^mn_i=\deg f$. We now obtain
     \begin{equation}
-      \gcd(f,f')=\prod_{i=1}^m(X-\alpha_i)^{n_i-1}
+      \gcd(f(X),f'(X))=\prod_{i=1}^m(X-\alpha_i)^{n_i-1}
     \end{equation}
     so
     \begin{equation}
       \begin{aligned}
-        \deg\gcd(f,f')&=\sum_{i=1}^m(n_i-1) \\
+        \deg\gcd(f(X),f'(X))&=\sum_{i=1}^m(n_i-1) \\
         &=\left( \sum_{i=1}^mn_i \right)-m \\
-        &=\deg f-m
-        &=\deg f-\deg\rad(f).
+        &=\deg f(X)-m \\
+        &=\deg f(X)-\deg\rad f(X).
       \end{aligned}
     \end{equation}
   \end{proof}
 \end{lemma}
 
-We are now ready for the actual proof. No need to develop an intersection theory on~$\mathbb{P}^1/\mathbb{F}_1\times\operatorname{Spec}\mathbb{Z}$.
+We are now ready for the actual proof. No need to develop an intersection theory on~$\mathbb{P}^1/\mathbb{F}_1\times\operatorname{Spec}\mathbb{Z}$, only some polynomial manipulation.
 
 \begin{proof}[Proof of the Mason-Stothers theorem]
   We have
   \begin{equation}
+    \label{equation:key-equality}
     \begin{aligned}
       a'(X)b(X)-a(X)b'(X)&=a'(X)\left( c(X)-a(X) \right)-a(X)\left( c'(X)-a'(X) \right) \\
       &=a'(X)c(X)-a(X)c'(X)
@@ -397,7 +410,43 @@ We are now ready for the actual proof. No need to develop an intersection theory
   \end{equation}
   by the linearity of the derivative.
 
-  Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ \dots
+  Now at least two of our chosen polynomials must be non-constant, otherwise the third by~\eqref{equation:mason-stothers-equality} is constant too. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ because if~$a'(X)b(X)=a(X)b'(X)\neq 0$ implies~$b\,|\,b'$ which gives us a contradiction.
+
+  We now have that~$\gcd(a(X),a'(X))$ and~$\gcd(b(X),b'(X))$ both divide the left-hand side~\eqref{equation:key-equality} while~$\gcd(c(X),c'(X))$ divides the right-hand side. As~$a(X)$,~$b(X)$ and~$c(X)$ are coprime their greatest common divisors with the derivatives are coprime too, so
+  \begin{equation}
+    \gcd\left( a(X),a'(X) \right)\gcd\left( b(X),b'(X) \right)\gcd\left( c(X),c'(X) \right)\,|\,a'(X)b(X)-a(X)b'(X).
+  \end{equation}
+
+  By applying~$\deg$ to this statement we obtain
+  \begin{equation}
+    \begin{gathered}
+      \deg\gcd\left( a(X),a'(X) \right)+\deg\gcd\left( b(X),b'(X) \right)+\deg\gcd\left( c(X),c'(X) \right) \\
+      \leq\deg\left( a'(X)b(X)-a(X)b'(X) \right)
+    \end{gathered}
+  \end{equation}
+  hence
+  \begin{equation}
+    \label{equation:gcd-inequality}
+    \begin{gathered}
+      \deg\gcd\left( a(X),a'(X) \right)+\deg\gcd\left( b(X),b'(X) \right)+\deg\gcd\left( c(X),c'(X) \right) \\
+      \leq\deg a(X)+\deg b(X)-1.
+    \end{gathered}
+  \end{equation}
+
+  We can now invoke Lemma~\ref{lemma:number-of-roots}, obtaining
+  \begin{equation}
+    \begin{aligned}
+      \deg\gcd\left( a(X),a'(X) \right)&=\deg a(X)-\deg\rad a(X) \\
+      \deg\gcd\left( b(X),b'(X) \right)&=\deg b(X)-\deg\rad b(X) \\
+      \deg\gcd\left( c(X),c'(X) \right)&=\deg c(X)-\deg\rad c(X)
+    \end{aligned}
+  \end{equation}
+
+  If we plug these values in~\eqref{equation:gcd-inequality} we obtained
+  \begin{equation}
+    \deg c(X)\leq\deg\rad a(X)+\deg\rad b(X)+\deg\rad c(X)-1=\deg\rad abc(X)-1.
+  \end{equation}
+
 \end{proof}
 
 \subsection{Consequences}
