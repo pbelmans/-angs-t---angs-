@@ -1,0 +1,31 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+\title{Pictures of the exceptional map and the correspondence with Mersenne primes}
+\author{\#ang@t / angs+}
+\maketitle
+
+\centering
+\begin{tikzpicture}
+  \begin{semilogyaxis}[
+      width = 11cm,
+      xlabel = $\mathbb{P}^1/\mathbb{F}_1$,
+      ylabel = $\mathsf{Spec}(\mathbb{Z})$,
+      extra x ticks = {0, 15, 30, 42},
+      extra x tick labels = {$[0]$, $[15]$, $[30]$, $[\infty]$},
+      ytick = {3, 131071, 2147483647, 34359738367},
+      yticklabels = {$M_2$, $M_{17}$, $M_{31}$, $\infty$},
+      xtick = {0,...,39},
+      xticklabel = {$ $},
+      xmajorgrids,
+    ]
+
+    \addplot[only marks, color = black] file {output.dat};
+  \end{semilogyaxis}
+\end{tikzpicture}
+
+\end{document}
