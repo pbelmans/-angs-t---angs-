@@ -1,0 +1,108 @@
+\section{Proof of the Mason-Stothers theorem and some consequences}
+\label{section:proof-and-consequences}
+
+\subsection{Proof}
+
+Consider the statement of \iftex Theorem~\ref{theorem:mason-stothers}\fi\ifblog the Mason-Stothers theorem as in my previous post\fi. We'll prove some lemmas first, in which we'll denote the derivative of a polynomial~$f(X)$ by $f'(X)$.
+
+The first is a well-known fact from one of our algebra courses, but for completeness' sake I repeat it:
+
+\begin{lemma}
+  Let~$f(X)\in k[X]$ then~$f$ has a multiple root if and only if~$f(X)$ and~$f'(X)$ have a common root.
+
+  \begin{proof}
+    If~$f$ has a root~$\alpha$ of multiplicity~$n$ it can be written as~$(X-\alpha)^ng(X)$ where~$g(\alpha)\neq 0$. Now~$f'(X)$ is given by
+    \begin{equation}
+      n(X-\alpha)^{n-1}g(X)+(X-\alpha)^ng'(X)=(X-\alpha)^{n-1}\left( ng(X)+(X-\alpha)g(X) \right).
+    \end{equation}
+    If~$n=1$ evaluating~$f'(X)$ in~$\alpha$ yields~$ng(\alpha)\neq 0$ as we've assumed characteristic~$0$. Likewise~$n\geq 2$ yields~$f'(\alpha)=0$ because~$(X-\alpha)^{n-1}$ doesn't vanish.
+  \end{proof}
+\end{lemma}
+
+Now the second lemma, which is a nice statement about the number of roots when they are not necessarily distinct.
+
+\begin{lemma}
+  \label{lemma:number-of-roots}
+  Let~$f(X)\in k[X]$ then we have
+  \begin{equation}
+    \deg\gcd(f(X),f'(X))=\deg f(X)-\deg\rad f(X).
+  \end{equation}
+
+  \begin{proof}
+    Because we've assumed that~$k$ is algebraically closed we can write~$f(X)$ as
+    \begin{equation}
+      \prod_{i=1}^m(X-\alpha_i)^{n_i}
+    \end{equation}
+    and~$\sum_{i=1}^mn_i=\deg f$. We now obtain
+    \begin{equation}
+      \gcd(f(X),f'(X))=\prod_{i=1}^m(X-\alpha_i)^{n_i-1}
+    \end{equation}
+    so
+    \begin{equation}
+      \begin{aligned}
+        \deg\gcd(f(X),f'(X))&=\sum_{i=1}^m(n_i-1) \\
+        &=\left( \sum_{i=1}^mn_i \right)-m \\
+        &=\deg f(X)-m \\
+        &=\deg f(X)-\deg\rad f(X).
+      \end{aligned}
+    \end{equation}
+  \end{proof}
+\end{lemma}
+
+We are now ready for the actual proof. No need to develop an intersection theory on~$\mathbb{P}^1/\mathbb{F}_1\times\operatorname{Spec}\mathbb{Z}$, only some polynomial manipulation.
+
+\begin{proof}[Proof of the Mason-Stothers theorem]
+  We have
+  \begin{equation}
+    \label{equation:key-equality}
+    \begin{aligned}
+      a'(X)b(X)-a(X)b'(X)&=a'(X)\left( c(X)-a(X) \right)-a(X)\left( c'(X)-a'(X) \right) \\
+      &=a'(X)c(X)-a(X)c'(X)
+    \end{aligned}
+  \end{equation}
+  by the linearity of the derivative.
+
+  Now at least two of our chosen polynomials must be non-constant, otherwise the third is constant too, \iftex by~\eqref{equation:mason-stothers-equality}\fi\ifblog because~$a(X)+b(X)=c(X)$\fi. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ because if~$a'(X)b(X)=a(X)b'(X)\neq 0$ implies~$b\,|\,b'$ which gives us a contradiction.
+
+  We now have that~$\gcd(a(X),a'(X))$ and~$\gcd(b(X),b'(X))$ both divide the left-hand side~\eqref{equation:key-equality} while~$\gcd(c(X),c'(X))$ divides the right-hand side. As~$a(X)$,~$b(X)$ and~$c(X)$ are coprime their greatest common divisors with the derivatives are coprime too, so
+  \begin{equation}
+    \gcd\left( a(X),a'(X) \right)\gcd\left( b(X),b'(X) \right)\gcd\left( c(X),c'(X) \right)\,|\,a'(X)b(X)-a(X)b'(X).
+  \end{equation}
+
+  By applying~$\deg$ to this statement we obtain
+  \begin{equation}
+    \begin{gathered}
+      \deg\gcd\left( a(X),a'(X) \right)+\deg\gcd\left( b(X),b'(X) \right)+\deg\gcd\left( c(X),c'(X) \right) \\
+      \leq\deg\left( a'(X)b(X)-a(X)b'(X) \right)
+    \end{gathered}
+  \end{equation}
+  hence
+  \begin{equation}
+    \label{equation:gcd-inequality}
+    \begin{gathered}
+      \deg\gcd\left( a(X),a'(X) \right)+\deg\gcd\left( b(X),b'(X) \right)+\deg\gcd\left( c(X),c'(X) \right) \\
+      \leq\deg a(X)+\deg b(X)-1.
+    \end{gathered}
+  \end{equation}
+
+  We can now invoke Lemma~\ref{lemma:number-of-roots}, obtaining
+  \begin{equation}
+    \begin{aligned}
+      \deg\gcd\left( a(X),a'(X) \right)&=\deg a(X)-\deg\rad a(X) \\
+      \deg\gcd\left( b(X),b'(X) \right)&=\deg b(X)-\deg\rad b(X) \\
+      \deg\gcd\left( c(X),c'(X) \right)&=\deg c(X)-\deg\rad c(X)
+    \end{aligned}
+  \end{equation}
+
+  If we plug these values in~\eqref{equation:gcd-inequality} we obtain
+  \begin{equation}
+    \begin{aligned}
+      \deg c(X)&\leq\deg\rad a(X)+\deg\rad b(X)+\deg\rad c(X)-1\\
+      &=\deg\rad abc(X)-1.
+    \end{aligned}
+  \end{equation}
+
+\end{proof}
+
+\subsection{Consequences}
+

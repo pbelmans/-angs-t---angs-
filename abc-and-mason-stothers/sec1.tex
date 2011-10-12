@@ -1,0 +1,180 @@
+\iftex
+\section[The abc-conjecture and some generalities]{The $abc$-conjecture and some generalities}
+\label{section:abc}
+\fi
+\ifblog
+\section{The $abc$-conjecture and some generalities}
+\label{section:abc}
+\fi
+
+\iftex
+\subsection[The abc-conjecture]{The $abc$-conjecture}
+\fi
+\ifblog
+\subsection{The $abc$-conjecture}
+\fi
+
+Let's get \sout{physical} \emph{formal}.
+
+\begin{conjecture}
+  \label{conjecture:abc}
+  Let~$a$, $b$ and~$c$ denote coprime (i.e.,~$\gcd(a,b,c)=1$) positive integers such that
+  \begin{equation}
+    \label{equation:abc-equality}
+    a+b=c
+  \end{equation}
+  then for~$\epsilon>0$ there are only finitely many triples~$(a,b,c)\in\mathbb{N}^3$ subject to~\eqref{equation:abc-equality} such that
+  \begin{equation}
+    \label{equation:abc-inequality}
+    c>\rad(abc)^{1+\epsilon}.
+  \end{equation}
+\end{conjecture}
+
+The function~$\rad\colon\mathbb{Z}\to\mathbb{N}$ maps an integer to the product of its prime factors. So we have~$\rad\colon n=\pm p_1^{e_1}\ldots p_k^{e_k}\mapsto p_1\ldots p_k$. What this conjecture now tries to convey is: (for the correct notion of) almost all cases we observe~$c<\rad(abc)$,~i.e.,~a number~$c$ subject to the given conditions is almost always smaller than the radical of the product~$abc$.
+
+I will give some examples.
+
+\begin{example}
+  \label{example:abc-1}
+  Consider~$4+127=131$. We have~$\rad(4\cdot 127\cdot 131)=33274$ because~$127$ and~$131$ are both prime. And it is obvious that~$131<33274$.
+\end{example}
+
+\begin{example}
+  \label{example:abc-2}
+  Now for an example of a triple such that~$c>\rad(abc)$, consider the equality~$3+125=128$. We have~$\rad(3\cdot 125\cdot 128)=30$, which is considerably smaller than~$128$.
+\end{example}
+
+So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're relating additive structure (present in~\eqref{equation:abc-equality}) to multiplicative structure (present in~\eqref{equation:abc-inequality}).
+
+But maybe we could simplify the statement! Algebraists and geometers don't like~$\epsilon$'s so we could consider dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
+
+\begin{remark}
+  But no! It turns out, the presence of an~$\epsilon$ in the exponent is necessary. If we decide to drop it, reducing the superlinear relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
+  
+  Take~$a=1$ and~$c=3^{2^k}$, so~$b$ is obviously~$3^{2^k}-1$. We need to determine how many factors of~$2$ there are in~$b$. Let's look at~$k=6$. We have
+  \begin{equation}
+    \begin{aligned}
+      3^{64}-1&=(3^{32}+1)(3^{32}-1) \\
+      &=\ldots \\
+      &=(3^{32}+1)(3^{16}+1)\cdots(3+1)(3-1)
+    \end{aligned}
+  \end{equation}
+  and every factor contributes a prime factor~$2$ but the second-to-last contributes two! So we end up with (at least)~$k+2$ times a prime factor~$2$ in the general situation with~$b=3^{2^k}-1$.
+  
+  We obtain
+  \begin{equation}
+    \rad(b)\leq\frac{3^{2^k}-1}{2^{k+1}}<\frac{c}{2^{k}}
+  \end{equation}
+  because we can isolate the factor~$2$ from the radical knowing about its presence and dividing the remaining factors from~$b$. This leads to
+  \begin{equation}
+    \rad(abc)=3\rad(b)<\frac{3c}{2^k}\quad\Leftrightarrow\quad c>\rad(abc)\frac{2^k}{3}
+  \end{equation}
+  hence for~$k\geq 2$ we have a triple such that the linear variant of the inequality is satisfied. We definitely need the presence of an~$\epsilon$ of extra space in the exponent.
+\end{remark}
+
+\subsection{Another viewpoint}
+
+For some more facts, I'll introduce the notion of quality, which is a measurement of the relation between~$c$ and~$\rad(abc)$.
+
+\begin{definition}
+  For integers~$a$, $b$ and~$c$ define the \emph{quality} of the triple~$(a,b,c)$ as
+  \begin{equation}
+    \quality(a,b,c)\coloneqq\frac{\ln(c)}{\ln\left( \rad(abc) \right)}.
+  \end{equation}
+\end{definition}
+
+Now the~$abc$\nobreakdash-conjecture has a nice equivalent statement using this notion of quality:
+
+\begin{conjecture}
+  For~$\epsilon>0$ there are only finitely many triples~$(a,b,c)\in\mathbb{N}^3$ subject to the conditions in Conjecture~\ref{conjecture:abc} such that we have~$\quality(a,b,c)>1+\epsilon$.
+\end{conjecture}
+
+If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new concept we end up with
+\begin{equation}
+  \begin{aligned}
+    \quality(4,127,131)&=0.468\ldots \\
+    \quality(3,125,128)&=1.427\ldots
+  \end{aligned}
+\end{equation}
+where immediately see that~$(3,125,128)$ is one of the finitely many counterexamples if we take~$\epsilon<0.4\ldots$
+
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Understanding the distribution of this value can yield interesting insights.
+
+Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed computing project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them.
+
+As we speak they have checked all triples for~$c$ up to approximately~$10^{18}$ but please refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} \fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data} \fi for more information on this project and its status.
+
+We get the following table of highscores:
+\begin{center}
+  \begin{tabular}{cllll}
+     & $\quality(a,b,c)$ & $a$ & $b$ & $c$ \\\iftex\midrule\fi
+    $1$ & $1.6299\ldots$ & $2$ & $3^{10}109$ & $23^5$ \\
+    $2$ & $1.6260\ldots$ & $11^2$ & $3^25^67^3$ & $2^{21}23$ \\
+    $3$ & $1.6235\ldots$ & $19\cdot1307$ & $7\cdot29^231^8$ & $2^83^{22}5^4$ \\
+    $4$ & $1.5808\ldots$ & $283$ & $5^{11}13^2$ & $2^83^817^3$ \\
+    $5$ & $1.5679\ldots$ & $1$ & $2\cdot3^7$ & $5^47$ \\
+  \end{tabular}
+\end{center}
+
+which summarizes~\iftex\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}\fi\ifblog\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{math.leidenuniv.nl/~desmit/abc/index.php?set=2}\fi. Almost one year ago, only 234 triples with~$q>1.4$ were known.
+
+But this computational approach is only interesting for information gathering: Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$) is strictly smaller than the logarithmic integral
+\begin{equation}
+  \operatorname{li}(x)=\int_0^x\frac{\mathrm{d}t}{\ln t}
+\end{equation}
+but it is proved that there \emph{must} be a counterexample smaller than~$1.4\cdot10^{316}$ but up to~$10^{14}$ none have been found so far. And there are infinitely many counterexamples too.
+
+\subsection{Consequences}
+
+Wikipedia gives a list of consequences ranging from absolutely stupendous important to nice facts about prime numbers. A short selection, which has been assembled based on my personal taste and understanding of the statements:
+
+\begin{description}
+  \item [\textbf{Fermat's last theorem}] Proved by Wiles in 1995 and with the overly known statement: there are no non-trivial solutions to~$x^n+y^n=z^n$ for~$n\geq 3$. An easy consequence of a proof of the~$abc$\nobreakdash-conjecture would be Fermat-Wiles for ``sufficiently large exponents''. In case you wonder what sufficiently large means: we don't need an astronomical number like the bound from counterexamples for~$\pi(x)>\operatorname{li}(x)$, just~$n\geq 6$ will do (under a mild assumption). I will prove this below.
+
+  \item[\textbf{Faltings' theorem}] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
+
+  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is rather unlikely: it would imply that from a certain number \emph{all} prime numbers are Wieferich primes. I.e., the distribution would have to change tremendously. But remember we've got the inequality~$\pi(x)<\operatorname{li}(x)$ with its eventual counterexamples to keep us from blindly believing numerical evidence for small integers.
+
+    The notion of Wieferich primes relates to Mersenne numbers, i.e., numbers of the form~$M_n=2^n-1$. It is still an open problem whether or not all~$M_p$ with~$p$ prime are square-free. But if there would be a non-square-free~$M_q$ such that~$p^2\,|\,M_q$ then~$p$ is a Wieferich prime. So if there are only finitely many Wieferich primes (which is \emph{not} a consequence of the~$abc$\nobreakdash-conjecture) there will be at most finitely many Mersenne numbers that are not square-free.
+
+    There is a distributed computing project devoted to finding Wieferich primes by the way: Wieferich@Home.
+
+  \item[\textbf{Fermat-Catalan conjecture}] This is a combination of Fermat's last theorem as discussed above and the Catalan conjecture. As this conjecture was proved in 2002 by Mih\u{a}ilescu this name is outdated, but apparently calling it Mih\u{a}ilescu's theorem isn't common (which is obvious after writing his name twice). This theorem states that~$2^3$ and~$3^2$ are the only powers of natural numbers that are consecutive. More formally:
+    \begin{equation}
+      x^a-y^b=1
+    \end{equation}
+    where~$a,b,x,y>1$ only admit the described solution.
+
+    Combining Fermat and Catalan we obtain that
+    \begin{equation}
+      a^m+b^n=c^k
+    \end{equation}
+    has only finitely many solutions where~$a,b,c$ are coprime natural numbers and~$m,n,k$ are positive integers such that
+    \begin{equation}
+      \frac{1}{m}+\frac{1}{n}+\frac{1}{k}<1.
+    \end{equation}
+
+  \item[\textbf{Szpiro's conjecture}] Unlike the previous ones, this is \emph{equivalent} to the statement of the~$abc$-conjecture. Due to its technicalities (elliptic curve stuff) I won't state it here, but it's nice to know there are equivalent statements in a different language. The statement looks a lot like the statement of the~$abc$\nobreakdash-conjecture so it might be questionable whether this approach yields many \emph{new} insights.
+\end{description}
+
+As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence while others are on par with the~$abc$-conjecture counterexamplewise. But now as promised, I'll give you a proof of Fermat's last theorem.
+
+
+\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq3\epsilon_0$]
+  One can reduce the statement of Fermat's last theorem (but you should look at it as a conjecture now, whilst the~$abc$\nobreakdash-conjecture has just been proven by yourself and you wish to earn hard cash proving Fermat's conjecture) to a scenario with~$x$, $y$ and~$z$ coprime.
+  
+  Now take~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
+  \begin{equation}
+    \rad(x^ny^nz^n)\leq xyz<z^3
+  \end{equation}
+
+  Now assume that we have an~$\epsilon_0>0$ such that there are \emph{no} solutions to the scenario of the~$abc$\nobreakdash-theorem, which must be possible as any~$\epsilon>0$ admits only finitely many counterexamples so take~$\epsilon_0$ to be the maximum of the exponents such that~$c=\rad(abc)^{1+\epsilon}$ and add another~$\epsilon'$ to get a strict inequality.
+  
+  We obtain
+  \begin{equation}
+    z^n<(z^3)^{\epsilon_0}
+  \end{equation}
+  where~$z^3$ comes from the previous inequality, so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$! Indeed, if~$n\geq 3\epsilon_0$ we have~$z^n<z^n$ which is a contradiction.
+
+  It is believed that~$\epsilon_0\leq 2$ by the way. Now you just have to tackle some small cases, but these proofs are well-known (and rather easy, unlike Wiles' general version), for which I refer you to~\href{http://en.wikipedia.org/wiki/Fermat's_Last_Theorem#Proofs_for_specific_exponents}{this subject's Wikipedia page}.
+\end{proof}
