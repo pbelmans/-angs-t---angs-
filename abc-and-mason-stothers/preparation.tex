@@ -104,7 +104,7 @@ Let's get \sout{physical} \emph{formal}.
     \label{equation:abc-equality}
     a+b=c
   \end{equation}
-  then for~$\epsilon>0$ there are only finitely many triples~$(a,b,c)\in\mathbb{N}^3$ such that
+  then for~$\epsilon>0$ there are only finitely many triples~$(a,b,c)\in\mathbb{N}^3$ subject to~\eqref{equation:abc-equality} such that
   \begin{equation}
     \label{equation:abc-inequality}
     c>\rad(abc)^{1+\epsilon}.
@@ -130,7 +130,7 @@ So why is the~$abc$\nobreakdash-conjecture this difficult? It's because we're re
 But maybe we could simplify the statement! Algebraists and geometers don't like~$\epsilon$'s so we could consider dropping the~$+\epsilon$ in the exponent of the radical. We'd still be relating two different structures on~$\mathbb{Z}$ but at least it doesn't look like the~$\epsilon$-$\delta$-definition of continuity of real functions.
 
 \begin{remark}
-  But no! It turns out, the presence of an~$\epsilon$ in the exponent is necessary. If we decide to drop it, reducing the exponential relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
+  But no! It turns out, the presence of an~$\epsilon$ in the exponent is necessary. If we decide to drop it, reducing the superlinear relationship between~$c$ and~$\rad(abc)$ to a \emph{linear} relationship, we'll get infinitely many~$(a,b,c)$ such that~$c>\rad(abc)$. I will now give a concrete example of an infinite class of counterexamples. For more general set-ups, please refer to~\cite{lower-bounds-abc-hits}.
   
   Take~$a=1$ and~$c=3^{2^k}$, so~$b$ is obviously~$3^{2^k}-1$. We need to determine how many factors of~$2$ there are in~$b$. Let's look at~$k=6$. We have
   \begin{equation}
@@ -140,7 +140,9 @@ But maybe we could simplify the statement! Algebraists and geometers don't like~
       &=(3^{32}+1)(3^{16}+1)\cdots(3+1)(3-1)
     \end{aligned}
   \end{equation}
-  and every factor contributes a prime factor~$2$ but the second-to-last contributes two! So we end up with~$k+2$ times~$2$ in the general situation with~$b=3^{2^k}-1$. We obtain
+  and every factor contributes a prime factor~$2$ but the second-to-last contributes two! So we end up with (at least)~$k+2$ times a prime factor~$2$ in the general situation with~$b=3^{2^k}-1$.
+  
+  We obtain
   \begin{equation}
     \rad(b)\leq\frac{3^{2^k}-1}{2^{k+1}}<\frac{c}{2^{k}}
   \end{equation}
@@ -165,7 +167,7 @@ For some more facts, I'll introduce the notion of quality, which is a measuremen
 Now the~$abc$\nobreakdash-conjecture has a nice equivalent statement using this notion of quality:
 
 \begin{conjecture}
-  There are only finitely many~$(a,b,c)\in\mathbb{N}^3$ subject to the conditions in Conjecture~\ref{conjecture:abc} such that for~$\epsilon>0$ we have~$\quality(a,b,c)>1+\epsilon$.
+  For~$\epsilon>0$ there are only finitely many~$(a,b,c)\in\mathbb{N}^3$ subject to the conditions in Conjecture~\ref{conjecture:abc} such that we have~$\quality(a,b,c)>1+\epsilon$.
 \end{conjecture}
 
 If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new concept we end up with
@@ -175,8 +177,13 @@ If we translate Examples~\ref{example:abc-1} and~\ref{example:abc-2} to this new
     \quality(3,125,128)&=1.427\ldots
   \end{aligned}
 \end{equation}
+where immediately see that~$(3,125,128)$ is one of the finitely many counterexamples if we take~$\epsilon<0.4\ldots$
 
-Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed comping project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them. As of now, they are currently somewhere around~$c\approx10^{18}$ but refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} \fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data} \fi for more information.
+Now you could ask yourself the question: how big can~$q$ get for any triple~$(a,b,c)$? Understanding the distribution of this value can yield interesting insights.
+
+Well, the theoretical answer is obviously beyond reach, just like the actual proof of the~$abc$\nobreakdash-con\-jecture, but  the distributed computing project ABC@Home is trying to get as much information from examples as possible, enumerating all triples~$(a,b,c)$ such that~$c<10^{20}$ and extracting information out of them.
+
+As we speak they have checked all triples for~$c$ up to approximately~$10^{18}$ but please refer to~\iftex\href{http://abcathome.com/data/}{\texttt{abcathome.com/data}} \fi\ifblog\href{http://abcathome.com/data/}{abcathome.com/data} \fi for more information on this project and its status.
 
 We get the following table of highscores:
 \begin{center}
@@ -192,7 +199,7 @@ We get the following table of highscores:
 
 which summarizes~\iftex\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{\texttt{math.leidenuniv.nl/~desmit/abc/index.php?set=2}}\fi\ifblog\href{http://www.math.leidenuniv.nl/~desmit/abc/index.php?set=2}{math.leidenuniv.nl/~desmit/abc/index.php?set=2}\fi. Almost one year ago, only 234 triples with~$q>1.4$ were known.
 
-But this computational approach is only interesting for information gathering, as Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$) is strictly smaller than the logarithmic integral
+But this computational approach is only interesting for information gathering: Gauss and Riemann (not quite the least mathematicians) once conjectured while working on the prime number theorem that~$\pi(x)$ (the number of primes below~$x$) is strictly smaller than the logarithmic integral
 \begin{equation}
   \operatorname{li}(x)=\int_0^x\frac{\mathrm{d}t}{\ln t}
 \end{equation}
@@ -207,9 +214,9 @@ Wikipedia gives a list of consequences ranging from absolutely stupendous import
 
   \item[\textbf{Faltings' theorem}] Curves of genus greater than~$1$ over~$\mathbb{Q}$ have only finitely many rational points. This used to be Mordell's conjecture before, where Mordell is the one of Mordell-Weil fame (the abelian group of rational points is finitely generated).
 
-  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is \emph{quite} unlikely: it would imply that from a certain number \emph{all} prime numbers are Wieferich primes. I.e., the distribution would have to change tremendously.
+  \item[\textbf{Infinitely many non-Wieferich primes}] A Wieferich prime is a prime number such that~$p^2\,|\, 2^{p-1}-1$. At this moment only two Wieferich primes are known: 1093 and 3511. There are three scenarios possible: both sets are infinite or one of them is finite. But a proof of the $abc$\nobreakdash-conjecture would only rule out the scenario where there are finitely many non-Wieferich primes, which by numerical evidence is rather unlikely: it would imply that from a certain number \emph{all} prime numbers are Wieferich primes. I.e., the distribution would have to change tremendously. But remember we've got the inequality~$\pi(x)<\operatorname{li}(x)$ with its eventual counterexamples to keep us from blindly believing numerical evidence for small integers.
 
-    The notion of Wieferich primes relates to Mersenne numbers, i.e., numbers of the form~$M_n=2^n-1$. It is still an open problem whether or not all~$M_p$ with~$p$ prime are square-free. But if there would we a non-square-free~$M_q$ such that~$p^2\,|\,M_q$ then~$p$ is a Wieferich prime. So if there are only finitely many Wieferich primes (which is \emph{not} a consequenceof the~$abc$\nobreakdash-conjecture) there will be at most finitely many Mersenne numbers that are not square-free.
+    The notion of Wieferich primes relates to Mersenne numbers, i.e., numbers of the form~$M_n=2^n-1$. It is still an open problem whether or not all~$M_p$ with~$p$ prime are square-free. But if there would be a non-square-free~$M_q$ such that~$p^2\,|\,M_q$ then~$p$ is a Wieferich prime. So if there are only finitely many Wieferich primes (which is \emph{not} a consequence of the~$abc$\nobreakdash-conjecture) there will be at most finitely many Mersenne numbers that are not square-free.
 
     There is a distributed computing project devoted to finding Wieferich primes by the way: Wieferich@Home.
 
@@ -275,7 +282,7 @@ Enough conjectural stuff, time for some \emph{facts}. Did you know~$\mathbb{Z}$ 
   An Euclidean domain can be equipped with \emph{several} Euclidean functions. When there exists a single function we can call~$R$ Euclidean, but all scalar multiples suffice too for instance.
 \end{remark}
 
-But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$. This will be necessary: we'll split polynomials into linear factors and we'll use the first derivative. These will break in non-algebraically closed fields or fields with characteristic different from~$0$. What happens in~$\mathbb{F}_1$ is left as a trivial exercise.
+But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$. This will be necessary: we'll split polynomials into linear factors and we'll use the first derivative. This will break in non-algebraically closed fields or fields with characteristic different from~$0$. What happens in~$\mathbb{F}_1$ is left as a trivial exercise for the interested reader.
 
 \begin{theorem}[Mason-Stothers]
   \label{theorem:mason-stothers}
@@ -442,9 +449,12 @@ We are now ready for the actual proof. No need to develop an intersection theory
     \end{aligned}
   \end{equation}
 
-  If we plug these values in~\eqref{equation:gcd-inequality} we obtained
+  If we plug these values in~\eqref{equation:gcd-inequality} we obtain
   \begin{equation}
-    \deg c(X)\leq\deg\rad a(X)+\deg\rad b(X)+\deg\rad c(X)-1=\deg\rad abc(X)-1.
+    \begin{aligned}
+      \deg c(X)&\leq\deg\rad a(X)+\deg\rad b(X)+\deg\rad c(X)-1\\
+      &=\deg\rad abc(X)-1.
+    \end{aligned}
   \end{equation}
 
 \end{proof}
