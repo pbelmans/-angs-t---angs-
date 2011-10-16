@@ -1,1 +1,39 @@
 \section{What are schemes?}
+
+Or phrased more strongly: why the heck do we need them? I was perfectly happy with varieties!
+
+Well, you might remember the following relationship from the first lecture of \#angs@t:
+\begin{equation}
+  \text{affine varieties} \underset{\text{equivalence}}{\overset{\text{anti-}}{\longleftrightarrow}} \text{reduced and finitely generated $\mathbb{C}$-algebras}
+  \label{equation:variety-anti-equivalence}
+\end{equation}
+with the anti-equivalence being expressed by taking~$\mSpec$ and the corresponding coordinate ring. In case you haven't seen~$\mSpec$ before: it's the set of maximal ideals (of a finitely generated~$\mathbb{C}$-algebra without nilpotents) equipped with a Zariski topology\todo{relate to notation from our course}. This anti-equivalence is not the definition of the theory in se, it is more a consequence.
+
+The objects on the left are quite nice: we can easily make drawings of them (or at least of their counterparts in~$\mathbb{R}$), but to the right we find a set of objects with a rather strict description. There are three mutually unrelated conditions you might want to get rid of:
+\begin{enumerate}
+  \item finitely generated;
+  \item only defined over~$\mathbb{C}$;
+  \item the absence of nilpotent elements.
+\end{enumerate}
+As for now, we don't want to lose the fact that we're dealing with algebras (or rings).
+
+By dropping these restrictions we could gain: elegance of exposition, the bliss of stating things in their most general form or actually gaining a tool and a language when you have to work with objects that do not meet this stringent conditions. If you're a number theorist for instance (and we all are for the course of this seminar).
+
+Before I introduce scheme theory by giving the generalization of~\eqref{equation:variety-anti-equivalence} I'll discuss what happens if we drop each of the conditions:
+\begin{description}
+  \item[\textbf{reducedness}] by allowing nilpotents we gain objects like the dual numbers, intersection theory now becomes an essential part of our language (or vice versa), \todo{more};
+  \item[\textbf{$\mathbb{C}$-algebras}] we have been working with curves over finite fields from the beginning of this seminar and you might want to work over no field at all too!;
+  \item[\textbf{finitely generated}] we'll get infinite-dimensional this way but I'm not sure how we will need this specific notion as stuff over~$\mathbb{F}_1$ doesn't support the notion of generated as far as I can tell.
+\end{description}
+
+So by analogy we \emph{define} (or you might remember this anti-equivalence from that same first lecture)
+\begin{equation}
+  \text{affine schemes} \underset{\text{equivalence}}{\overset{\text{anti-}}{\longleftrightarrow}} \text{commutative and unital rings}.
+  \label{equation:scheme-anti-equivalence}
+\end{equation}
+
+It is not immediately obvious why the right-hand side is the correct choice, but you've got to admit it looks like a very nice generalization. What this implies for our geometrical intuition for objects on the left is less clear.
+
+I will try to develop a little intuition for this in the upcoming posts, but for a real dive into examples of schemes I refer you to \cite{geometry-of-schemes}, \cite{foag}, \cite{red-book} or if you have a certain masochistic tendency \cite{hartshorne}. My favourite is \cite{foag} by the way, it has pretty pictures and it tells a lot about number-theoretic schemes too.
+
+Up next: the complete build-up to affine schemes.
