@@ -1,0 +1,42 @@
+\usepackage[fleqn, leqno]{amsmath}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\usepackage{todonotes}
+\selectlanguage{english}
+
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+\usepackage[scaled]{beramono, berasans}
+\usepackage[draft = false]{microtype}
+\frenchspacing
+
+\counterwithout{section}{chapter}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\newif\ifblog
+\newif\iftex
+\blogfalse
+\textrue
+
+\addtolength{\parskip}{.7ex}
+\relpenalty=10000
+\binoppenalty=10000 
+\setlength\parindent{0cm}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{consequence}[theorem]{Consequence}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator\rad{rad}
+\DeclareMathOperator\quality{q}
