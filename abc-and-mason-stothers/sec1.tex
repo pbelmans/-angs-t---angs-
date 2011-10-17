@@ -160,7 +160,7 @@ Wikipedia gives a list of consequences ranging from absolutely stupendous import
 As you can see: there are both theorems and conjectures. Some conjectures have overwhelming numerical evidence while others are on par with the~$abc$-conjecture counterexamplewise. But now as promised, I'll give you a proof of Fermat's last theorem.
 
 
-\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq3\epsilon_0$]
+\begin{proof}[Proof of $abc$-conjecture implies Fermat for~$n\geq3(1+\epsilon_0)$]
   One can reduce the statement of Fermat's last theorem (but you should look at it as a conjecture now, whilst the~$abc$\nobreakdash-conjecture has just been proven by yourself and you wish to earn hard cash proving Fermat's conjecture) to a scenario with~$x$, $y$ and~$z$ coprime.
   
   Now take~$a=x^n$, $b=y^n$ and~$c=z^n$. We have
@@ -172,9 +172,9 @@ As you can see: there are both theorems and conjectures. Some conjectures have o
   
   We obtain
   \begin{equation}
-    z^n<(z^3)^{\epsilon_0}
+    z^n<(z^3)^{1+\epsilon_0}
   \end{equation}
-  where~$z^3$ comes from the previous inequality, so Fermat's conjecture has now been proved for~$n\geq 3\epsilon_0$! Indeed, if~$n\geq 3\epsilon_0$ we have~$z^n<z^n$ which is a contradiction.
+  where~$z^3$ comes from the previous inequality, so Fermat's conjecture has now been proved for~$n\geq 3(1+\epsilon_0)$! Indeed, if~$n\geq 3(1+\epsilon_0)$ we have~$z^n<z^n$ which is a contradiction.
 
-  It is believed that~$\epsilon_0\leq 2$ by the way. Now you just have to tackle some small cases, but these proofs are well-known (and rather easy, unlike Wiles' general version), for which I refer you to~\href{http://en.wikipedia.org/wiki/Fermat's_Last_Theorem#Proofs_for_specific_exponents}{this subject's Wikipedia page}.
+  It is believed that~$\epsilon_0\leq 1$ by the way, i.e., the relationship between~$c$ and~$\rad(abc)$ is at most quadratic. Now you just have to tackle some small cases, but these proofs are well-known (and rather easy, unlike Wiles' general version), for which I refer you to~\href{http://en.wikipedia.org/wiki/Fermat's_Last_Theorem#Proofs_for_specific_exponents}{this subject's Wikipedia page}.
 \end{proof}

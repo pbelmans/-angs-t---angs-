@@ -33,7 +33,7 @@ Now the second lemma, which is a nice statement about the number of roots when t
     \begin{equation}
       \prod_{i=1}^m(X-\alpha_i)^{n_i}
     \end{equation}
-    and~$\sum_{i=1}^mn_i=\deg f$. We now obtain
+    and~$\sum_{i=1}^mn_i=\deg f$. We now obtain from our previous lemma that
     \begin{equation}
       \gcd(f(X),f'(X))=\prod_{i=1}^m(X-\alpha_i)^{n_i-1}
     \end{equation}
@@ -43,9 +43,10 @@ Now the second lemma, which is a nice statement about the number of roots when t
         \deg\gcd(f(X),f'(X))&=\sum_{i=1}^m(n_i-1) \\
         &=\left( \sum_{i=1}^mn_i \right)-m \\
         &=\deg f(X)-m \\
-        &=\deg f(X)-\deg\rad f(X).
+        &=\deg f(X)-\deg\rad f(X)
       \end{aligned}
     \end{equation}
+    as~$\rad f(X)$ removes the multiplicities from the linear factors.
   \end{proof}
 \end{lemma}
 
@@ -64,7 +65,7 @@ We are now ready for the actual proof. No need to develop an intersection theory
 
   Now at least two of our chosen polynomials must be non-constant, otherwise the third is constant too, \iftex by~\eqref{equation:mason-stothers-equality}\fi\ifblog because~$a(X)+b(X)=c(X)$\fi. Assume~$a(X)$ and~$b(X)$ are non-constant, we obtain~$a'(X)b(X)-a(X)b'(X)\neq 0$ because if~$a'(X)b(X)=a(X)b'(X)\neq 0$ implies~$b\,|\,b'$ which gives us a contradiction.
 
-  We now have that~$\gcd(a(X),a'(X))$ and~$\gcd(b(X),b'(X))$ both divide the left-hand side~\eqref{equation:key-equality} while~$\gcd(c(X),c'(X))$ divides the right-hand side. As~$a(X)$,~$b(X)$ and~$c(X)$ are coprime their greatest common divisors with the derivatives are coprime too, so
+  We now have that~$\gcd(a(X),a'(X))$ and~$\gcd(b(X),b'(X))$ both divide the left-hand side~\eqref{equation:key-equality} while~$\gcd(c(X),c'(X))$ divides the right-hand side. As~$a(X)$,~$b(X)$ and~$c(X)$ we obtain
   \begin{equation}
     \gcd\left( a(X),a'(X) \right)\gcd\left( b(X),b'(X) \right)\gcd\left( c(X),c'(X) \right)\,|\,a'(X)b(X)-a(X)b'(X).
   \end{equation}
@@ -81,9 +82,10 @@ We are now ready for the actual proof. No need to develop an intersection theory
     \label{equation:gcd-inequality}
     \begin{gathered}
       \deg\gcd\left( a(X),a'(X) \right)+\deg\gcd\left( b(X),b'(X) \right)+\deg\gcd\left( c(X),c'(X) \right) \\
-      \leq\deg a(X)+\deg b(X)-1.
+      \leq\deg a(X)+\deg b(X)-1
     \end{gathered}
   \end{equation}
+  because~$\deg a'(X)b(X)-a(X)b'(X)$ has at most degree~$\deg a(X)+\deg b(X)-1$ which is the case when no cancellation occurs: both terms obviously have degree~$\deg a(X)+\deg b(X)-1$ where the minus one comes from the derivative (yet again we need characteristic zero).
 
   We can now invoke Lemma~\ref{lemma:number-of-roots}, obtaining
   \begin{equation}
@@ -104,5 +106,61 @@ We are now ready for the actual proof. No need to develop an intersection theory
 
 \end{proof}
 
-\subsection{Consequences}
+Remark that we really needed the fact that it's an algebraically closed field of characteristic zero for this simple proof. It is possible to alter the proof for non-algebraically closed fields of characteristic zero.\todo{explain}
 
+\subsection{Consequences}
+Just like the $abc$\nobreakdash-conjecture for~$\mathbb{Z}$ implied the Fermat-Wiles theorem (this is a funny composition of conjecture, implication and theorem) for sufficiently big exponents, the Mason-Stothers theorem implies a polynomial version of Fermat's last theorem.
+
+\begin{theorem}[Fermat's theorem for polynomials]
+  \label{theorem:polynomial-fermat}
+  Let~$n\geq 3$. There are no solutions to the equation
+  \begin{equation}
+    u^n(X)+v^n(X)=w^n(X)
+    \label{equation:polynomial-fermat}
+  \end{equation}
+  where~$u(X),v(X)$ and~$w(X)\in k[x]$ are relatively prime.
+
+  \begin{proof}
+    Take~$a(X)=u^n(X)$, $b(X)=v^n(X)$ and~$c(X)=w^n(X)$. By the Mason-Stothers theorem we have
+    \begin{equation}
+      \deg u^n(X)\leq\deg\rad(u^nv^nw^n(X))-1.
+    \end{equation}
+    but as~$\deg u^n(X)=n\deg u(X)$ and~$\deg\rad(u^n(X))=\deg\rad(u(X))\leq\deg u(X)$ we obtain
+    \begin{equation}
+      n\deg u(X)\leq\deg u(X)+\deg v(X)+\deg w(X)-1.
+    \end{equation}
+
+    Analogously we have
+    \begin{equation}
+      \begin{gathered}
+        n\deg v(X)\leq\deg u(X)+\deg v(X)+\deg w(X)-1 \\
+        n\deg w(X)\leq\deg u(X)+\deg v(X)+\deg w(X)-1
+      \end{gathered}
+    \end{equation}
+    hence combining these yields
+    \begin{equation}
+      n\deg uvw(X)\leq 3\deg uvw(X)-3<3\deg uvw(X)
+    \end{equation}
+    which yields~$n<3$ (unless the degree is zero), as the Mason-Stothers theorem must be satisfied. The condition it provides on the degrees of relatively prime polynomials provides the nonexistence of solutions to \eqref{equation:polynomial-fermat}.
+  \end{proof}
+\end{theorem}
+
+For other consequences, you could try the following as exercises (they are taken from \url{http://topologicalmusings.wordpress.com} and Lang's Undergraduate Algebra):
+
+\begin{theorem}[Davenport's theorem]
+  Let~$u(X)$ and~$v(X)$ be two non-constant relatively prime polynomials such that~$u^3(X)-v^2(X)\neq 0$. Show that
+  \begin{equation}
+    \begin{aligned}
+      \frac{1}{2}\deg u(X)&\leq\deg(u^3(X)-v^2(X))-1 \\
+      \frac{1}{3}\deg v(X)&\leq\deg(u^3(X)-v^2(X))-1
+    \end{aligned}.
+  \end{equation}
+\end{theorem}
+
+\begin{theorem}
+  Let~$u(X)$ and~$v(X)$ be two polynomials over~$\mathbb{C}$ and~$\alpha\in\mathbb{C}\setminus\left\{ 0 \right\}$. If
+  \begin{equation}
+    u^3(X)=v^2(X)+\alpha
+  \end{equation}
+  then~$u(X)$ and~$v(X)$ are constants.
+\end{theorem}
