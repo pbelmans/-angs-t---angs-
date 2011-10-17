@@ -2,6 +2,7 @@
 The anti-equivalence from the previous \iftex section\fi\ifblog post\fi
 \begin{equation}
   \text{affine schemes} \underset{\text{equivalence}}{\overset{\text{anti-}}{\longleftrightarrow}} \text{commutative and unital rings}.
+  \label{equation:schemes-anti-equivalence-2}
 \end{equation}
 basically says it all, but it will require an explanation in more detail to really grasp what an \emph{affine scheme} is. Remark that I've been talking about affine varieties and affine schemes for some time now, in the next \iftex section\fi\ifblog post\fi I will elaborate on this, but they are the crucial building blocks for general schemes.
 
@@ -45,9 +46,56 @@ where~$I$ is an ideal of~$A$. Remark that this is completely analogous to the va
 
 If we consider the examples from the previous section we obtain the following descriptions of their topologies. By the analogy between~$\Spec\mathbb{Z}$ and~$\mathbb{C}[x]$ we have in both cases a cofinite topology, the closed subsets are either the entire space (corresponding to~$I=(0)$), the empty set (now~$I=A$) and finite unions of closed points~$\left\{ [\mathfrak{p}_1],\ldots,[\mathfrak{p}_k] \right\}$ with~$\mathfrak{p}_i$ either a prime number of a linear term (corresponding to~$I=\mathfrak{p}_1\cdots\mathfrak{p}_k$)\todo{check this, what with the generic point?}.
 
-In the case where~$A=\Spec\mathbb{C}[x,y]$ it will become obvious why we speak about closed and generic points. If we take~$I=\mathfrak{m}=(x-\alpha,y-\beta)$ we see that what we called a closed point in the previous section is actually closed in the Zariski topology! On the other hand, if we take~$I=(f(x,y))$ which corresponds to a generic point we see that the closed set~$\vanishing(I)$ contains the generic point (closures don't remove points) and all the closed points that are somehow contained in the curve that's described by the generic point. Other closed sets are finite unions of basic closed sets, the empty set and the entire space.
+In the case where~$A=\mathbb{C}[x,y]$ it will become obvious why we speak about closed and generic points. If we take~$I=\mathfrak{m}=(x-\alpha,y-\beta)$ we see that what we called a closed point in the previous section is actually closed in the Zariski topology! On the other hand, if we take~$I=(f(x,y))$ which corresponds to a generic point we see that the closed set~$\vanishing(I)$ contains the generic point (closures don't remove points) and all the closed points that are somehow contained in the curve that's described by the generic point. Other closed sets are finite unions of basic closed sets, the empty set and the entire space.
 
-Proving that this is indeed a topology (i.e., that taking finite unions and arbitrary intersections is supported) is left as an exercise to the reader. You might consider the topology on~$\Spec\mathbb{C}[x,y]$ first, before tackling the~$\Spec A$ case but it's really easy.
+Proving that this is indeed a topology (i.e., taking finite unions and arbitrary intersections is legal) is left as an exercise to the reader. You might consider the topology on~$\Spec\mathbb{C}[x,y]$ first, before tackling the~$\Spec A$ case but it's really easy and a straightforward generalization from last year.
+
+Hence we can stop talking about ``the set~$\Spec A$'' and instead start using ``the topological space~$\Spec A$'', when we equip the set with the Zariski topology.
+
 
 \subsection{The structure sheaf}
+So far everything we did was rather familiar, translating varieties to schemes by replacing reduced and finitely generated~$\mathbb{C}$-algebras by commutative and unital rings. But in order to get a real anti-equivalence in~\eqref{equation:schemes-anti-equivalence-2} and a fully operational scheme theory we need to consider the topological space~$\Spec A$ together with its structure sheaf. This idea isn't new though: it boils down to a \emph{vast} generalization of the coordinate ring of an affine variety.
 
+We wish to consider an element~$f\in A$ as a \emph{function} on~$\Spec A$, just like we had regular functions on an affine variety which were elements of the corresponding coordinate ring. But we won't restrict ourselves to regular functions (which are defined everywhere) but we'll describe what the regular functions on all open subsets of the topological space~$\Spec A$ look like! This may seem artificial now, but it will turn out to be crucial in the development of algebraic geometry in terms of schemes.
+
+This specific instance of ``regular functions on a scheme'' is called the \emph{structure sheaf}, but to understand it, I'll define sheaves in general. Let's first repeat what an abelian category is.
+
+\begin{definition}
+  A category is said to be \emph{abelian} if it has zero objects, pullbacks and pushouts and all mono- and epimorphisms are normal.
+\end{definition}
+
+The exact meaning of this is not important (it just says that it is a nice category, for a certain notion of nice) but a small set of examples will be useful. It will suffice if this set of examples contains abelian groups and (left-) modules over a (not necessarily commutative) ring. Remark that the first is a special case of the latter.
+
+\begin{definition}
+  A \emph{presheaf}~$\mathcal{F}$ on a topological space~$(X,\mathcal{T})$ over an abelian category~$\mathcal{K}$ is given by
+  \begin{enumerate}
+    \item an object~$\mathcal{F}(U)\in\mathcal{K}$ for every open set~$U\subseteq X$ which are the \emph{sections} over~$U$;
+    \item for every inclusion~$V\subseteq U$ a \emph{restriction morphism}~$\res^U_V\colon\mathcal{F}(U)\to\mathcal{F}(V)$ which is a morphism in~$\mathcal{K}$.
+  \end{enumerate}
+
+  These restriction morphisms satisfy the following conditions/
+  \begin{enumerate}
+    \item $\res^U_U=\identity_{\mathcal{F}(U)}$;
+    \item if we have~$W\subseteq V\subseteq U$ then~$\res^U_W=\res^V_W\circ\res^U_V$.
+  \end{enumerate}
+\end{definition}
+
+Now to get to the definition of a sheaf we'll introduce two axioms that a presheaf must satisfy: the local identity and the gluing axiom.
+
+\begin{definition}
+  A presheaf~$\mathcal{F}$ is a \emph{sheaf} if and only if
+  \begin{description}
+    \item[\textbf{local identity}] if $U=\bigcup_{i\in I}U_i$ is an open covering with~$s$ and~$t$ in~$\mathcal{F}(U)$ such that they are equal in all the restrictions then~$s=t$;
+    \item[\textbf{gluing}] if we are given~$s_i\in\mathcal{F}(U_i)$ in an open covering~$U=\bigcup_{i\in I}U_i$ such that all restrictions to intersections~$U_i\cap U_j$ agree then we can construct a section~$s\in\mathcal{F}(U)$ that restricts to each of the~$s_i$.
+  \end{description}
+\end{definition}
+
+\begin{example}
+  The \emph{constant presheaf} that assigns a fixed object~$A\in\mathcal{K}$ to every open set is the easiest example imaginable. But this is not a sheaf (can you see why?), unless we \emph{sheafify} it which corresponds to taking ``the best sheaf we can make out of a given presheaf''. If we do this we get a copy of~$A$ in~$\mathcal{F}(X)$ for every connected component of~$X$.
+\end{example}
+
+\begin{example}
+  Another standard example is the \emph{skyscraper sheaf}. Fix an element~$x\in X$ and assign~$A\in\mathcal{K}$ to every~$U$ that contains~$x$ but assign~$0$ otherwise. Can you see why this is a skyscraper?
+\end{example}
+
+Now if we take our topological space to be~$\Spec A$ we can define its structure sheaf which will capture all of the structure we'll need in algebraic geometry\todo{continue}.
