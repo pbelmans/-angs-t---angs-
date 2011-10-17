@@ -8,6 +8,31 @@ basically says it all, but it will require an explanation in more detail to real
 There are three parts in the definition of an affine scheme: it is a \emph{set}, equipped with a certain \emph{topology} and there is a \emph{structure sheaf} defined on this topological space that captures its geometric properties. The first two parts are quite familiar, but for most of you (speaking to my fellow students) the latter will be new.
 
 \subsection{The set $\Spec A$}
+Let~$A$ be a commutative and unital ring. Define the \emph{set~$\Spec A$} to be the set of all prime ideals of~$A$. We already see a difference with the variety case: we were only interested in the maximal spectrum there. Let's look at some examples to see what this implies.
+
+\begin{example}
+  \begin{equation}
+    \Spec Z=\left\{ \left[ (p) \right]\,|\,\text{$p\in\mathbb{Z}$ prime} \right\}\cup\left\{ [(0)] \right\}.
+  \end{equation}
+\end{example}
+
+\begin{example}
+  \begin{equation}
+    \Spec\mathbb{C}[x]=\left\{ \left[ (x-\alpha) \right]\,|\,\alpha\in\mathbb{C} \right\}\cup\left\{ [(0)] \right\}.
+  \end{equation}
+\end{example}
+
+\begin{example}
+  \begin{equation}
+    \Spec\mathbb{C}[x,y]=\left\{ \text{irreducible polynomials in~$\mathbb{C}[x,y]$} \right\}\cup\left\{ [(0)] \right\}.
+  \end{equation}
+\end{example}
+
+The first two examples are pretty familiar:~$\Spec\mathbb{C}[x]$ is the affine line as we know it from our varieties course (plus an extra point~$[(0)]$) and while~$\mathbb{Z}$ doesn't really look like a reduced and finitely generated~$\mathbb{C}$-algebra we already know from previous lectures in the seminar its spectrum looks like~$\Spec\mathbb{C}[x]$. We observe that an extra point came to life here too.
+
+But it's really the third examples that will show the difference between the variety-approach and the scheme-approach. It might be looking familiar (it's just~$\mathbb{A}^2_{\mathbb{C}}$ from last year, right?) but it is radically different. \emph{Every} irreducible polynomial is now a point! We were used to points corresponding to maximal ideals~$[(x-\alpha,y-\beta)]$ and from our previous examples we knew about the presence of~$[(0)]$ but stuff like~$[(y^2-x^3-x)]$ have become points too. Our new points correspond to irreducible curves in the affine plane.
+
+For reasons that will become clear once we've introduced the topology on the set~$\Spec A$ we call our familiar points (i.e., corresponding to maximal ideals) \emph{closed points} while all the others (including~$[(0)]$, if~$A$ is a domain but not a field) are \emph{generic points}. Remark that the generic point corresponding to a curve does not contain the maximal points that lie on it in the usual sense, but we will observe something that approximates this inclusion when we have our topology.
 
 \subsection{Zariski topology on $\Spec A$}
 
