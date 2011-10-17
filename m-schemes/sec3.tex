@@ -35,6 +35,19 @@ But it's really the third examples that will show the difference between the var
 For reasons that will become clear once we've introduced the topology on the set~$\Spec A$ we call our familiar points (i.e., corresponding to maximal ideals) \emph{closed points} while all the others (including~$[(0)]$, if~$A$ is a domain but not a field) are \emph{generic points}. Remark that the generic point corresponding to a curve does not contain the maximal points that lie on it in the usual sense, but we will observe something that approximates this inclusion when we have our topology.
 
 \subsection{Zariski topology on $\Spec A$}
+As in the case we with varieties we call the topology that an (affine) scheme is equipped with the \emph{Zariski topology} as it is defined in a similar vein. We will define what a closed set is (unlike most topologies that are defined in terms of the open sets, but there's no difference) is and then we check whether finite unions and arbitrary intersections are again closed.
+
+By a closed subset of the set~$\Spec A$ we mean a set
+\begin{equation}
+  \vanishing(I)=\left\{ [\mathfrak{p}]\in\Spec A\,|\,I\subseteq\mathfrak{p} \right\}
+\end{equation}
+where~$I$ is an ideal of~$A$. Remark that this is completely analogous to the varieties we considered in our course last year, but we'll now put emphasis on certain consequences of this particular definition.
+
+If we consider the examples from the previous section we obtain the following descriptions of their topologies. By the analogy between~$\Spec\mathbb{Z}$ and~$\mathbb{C}[x]$ we have in both cases a cofinite topology, the closed subsets are either the entire space (corresponding to~$I=(0)$), the empty set (now~$I=A$) and finite unions of closed points~$\left\{ [\mathfrak{p}_1],\ldots,[\mathfrak{p}_k] \right\}$ with~$\mathfrak{p}_i$ either a prime number of a linear term (corresponding to~$I=\mathfrak{p}_1\cdots\mathfrak{p}_k$)\todo{check this, what with the generic point?}.
+
+In the case where~$A=\Spec\mathbb{C}[x,y]$ it will become obvious why we speak about closed and generic points. If we take~$I=\mathfrak{m}=(x-\alpha,y-\beta)$ we see that what we called a closed point in the previous section is actually closed in the Zariski topology! On the other hand, if we take~$I=(f(x,y))$ which corresponds to a generic point we see that the closed set~$\vanishing(I)$ contains the generic point (closures don't remove points) and all the closed points that are somehow contained in the curve that's described by the generic point. Other closed sets are finite unions of basic closed sets, the empty set and the entire space.
+
+Proving that this is indeed a topology (i.e., that taking finite unions and arbitrary intersections is supported) is left as an exercise to the reader. You might consider the topology on~$\Spec\mathbb{C}[x,y]$ first, before tackling the~$\Spec A$ case but it's really easy.
 
 \subsection{The structure sheaf}
 
