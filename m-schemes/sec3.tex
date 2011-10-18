@@ -8,7 +8,12 @@ basically says it all, but it will require an explanation in more detail to real
 
 There are three parts in the definition of an affine scheme: it is a \emph{set}, equipped with a certain \emph{topology} and there is a \emph{structure sheaf} defined on this topological space that captures its geometric properties. The first two parts are quite familiar, but for most of you (speaking to my fellow students) the latter will be new.
 
+\iftex
+\subsection[The set Spec A]{The set $\Spec A$}
+\fi
+\ifblog
 \subsection{The set $\Spec A$}
+\fi
 Let~$A$ be a commutative and unital ring. Define the \emph{set~$\Spec A$} to be the set of all prime ideals of~$A$. We already see a difference with the variety case: we were only interested in the maximal spectrum there. Let's look at some examples to see what this implies.
 
 \begin{example}
@@ -35,7 +40,12 @@ But it's really the third examples that will show the difference between the var
 
 For reasons that will become clear once we've introduced the topology on the set~$\Spec A$ we call our familiar points (i.e., corresponding to maximal ideals) \emph{closed points} while all the others (including~$[(0)]$, if~$A$ is a domain but not a field) are \emph{generic points}. Remark that the generic point corresponding to a curve does not contain the maximal points that lie on it in the usual sense, but we will observe something that approximates this inclusion when we have our topology.
 
+\iftex
+\subsection[Zariski topology on Spec A]{Zariski topology on $\Spec A$}
+\fi
+\ifblog
 \subsection{Zariski topology on $\Spec A$}
+\fi
 As in the case we with varieties we call the topology that an (affine) scheme is equipped with the \emph{Zariski topology} as it is defined in a similar vein. We will define what a closed set is (unlike most topologies that are defined in terms of the open sets, but there's no difference) is and then we check whether finite unions and arbitrary intersections are again closed.
 
 By a closed subset of the set~$\Spec A$ we mean a set
@@ -95,7 +105,25 @@ Now to get to the definition of a sheaf we'll introduce two axioms that a preshe
 \end{example}
 
 \begin{example}
-  Another standard example is the \emph{skyscraper sheaf}. Fix an element~$x\in X$ and assign~$A\in\mathcal{K}$ to every~$U$ that contains~$x$ but assign~$0$ otherwise. Can you see why this is a skyscraper?
+  Another standard example is the \emph{skyscraper sheaf}. Let's fix an element~$x\in X$ and assign~$A\in\mathcal{K}$ to every~$U$ that contains~$x$ but assign~$0$ otherwise. Can you see why this is called a skyscraper?
 \end{example}
 
-Now if we take our topological space to be~$\Spec A$ we can define its structure sheaf which will capture all of the structure we'll need in algebraic geometry\todo{continue}.
+\begin{example}
+  And the guiding examples of actual sheaves are sheaves of continuous functions on a topological space to another topological space, or ($k$ times continuously) differentiable functions on a manifold (with codomain~$\mathbb{R}$). The restriction morphisms are easily seen to be the restriction of functions, and as continuity or differentiability is a local property it is compatible with gluing.
+  
+  Remark that continuous functions in general do not admit any abelian category structure (as the codomain of the continuous functions needs to admit an algebraic structure in an abelian category!), so we have a sheaf of sets in this case. That's legal too, but we'll be interested in sheaves over abelian categories most of the time. Interesting fact: all the sheaves over a topological space with values in an abelian category form an abelian category.
+\end{example}
+
+Now if we take our topological space to be~$\Spec A$ we can define its \emph{structure sheaf}~$\mathcal{O}_{\Spec A}$ which will capture all of the structure we'll need in algebraic geometry. Remember from our varieties course that we have a basis of distinguished open sets, where a distinguished open is defined by
+\begin{equation}
+  \distinguished(f)=\left\{ [\mathfrak{p}]\in\Spec A\,|\,f\notin\mathfrak{p} \right\}
+\end{equation}
+such that~$f$ is a function on~$\Spec A$, or an element of~$A$. It corresponds to a region where~$f$ does not vanish. In order to understand this, consider~$\Spec\mathbb{Z}$ and look at what happens to~$n\in\mathbb{Z}$ when you take the quotient~$\mathbb{Z}/\mathfrak{p}$ at each point~$[\mathfrak{p}]$ of~$\Spec\mathbb{Z}$.
+
+It can be shown that it suffices to define the structure sheaf on these distinguished open sets. So let's do it:
+\begin{equation}
+  \mathcal{O}_{\Spec A}(\distinguished(f))=A_f
+\end{equation}
+where~$A_f$ denotes the localization of~$A$ at the element~$f$.
+
+That's it. We've defined what it means to be an affine scheme. It corresponds to taking a commutative and unital ring, turning it into a set with a certain topology and then equip it with a structure sheaf. The anti-equivalence in~\eqref{equation:schemes-anti-equivalence-2} is now given by taking~$\Spec$ in one direction and considering the ring of global sections which is just~$\mathcal{O}_{\Spec A}({\Spec A})$, all the functions that are defined on the entire space.
