@@ -23,8 +23,14 @@ By dropping these restrictions we wish to gain
 \begin{itemize}
   \item elegance of exposition;
   \item the bliss of stating things in their most general form;
-  \item a tool and a language when you have to work with objects that do not meet this stringent conditions (if you're a number theorist for instance, and we all are a bit for the course of this seminar).
+  \item a tool and a language when you have to work with objects that do not meet this stringent conditions.
 \end{itemize}
+
+Geometrically speaking, there are at least three reasons to introduce schemes into the picture. First of all we would like to have an intrinsic notion of variety, independent of any embedding in projective space. This is comparable to the notion of differentiable manifold. Even though the Whitney embedding theorem states that you can embed every such manifold into an $\mathbb{R}^{n}$ for sufficiently high~$n$, the power of the intrinsic definition lies in getting rid of redundant information, and study the manifold in itself. Weil already defined abstract varieties in the forties which was the first step to this intrinsic notion, but it wasn't until schemes came along that the concept truly flourished.
+
+The second reason comes from groups acting on projective varieties, for which the quotient isn't a variety. Locally though, it is, which indicates that there should be a deeper connection present. With the introduction of schemes, a lot of these examples could be thoroughly studied, which gave rise to Mumford's geometric invariant theory.
+
+Finally, if you study families of algebraic varieties, some of the fibres (i.e., objects corresponding to a certain parameter) aren't varieties at all. Considering the family of all conics for example, we get a strange conic when we take~$X^{2}=0$, which corresponds set-theoretically to the straight line~$X=0$. This is obviously not the right way to think about the conic; just look at the parametrization~$X^{2}-t=0$. These are all genuine conics for all values of~$t$, except for $t=0$, indicating that something went wrong. Issues like these get nicely resolved by using schemes. 
 
 Before I introduce scheme theory by giving the generalization of~\eqref{equation:variety-anti-equivalence} I'll discuss what happens if we drop each of the conditions:
 \begin{description}
