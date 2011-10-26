@@ -5,18 +5,18 @@ In my previous post I introduced affine schemes, which will serve as the buildin
 The second part of this post will be devoted to \emph{properties} of schemes. I will introduce some of the more frequently occurring, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
 
 \subsection{Schemes and projective schemes}
-I could (or should) have introduced this terminology in my previous post but I didn't. Let's patch up our knowledge in order to define schemes.
+I could (or should) have introduced this terminology in my previous post but I haven't. Let's patch up our knowledge in order to define schemes.
 
 \begin{definition}
-  When we equip a topological space~$X$ with a sheaf of rings~$\mathcal{O}_X$ (like we did before) we will call~$(X,\mathcal{O}_X)$ a \emph{ringed space}. So affine schemes are examples of ringed spaces, just like differentiable manifolds. These will be our two guiding examples.
+  When we equip a topological space~$X$ with a sheaf of rings~$\mathcal{O}_X$ (like we did!) we will call~$(X,\mathcal{O}_X)$ a \emph{ringed space}. So affine schemes are examples of ringed spaces, just like differentiable manifolds. These will be our two guiding examples.
 \end{definition}
 
 \begin{definition}
-  The \emph{pushforward} of a sheaf~$\mathcal{F}$ on~$X$ through a continuous function~$f\colon X\to Y$ is given by~$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$ where~$V\subseteq Y$ open. We have covered this notion in our manifolds course.
+  The \emph{pushforward} of a sheaf~$\mathcal{F}$ on~$X$ through a continuous function~$f\colon X\to Y$ is given by~$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$ where~$V\subseteq Y$ open. Give it a moment's thought as to why this is again a sheaf.
 \end{definition}
 
 \begin{definition}
-  Now an \emph{isomorphism of ringed spaces}~$(X,\mathcal{O}_X)$ and~$(Y,\mathcal{O}_Y)$ is given by a homeomorphism~$f\colon X\to Y$ and an isomorphism of sheaves (defined in the usual sense)~$\mathcal{O}_Y$ and~$f_\ast\mathcal{O}_X$. So we have a bijection of the underlying sets, an ``isomorphism'' in the topological sense and an isomorphism of sheaves. Now in my previous post I defined an affine scheme to be a tuple~$(\Spec A,\mathcal{O}_{\Spec A})$, from now on we will say that \emph{any ringed space that is isomorphic to such a tuple} is an \emph{affine scheme}.
+  Now an \emph{isomorphism of ringed spaces}~$(X,\mathcal{O}_X)$ and~$(Y,\mathcal{O}_Y)$ is given by a homeomorphism~$f\colon X\to Y$ and an isomorphism of sheaves ~$\mathcal{O}_Y$ and~$f_\ast\mathcal{O}_X$. The definition of an isomorphism of sheaves is left as an exercise. Summarizing: we have a bijection of the underlying sets which serves as an ``isomorphism'' in the topological sense and an isomorphism of sheaves. Now in my previous post I defined an affine scheme to be a tuple~$(\Spec A,\mathcal{O}_{\Spec A})$, from now on we will say that \emph{any ringed space that is isomorphic to such a tuple} is an \emph{affine scheme}.
 \end{definition}
 
 \begin{definition}
@@ -26,7 +26,15 @@ I could (or should) have introduced this terminology in my previous post but I d
 We are now ready for the objective of this post.
 
 \begin{definition}
-  A \emph{scheme} $(X,\mathcal{O}_X)$ is a ringed space such that any point~$x\in X$ has an open neighbourhood~$U$ such that~$(U,\mathcal{O}_{X|U}$ is an affine scheme.
+  A \emph{scheme} $(X,\mathcal{O}_X)$ is a ringed space such that any point~$x\in X$ has an open neighbourhood~$U$ such that~$(U,\mathcal{O}_{X|U})$ is an affine scheme.
 \end{definition}
 
-This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous.
+This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case :).
+
+It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples.
+
+\begin{example}
+  Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens corresponded to complements of closed sets cut out by a single function. But these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$.
+\end{example}<++>
+
+
