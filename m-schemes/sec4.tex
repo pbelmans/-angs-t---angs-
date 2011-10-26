@@ -2,6 +2,31 @@
 
 In my previous post I introduced affine schemes, which will serve as the building blocks for schemes. Besides constructing schemes in general I will also say a few words on projective schemes, which can serve as another class of building blocks for schemes.
 
-The second part of this post will be devoted to properties of schemes. I will introduce some of the more frequently occurring, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
+The second part of this post will be devoted to \emph{properties} of schemes. I will introduce some of the more frequently occurring, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
 
 \subsection{Schemes and projective schemes}
+I could (or should) have introduced this terminology in my previous post but I didn't. Let's patch up our knowledge in order to define schemes.
+
+\begin{definition}
+  When we equip a topological space~$X$ with a sheaf of rings~$\mathcal{O}_X$ (like we did before) we will call~$(X,\mathcal{O}_X)$ a \emph{ringed space}. So affine schemes are examples of ringed spaces, just like differentiable manifolds. These will be our two guiding examples.
+\end{definition}
+
+\begin{definition}
+  The \emph{pushforward} of a sheaf~$\mathcal{F}$ on~$X$ through a continuous function~$f\colon X\to Y$ is given by~$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$ where~$V\subseteq Y$ open. We have covered this notion in our manifolds course.
+\end{definition}
+
+\begin{definition}
+  Now an \emph{isomorphism of ringed spaces}~$(X,\mathcal{O}_X)$ and~$(Y,\mathcal{O}_Y)$ is given by a homeomorphism~$f\colon X\to Y$ and an isomorphism of sheaves (defined in the usual sense)~$\mathcal{O}_Y$ and~$f_\ast\mathcal{O}_X$. So we have a bijection of the underlying sets, an ``isomorphism'' in the topological sense and an isomorphism of sheaves. Now in my previous post I defined an affine scheme to be a tuple~$(\Spec A,\mathcal{O}_{\Spec A})$, from now on we will say that \emph{any ringed space that is isomorphic to such a tuple} is an \emph{affine scheme}.
+\end{definition}
+
+\begin{definition}
+  The restriction of a sheaf~$\mathcal{O}_X$ on a topological space~$X$ to an open subspace~$U$ is defined by taking~$\mathcal{O}_{X|U}(V)=\mathcal{O}_X(V)$ for~$V\subseteq U$ open.
+\end{definition}
+
+We are now ready for the objective of this post.
+
+\begin{definition}
+  A \emph{scheme} $(X,\mathcal{O}_X)$ is a ringed space such that any point~$x\in X$ has an open neighbourhood~$U$ such that~$(U,\mathcal{O}_{X|U}$ is an affine scheme.
+\end{definition}
+
+This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous.
