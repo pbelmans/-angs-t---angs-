@@ -31,10 +31,24 @@ We are now ready for the objective of this post.
 
 This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case :).
 
-It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples.
+It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise.
 
 \begin{example}
-  Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens corresponded to complements of closed sets cut out by a single function. But these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$.
-\end{example}<++>
+  Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens correspond to complements of closed sets cut out by a \emph{single} function. But in~$\mathbb{A}^2_k$ these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$.
 
+  The sheaf of algebraic functions gives for these two open sets the rings~$k[x,y,x^{-1}]$ and~$k[x,y,y^{-1}]$. Now we have to find functions that are defined on both open sets, but this is just~$k[x,y]$! Hence we find~$\mathcal{O}(U)=k[x,y]$, which is clearly distinct from what we had in the affine scheme scenario: the ring of global sections is \emph{not} equal to~$A$ in~$\Spec A$ (even more: there is no ring~$A$ such that~$U=\Spec A$).
+\end{example}
 
+\begin{example}
+  Now we'll introduce the \emph{projective line}~$\mathbb{P}^1_k$ and the \emph{affine line with the doubled origin}. These are both obtained by taking~$\mathbb{A}^1_k$ and gluing it in two different ways. Recall that gluing topological spaces is done by taking their disjoint union and identifying certain open sets (and their subsets).
+
+  Now let~$X=\mathbb{A}^1_k\sqcup\mathbb{A}^1_k$. Take the open set~$\distinguished(t_1)$ in the first component and the open set~$\distinguished(t_2)$ in the second. Visualize this by drawing two parallel lines and drawing a dot at the origin if you like. Now identify these sets by the assignment~$t_1\mapsto t_2$ (and~$t_2\mapsto t_1$). We get almost the affine line, but the closed points corresponding to~$(t_1)$ and~$(t_2)$ are still unidentified.
+
+  Another way to glue the two open sets is by~$t_1\mapsto 1/t_2$ (and likewise~$t_2\mapsto 1/t_1$). The origin in the first component is somehow sent to a point at infinity (or better: \emph{the} point) in the second component, while the origin in the second is sent to the point at infinity of the first. We've obtained the projective line in a rather ad-hoc way. I will discuss a more canonical method later.
+
+  This should feel familiar, from our manifolds course. But whereas differential geometry excludes the affine line with the doubled origin (it is not Hausdorff enough for those pesky non-algebraic geometers) it is a scheme! It's not a scheme you will wish to work (we do like some notion of \emph{separated}) with but with the Zariski topology being so coarse (it's the cofinite topology for god's sake, you can't get much coarser) there's no way of excluding it: only trivial schemes are Hausdorff.
+\end{example}
+
+\begin{example}
+  Now consider~$\Spec\mathbb{Z}[x]$. This is an affine scheme, so it might've been better to discuss it in my previous post, but I will leave this as an exercise: try to understand \href{http://www.neverendingbooks.org/index.php/mumfords-treasure-map.html}{Mumford's treasure map}.
+\end{example}
