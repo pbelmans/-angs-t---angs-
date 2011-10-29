@@ -29,7 +29,7 @@ We are now ready for the objective of this post.
   A \emph{scheme} $(X,\mathcal{O}_X)$ is a ringed space such that any point~$x\in X$ has an open neighbourhood~$U$ such that~$(U,\mathcal{O}_{X|U})$ is an affine scheme.
 \end{definition}
 
-This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case :).
+This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case.
 
 It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise.
 
@@ -52,3 +52,11 @@ It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \h
 \begin{example}
   Now consider~$\Spec\mathbb{Z}[x]$. This is an affine scheme, so it might've been better to discuss it in my previous post, but I will leave this as an exercise: try to understand \href{http://www.neverendingbooks.org/index.php/mumfords-treasure-map.html}{Mumford's treasure map}.
 \end{example}
+
+Before I introduce projective schemes, a small word on local rings. Recall that for a domain there is a corresponding quotient field. Now we can consider a subring of the quotient field that is almost a domain: it has a unique maximal ideal. In the geometric sense this maximal ideal consists of the functions vanishing at a point. This geometric intuition is most familiar from manifolds, but applies to algebraic geometry too.
+
+It is possible to localize at a certain prime ideal (or more precisely: the complement). So we will define the \emph{local ring at a point~$[\mathfrak{p}]$} to be the ring~$A_{\mathfrak{p}}$, where~$A$ is the ring of global sections of an affine open subset of our scheme. Convince yourself that this definition is correct.
+
+One last term (I promise!) is the notion of a \emph{stalk at a point~$[\mathfrak{p}]$}. This is defined as the direct limit over all sections over open sets containing~$[\mathfrak{p}]$. Don't worry if this means nothing, I've \emph{defined} stalks to be the local rings they should be, but actually you should do it the other way around, making clear that the direct limit is this local ring. We've done this construction in our Commutative algebra course, but it was rather fuzzy at that moment (at least to me).
+
+Now a scheme is said to be a \emph{locally ringed space}, it's stalks are local rings. Notice that this is one (hopefully) the most ambiguous terminology you'll ever encounter: the space is not ringed locally, it is equipped with local rings. It is therefore not some local property, it applies to all points. If you speak Dutch: it would be the difference between \emph{lokaalgeringde ruimte} and \emph{lokaal geringde ruimte}, we are using the first spelling.
