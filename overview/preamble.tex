@@ -18,7 +18,12 @@
 \usepackage[draft = false]{microtype}
 \frenchspacing
 
-\hypersetup{hypertexnames = false, draft = false, bookmarksdepth = 1, bookmarksopen = true, colorlinks, pdfstartview={XYZ null null 1}}
+\definecolor{uablue}{RGB}{0,61,100}
+\definecolor{uared}{RGB}{126,0,47}
+\definecolor{vividbrown}{RGB}{215,154,70}
+\definecolor{uagreen}{RGB}{0,126,17}
+
+\hypersetup{hypertexnames=false,draft=false,bookmarksdepth=1,bookmarksopen=true,colorlinks,linkcolor=uablue,citecolor=uablue,urlcolor=uared,pdfstartview={XYZ null null 1}}
 
 \counterwithout{section}{chapter}
 \counterwithin*{section}{chapter}
@@ -26,6 +31,7 @@
 \setcounter{tocdepth}{1}
 
 \newcommand{\sectionbreak}{\clearpage}
+\chapterstyle{companion}
 
 \newif\ifblog
 \newif\iftex
@@ -45,6 +51,8 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
+
+\newcommand\unityroots{\mathbf{\mu}}
 
 \DeclareMathOperator\distinguished{D}
 \DeclareMathOperator\identity{id}

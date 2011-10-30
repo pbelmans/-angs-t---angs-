@@ -1,15 +1,12 @@
 \documentclass[a4paper]{memoir}
 \input{preamble}
 
+\checkandfixthelayout
+
 \begin{document}
-%\title{Antwerp Noncommutative Geometry Seminar}
-%\author{
-%  Lieven \textsc{Le Bruyn}, Pieter \textsc{Belmans}, Kevin \textsc{De Laet}, Evert \textsc{De Nolf}, \\
-%  Pieter \textsc{Goetschalckx}, Bruno \textsc{Herman}, Theo \textsc{Raedschelders}}
-%\maketitle
 \title{\#angs@t / angs+}
 \author{
-  Lieven~\textsc{Le~Bruyn}, Pieter~\textsc{Belmans}, Kevin~\textsc{De~Laet}, Evert~\textsc{De~Nolf}, Pieter~\textsc{Goetschalckx}, Bruno~\textsc{Herman}, Theo~\textsc{Raedschelders}
+  Lieven~\textsc{Le~Bruyn} \\[.3em] Pieter \textsc{Belmans}, Kevin~\textsc{De~Laet}, \\ Evert~\textsc{De~Nolf}, Pieter~\textsc{Goetschalckx}, \\ Bruno~\textsc{Herman}, Theo~\textsc{Raedschelders}
 }
 
 \begin{titlingpage}
@@ -17,13 +14,12 @@
   \hbox{
     \rule{1pt}{\textheight}
     \hspace*{0.05\textwidth}
-    \parbox[b]{0.8\textwidth}{
+    \parbox[b]{0.9\textwidth}{
       \vbox{
-        \vspace{0.0\textheight}
         {\noindent\HUGE\bfseries\thetitle} \\[4pt]
         {\noindent\Large\textcolor{gray}{antwerp noncommutative geometry seminar}}\\[\baselineskip]
 
-        {\Large\itshape Collected notes and posts}
+        {\Large\slshape Collected notes and posts from \href{http://noncommutative.org}{noncommutative.org}}
 
         \vspace{0.1\textheight}
 
@@ -87,6 +83,7 @@
 \setcounter{section}{0}
 
 \section{The Smirnov letters}
+\input{the-smirnov-letters/post.tex}
 
 \section{What is $\mathbb{P}^1$ over~$\mathbb{F}_1$?}
 
@@ -111,6 +108,6 @@
 \section{Prime number theorem: an example why polynomials are much easer than numbers}
 
 \bibliographystyle{alpha}
-\bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography}
+\bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography,the-smirnov-letters/bibliography}
 
 \end{document}
