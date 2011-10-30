@@ -1,0 +1,83 @@
+\documentclass[a4paper]{memoir}
+\input{preamble}
+
+\begin{document}
+\title{Antwerp Noncommutative Geometry Seminar}
+\author{
+  Lieven \textsc{Le Bruyn}, Pieter \textsc{Belmans}, Kevin \textsc{De Laet}, Evert \textsc{De Nolf}, \\
+  Pieter \textsc{Goetschalckx}, Bruno \textsc{Herman}, Theo \textsc{Raedschelders}}
+\maketitle
+
+%\let\oldchapter=\chapter
+%\def\resetsection{\setcounter{section}{0}}
+%\def\chapter{\expandafter\resetsection\oldchapter}
+%\setcounter{tocdepth}{1}
+\tableofcontents*
+
+\part{Series}
+
+\chapter{0-geometry}
+\section{Curves}
+\section{Genus}
+\section{Hurwitz}
+\section{The $abc$-theorem for curves}
+
+
+
+\chapter{The abc of the $abc$-conjecture and the Mason-Stothers theorem}
+\input{abc-and-mason-stothers/sec1.tex}
+\input{abc-and-mason-stothers/sec2.tex}
+\input{abc-and-mason-stothers/sec3.tex}
+
+
+\chapter{La carte et le territoire: understanding schemes and $\mathcal{M}$-schemes}
+\input{m-schemes/sec1.tex}
+\input{m-schemes/sec2.tex}
+\input{m-schemes/sec3.tex}
+\input{m-schemes/sec4.tex}
+\input{m-schemes/sec5.tex}
+\input{m-schemes/sec6.tex}
+
+
+\chapter{Playing Witt rings}
+\section{Gather your Witts}
+\section{Cartier's big Witt functor}
+\section{Lenstra's jewellery}<++>
+
+
+
+
+
+
+\part{Assorted posts}
+
+\setcounter{section}{0}
+
+\section{The Smirnov Letters}
+
+\section{What is $\mathbb{P}^1$ over~$\mathbb{F}_1$?}
+
+\section{What is the ``curve'' $\Spec\mathbb{Z}$?}
+
+\section{Rational numbers and covers $\Spec\mathbb{Z}\to\mathbb{P}^1/\mathbb{F}_1$}
+
+\section{The exceptional map and Mersenne primes}
+
+\section{$\mathbb{F}_1$ and the $abc$-conjecture}
+
+\section{Ostrowski's theorem for a polynomial ring}
+
+\section{The algebraic closures of finite fields and their subfields}
+
+\section{Advanced alchemy: Carlitz' take on quadratic reciprocity}
+
+\section{Local Langlands correspondence}
+
+\section{Prime splitting in cyclotomic fields}
+
+\section{Prime number theorem: an example why polynomials are much easer than numbers}
+
+\bibliographystyle{alpha}
+\bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography}
+
+\end{document}

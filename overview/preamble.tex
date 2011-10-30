@@ -1,0 +1,51 @@
+\usepackage[fleqn, leqno]{amsmath}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\usepackage{todonotes}
+\selectlanguage{english}
+
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+\usepackage[scaled]{beramono, berasans}
+\usepackage[draft = false]{microtype}
+\frenchspacing
+
+\hypersetup{hypertexnames = false, draft = false, bookmarksdepth = 1, bookmarksopen = true, colorlinks, pdfstartview={XYZ null null 1}}
+
+\counterwithout{section}{chapter}
+\counterwithin*{section}{chapter}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+\newif\ifblog
+\newif\iftex
+\blogfalse
+\textrue
+
+\addtolength{\parskip}{.7ex}
+\relpenalty=10000
+\binoppenalty=10000 
+\setlength\parindent{0cm}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{consequence}[theorem]{Consequence}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator\distinguished{D}
+\DeclareMathOperator\identity{id}
+\DeclareMathOperator\rad{rad}
+\DeclareMathOperator\res{res}
+\DeclareMathOperator\quality{q}
+\DeclareMathOperator\mSpec{mSpec}
+\DeclareMathOperator\Spec{Spec}
+\DeclareMathOperator\vanishing{V}
