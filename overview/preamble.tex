@@ -3,8 +3,10 @@
 \usepackage[english]{babel}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{hyphenat}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{titlesec}
 \usepackage[normalem]{ulem}
 \usepackage{todonotes}
 \selectlanguage{english}
@@ -21,6 +23,8 @@
 \counterwithin*{section}{chapter}
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
+
+\newcommand{\sectionbreak}{\clearpage}
 
 \newif\ifblog
 \newif\iftex
