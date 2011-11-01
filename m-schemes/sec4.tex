@@ -2,7 +2,7 @@
 
 In my previous post I introduced affine schemes, which will serve as the building blocks for schemes. Besides constructing schemes in general I will also say a few words on projective schemes, which can serve as another class of building blocks for schemes.
 
-The second part of this post will be devoted to \emph{properties} of schemes. I will introduce some of the more frequently occurring, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
+The third part of this post will be devoted to \emph{properties} of schemes. I will introduce the basic idea behind scheme-theoretic properties, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
 
 \subsection{Schemes}
 I could (or should) have introduced this terminology in my previous post but I haven't. Let's patch up our knowledge in order to define schemes.
@@ -99,9 +99,12 @@ I have skipped a lot of the technical details, but let's review the construction
   \item let the Zariski topology on~$\Proj S_\bullet$ be the generalization of vanishing sets of~$\Spec A$;
   \item let the structure sheaf on~$\Proj S_\bullet$ be defined on distinguished opens by using~$\distinguished(f)=\Spec\left( (S_\bullet)_f \right)_0$ and use gluing to define sections over the entire topological space.
 \end{enumerate}
+Remark that a projective scheme obviously is a locally ringed space: the local rings are defined by the local rings in the affine open subset from our~$\Spec$ construction.
 
 \begin{remark}
   If you wonder why~$S_+$ is called irrelevant is must be ignored: if~$S_+\subseteq\operatorname{rad}(I)$ then~$\vanishing(I)=\emptyset$, because\todo{satisfying explanation}
 \end{remark}
 
 You can now review the discussion of curves in \todo{nice reference}, everything we saw there for that specific case is now stated in general. And you can think about~$\mathbb{P}^1/\mathbb{Z}$ now: it's~$\Proj\mathbb{Z}[x_1,x_2]$. This particular scheme will become important in a few weeks. Remark that this construction (obviously) doesn't give us anything about~$\mathbb{P}^1/\mathbb{F}_1$: there is no such thing as~$\mathbb{F}_1[x]$ let alone~$\mathbb{F}_1[x_1,x_2]$!
+
+Now if you read a text on algebraic geometry and encounter the term \emph{quasiprojective scheme}, this is nothing but a compact (but not Hausdorff) open subscheme of a \emph{projective scheme over~$A$}, which is a~$\Proj S_\bullet$ where~$S_\bullet$ is a finitely generated graded ring over~$A$.
