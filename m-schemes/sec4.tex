@@ -1,10 +1,10 @@
-\section{Schemes}
+\section{Schemes, projective schemes and properties}
 
 In my previous post I introduced affine schemes, which will serve as the building blocks for schemes. Besides constructing schemes in general I will also say a few words on projective schemes, which can serve as another class of building blocks for schemes.
 
 The second part of this post will be devoted to \emph{properties} of schemes. I will introduce some of the more frequently occurring, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
 
-\subsection{Schemes and projective schemes}
+\subsection{Schemes}
 I could (or should) have introduced this terminology in my previous post but I haven't. Let's patch up our knowledge in order to define schemes.
 
 \begin{definition}
@@ -31,7 +31,7 @@ We are now ready for the objective of this post.
 
 This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case.
 
-It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise.
+It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog\href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise.
 
 \begin{example}
   Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens correspond to complements of closed sets cut out by a \emph{single} function. But in~$\mathbb{A}^2_k$ these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$.
@@ -40,6 +40,7 @@ It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \h
 \end{example}
 
 \begin{example}
+  \label{example:projective-line-doubled-origin}
   Now we'll introduce the \emph{projective line}~$\mathbb{P}^1_k$ and the \emph{affine line with the doubled origin}. These are both obtained by taking~$\mathbb{A}^1_k$ and gluing it in two different ways. Recall that gluing topological spaces is done by taking their disjoint union and identifying certain open sets (and their subsets).
 
   Now let~$X=\mathbb{A}^1_k\sqcup\mathbb{A}^1_k$. Take the open set~$\distinguished(t_1)$ in the first component and the open set~$\distinguished(t_2)$ in the second. Visualize this by drawing two parallel lines and drawing a dot at the origin if you like. Now identify these sets by the assignment~$t_1\mapsto t_2$ (and~$t_2\mapsto t_1$). We get almost the affine line, but the closed points corresponding to~$(t_1)$ and~$(t_2)$ are still unidentified.
@@ -55,8 +56,52 @@ It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog \h
 
 Before I introduce projective schemes, a small word on local rings. Recall that for a domain there is a corresponding quotient field. Now we can consider a subring of the quotient field that is almost a domain: it has a unique maximal ideal. In the geometric sense this maximal ideal consists of the functions vanishing at a point. This geometric intuition is most familiar from manifolds, but applies to algebraic geometry too.
 
-It is possible to localize at a certain prime ideal (or more precisely: the complement). So we will define the \emph{local ring at a point~$[\mathfrak{p}]$} to be the ring~$A_{\mathfrak{p}}$, where~$A$ is the ring of global sections of an affine open subset of our scheme. Convince yourself that this definition is correct.
+It is possible to localize at a certain prime ideal (or more precisely: its complement). So we will define the \emph{local ring at a point~$[\mathfrak{p}]$} to be the ring~$A_{\mathfrak{p}}$, where~$A$ is the ring of global sections of an affine open subset of our scheme. Convince yourself that this definition is correct.
 
-One last term (I promise!) is the notion of a \emph{stalk at a point~$[\mathfrak{p}]$}. This is defined as the direct limit over all sections over open sets containing~$[\mathfrak{p}]$. Don't worry if this means nothing, I've \emph{defined} stalks to be the local rings they should be, but actually you should do it the other way around, making clear that the direct limit is this local ring. We've done this construction in our Commutative algebra course, but it was rather fuzzy at that moment (at least to me).
+One last term I need in order to introduce what I want is the notion of a \emph{stalk of~$\mathcal{F}$ at a point~$x$}. This is defined as the direct limit over all sections over open sets containing~$x$, i.e.,~$\mathcal{F}_x\coloneqq\varinjlim_{U\ni x}\mathcal{F}(U)$. This is the same as the local ring at a point~$[\mathfrak{p}]$ in a scheme.
 
-Now a scheme is said to be a \emph{locally ringed space}, it's stalks are local rings. Notice that this is one (hopefully) the most ambiguous terminology you'll ever encounter: the space is not ringed locally, it is equipped with local rings. It is therefore not some local property, it applies to all points. If you speak Dutch: it would be the difference between \emph{lokaalgeringde ruimte} and \emph{lokaal geringde ruimte}, we are using the first spelling.
+Now a scheme is said to be a \emph{locally ringed space} if its stalks are local rings. Notice that this is one (hopefully) the most ambiguous terminology you'll ever encounter: the space is not ringed locally, it is equipped with local rings. It is therefore not some local property in the topological sense. If you speak Dutch: it would be the difference between \emph{lokaalgeringde ruimte} and \emph{lokaal geringde ruimte}, we are using the first spelling.
+
+
+\subsection{Projective schemes}
+
+In Example~\ref{example:projective-line-doubled-origin} I introduced the projective line~$\mathbb{P}^1$ in a rather ad-hoc way, but you've never known otherwise: the idea of gluing is so prominent in manifolds that it is the obvious way to define projective spaces. But algebraic geometry offers an approach less tied to gluing and affine spaces over a field. Let's recall some definitions.
+
+\begin{definition}
+  A \emph{$\mathbb{Z}$-graded ring}~$S_\bullet$ is a ring
+  \begin{equation}
+    S_\bullet=\bigoplus_{n\in\mathbb{Z}}S_n
+  \end{equation}
+  where~$n$ denotes the \emph{grading} such that~$\cdot(S_m\times S_n)\subset S_{m+n}$. Therefore~$S_0$ is a subring of~$S_\bullet$ and~$S_\bullet$ is an~$S_0$\nobreakdash-algebra.
+\end{definition}
+
+If you like arbitrary gradings, prof.\ Van Oystaeyen is the place to be, but I will stick to~$\mathbb{Z}$\nobreakdash-gradings. Now we will introduce a specific class of graded rings.
+
+\begin{example}
+  Let~$A$ be a ring (the \emph{base ring}) and~$S_\bullet=A[x_0,\ldots,x_n]$ the induced~$\mathbb{Z}$-graded \emph{homogeneous polynomial ring} (the~$x_i$ are the \emph{homogeneous coordinates}). Now
+  \begin{equation}
+    S_+=\bigoplus_{i>0}S_i
+  \end{equation}
+  is the \emph{irrelevant ideal}. If it is finitely generated we say~$S_\bullet$ is a \emph{finitely generated graded ring over~$A$}.
+\end{example}
+
+We are now ready to mimick the three-part construction of affine schemes: first define a set, equip it with a topology and then put a structure sheaf on it (turning it into a ringed space). Recall that a \emph{homogeneous ideal} is an ideal generated by homogeneous elements. Now let simply let~$\Proj S_\bullet$ be the set of homogeneous prime ideals (excluding the irrelevant ideal~$S_+$!).
+
+In order to define the Zariski topology on~$\Proj S_\bullet$ we define the \emph{vanishing set~$\vanishing(I)$} of~$I$ to be the set of the homogeneous prime ideals containing~$I$, where~$I$ is a homogeneous ideal contained in~$S_+$. Analogous to the affine case we can define the \emph{projective distinguished open set}~$\distinguished(f)$ to be~$\Proj S_\bullet\setminus\vanishing\left( (f) \right)$ where~$f\in S_+$ is homogeneous.
+
+Before we can define the structure sheaf on~$\Proj S_\bullet$ we need to discuss localizations of graded rings a little. Let~$f\in S_+$ be homogeneous, the localization of the graded~$S_\bullet$ at~$f$ which we'll denote~$(S_\bullet)_f$ is the localization of the ring~$S_\bullet$ equipped with the gradation such that~$\deg(1/f)=-\deg f$. It can now be shown that the open subset~$\distinguished(f)$ of~$\Proj S_\bullet$ corresponds to the prime ideals of the (non-graded) ring~$\left( (S_\bullet)_f \right)_0$ (first and last index referring to two different gradations, middle index is localization). See \iftex\cite{foag}\fi\ifblog\href{http://math216.wordpress.com}{Vakil's notes}\fi for more information.
+
+Now because~$\distinguished(f)=\Spec\left( (S_\bullet)_f \right)_0$ we can define the structure sheaf on~$\Proj S_\bullet$ by defining the sections on~$\distinguished(f)$ to be those of~$\Spec\left( (S_\bullet)_f \right)_0$. Using some more sheaf theory we can prove that it is possible to glue these local definitions to a ``global sheaf''.
+
+I have skipped a lot of the technical details, but let's review the construction. We define a \emph{projective scheme} by taking any graded ring and
+\begin{enumerate}
+  \item let the set~$\Proj S_\bullet$ be the set of (relevant) homogeneous prime ideals;
+  \item let the Zariski topology on~$\Proj S_\bullet$ be the generalization of vanishing sets of~$\Spec A$;
+  \item let the structure sheaf on~$\Proj S_\bullet$ be defined on distinguished opens by using~$\distinguished(f)=\Spec\left( (S_\bullet)_f \right)_0$ and use gluing to define sections over the entire topological space.
+\end{enumerate}
+
+\begin{remark}
+  If you wonder why~$S_+$ is called irrelevant is must be ignored: if~$S_+\subseteq\operatorname{rad}(I)$ then~$\vanishing(I)=\emptyset$, because\todo{satisfying explanation}
+\end{remark}
+
+You can now review the discussion of curves in \todo{nice reference}, everything we saw there for that specific case is now stated in general. And you can think about~$\mathbb{P}^1/\mathbb{Z}$ now: it's~$\Proj\mathbb{Z}[x_1,x_2]$. This particular scheme will become important in a few weeks. Remark that this construction (obviously) doesn't give us anything about~$\mathbb{P}^1/\mathbb{F}_1$: there is no such thing as~$\mathbb{F}_1[x]$ let alone~$\mathbb{F}_1[x_1,x_2]$!
