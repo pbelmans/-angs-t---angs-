@@ -1,6 +1,6 @@
 \section{Schemes, projective schemes and properties}
 
-In my previous post I introduced affine schemes, which will serve as the building blocks for schemes. Besides constructing schemes in general I will also say a few words on projective schemes, which can serve as another class of building blocks for schemes.
+In \iftex the previous section \fi\ifblog my previous post \fi I introduced affine schemes, which will serve as the building blocks for schemes. Besides constructing schemes in general I will also say a few words on projective schemes, which can serve as another class of building blocks for schemes.
 
 The third part of this post will be devoted to \emph{properties} of schemes. I will introduce the basic idea behind scheme-theoretic properties, so that we can understand them when they arise in \iftex\cite{mapping-fun}\fi\ifblog Mapping~$\mathbb{F}_1$-land\fi.
 
@@ -8,35 +8,38 @@ The third part of this post will be devoted to \emph{properties} of schemes. I w
 I could (or should) have introduced this terminology in my previous post but I haven't. Let's patch up our knowledge in order to define schemes.
 
 \begin{definition}
-  When we equip a topological space~$X$ with a sheaf of rings~$\mathcal{O}_X$ (like we did!) we will call~$(X,\mathcal{O}_X)$ a \emph{ringed space}. So affine schemes are examples of ringed spaces, just like differentiable manifolds. These will be our two guiding examples.
+  When we equip a topological space~$X$ with a sheaf of rings~$\mathcal{O}_X$ (like we did for an affine scheme!) we will call~$(X,\mathcal{O}_X)$ a \emph{ringed space}. So affine schemes are examples of ringed spaces, just like differentiable manifolds. These will be our two guiding examples.
 \end{definition}
 
 \begin{definition}
-  The \emph{pushforward} of a sheaf~$\mathcal{F}$ on~$X$ through a continuous function~$f\colon X\to Y$ is given by~$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$ where~$V\subseteq Y$ open. Give it a moment's thought as to why this is again a sheaf.
+  The \emph{pushforward} of a sheaf~$\mathcal{F}$ on~$X$ through a continuous function~$f\colon X\to Y$ is given by~$f_\ast\mathcal{F}(V)=\mathcal{F}(f^{-1}(V))$ where~$V\subseteq Y$ open. Give it a moment's thought as to why this is again a sheaf. This is just the transport of a sheaf on~$X$ to a sheaf on~$Y$.
 \end{definition}
 
 \begin{definition}
-  Now an \emph{isomorphism of ringed spaces}~$(X,\mathcal{O}_X)$ and~$(Y,\mathcal{O}_Y)$ is given by a homeomorphism~$f\colon X\to Y$ and an isomorphism of sheaves ~$\mathcal{O}_Y$ and~$f_\ast\mathcal{O}_X$. The definition of an isomorphism of sheaves is left as an exercise. Summarizing: we have a bijection of the underlying sets which serves as an ``isomorphism'' in the topological sense and an isomorphism of sheaves. Now in my previous post I defined an affine scheme to be a tuple~$(\Spec A,\mathcal{O}_{\Spec A})$, from now on we will say that \emph{any ringed space that is isomorphic to such a tuple} is an \emph{affine scheme}.
+  Now an \emph{isomorphism of ringed spaces}~$(X,\mathcal{O}_X)$ and~$(Y,\mathcal{O}_Y)$ is given by a homeomorphism~$f\colon X\to Y$ and an isomorphism of sheaves~$\mathcal{O}_Y$ and~$f_\ast\mathcal{O}_X$. The definition of an isomorphism of sheaves is left as an exercise. Summarizing: we have a bijection of the underlying sets which serves as an ``isomorphism'' in the topological sense and an isomorphism of sheaves.
+  
+  In \iftex the previous section \fi\ifblog my previous post \fi I defined an affine scheme to be a tuple~$(\Spec A,\mathcal{O}_{\Spec A})$. From now on we will say that \emph{any ringed space that is isomorphic to such a tuple} is an \emph{affine scheme}.
 \end{definition}
 
 \begin{definition}
-  The restriction of a sheaf~$\mathcal{O}_X$ on a topological space~$X$ to an open subspace~$U$ is defined by taking~$\mathcal{O}_{X|U}(V)=\mathcal{O}_X(V)$ for~$V\subseteq U$ open.
+  The \emph{restriction} of a sheaf~$\mathcal{O}_X$ on a topological space~$X$ to an open subspace~$U$ is defined by taking~$\mathcal{O}_{X|U}(V)=\mathcal{O}_X(V)$ for~$V\subseteq U$ open.
 \end{definition}
 
-We are now ready for the objective of this post.
+We are now ready for the main goal of this post.
 
 \begin{definition}
   A \emph{scheme} $(X,\mathcal{O}_X)$ is a ringed space such that any point~$x\in X$ has an open neighbourhood~$U$ such that~$(U,\mathcal{O}_{X|U})$ is an affine scheme.
 \end{definition}
+This definition looks a lot like the definition of a (differentiable) manifold. In that case every the role of the affine schemes is taken by open subsets of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. In case of schemes the ``model'' of what the neighbourhood of a point looks like is more general (it can be the spectrum of any ring), but the idea is analogous.
 
-This definition looks a lot like the definition of a (differentiable) manifold. In that case every affine scheme is taken to be an open subset of~$\mathbb{R}^n$, which gives us the opportunity of considering charts. Now the ``model'' of what the neighbourhood of a point looks like is more general, but the idea is analogous. Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry text books seem to consist of reductions to the affine case.
+Just like in manifolds this will have a great impact on how many proofs in algebraic geometry with schemes work: all properties that are in a sense affine (or local) can be proved for general schemes by reducing it to the affine case. It even borders on the annoying how some algebraic geometry textbooks seem to consist of reductions to the affine case.
 
-It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog\href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise.
+But it's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog\href{http://math216.wordpress.com}{Ravi Vakil's notes}\fi, more precisely Section~5.4, appropriately called Three examples. I will discuss two of these and give an exercise based on my favourite scheme.
 
 \begin{example}
-  Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens correspond to complements of closed sets cut out by a \emph{single} function. But in~$\mathbb{A}^2_k$ these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$.
+  Take your favourite algebraically closed field~$k$ and let~$A=k[x,y]$. In that case we'll denote~$\Spec A$ by~$\mathbb{A}^2_k$, the affine plane over the field~$k$. Now consider the open subset~$U=\mathbb{A}^2_k\setminus\left\{ (0,0) \right\}$, or when we write~$(0,0)$ as the point corresponding the ideal that vanishes there:~$\mathbb{A}^2_k\setminus\left\{ \left[ (x,y) \right] \right\}$. This is \emph{not a distinguished set}! Remember that distinguished opens correspond to complements of closed sets cut out by a \emph{single} function. But in~$\mathbb{A}^2_k$ these correspond to curves, hence the complement of the origin is not a distinguished open set. It is the union of two distinguished open sets though:~$\mathrm{D}(x)$ and~$\mathrm{D}(y)$ namely. If it were a distinguished open set~$\mathrm{D}(f)$ we would have a regular affine scheme: $(\Spec k[x,y]_f,\mathcal{O}_X)$.
 
-  The sheaf of algebraic functions gives for these two open sets the rings~$k[x,y,x^{-1}]$ and~$k[x,y,y^{-1}]$. Now we have to find functions that are defined on both open sets, but this is just~$k[x,y]$! Hence we find~$\mathcal{O}(U)=k[x,y]$, which is clearly distinct from what we had in the affine scheme scenario: the ring of global sections is \emph{not} equal to~$A$ in~$\Spec A$ (even more: there is no ring~$A$ such that~$U=\Spec A$).
+  The sheaf of algebraic functions gives for these two open sets the rings~$k[x,y,x^{-1}]$ and~$k[x,y,y^{-1}]$. Now we have to find functions that are defined on \emph{both} open sets, but this is just~$k[x,y]$! Hence we find~$\mathcal{O}(U)=k[x,y]$, which is clearly distinct from what we had in the affine scheme scenario: the ring of global sections is \emph{not} equal to~$A$ in~$\Spec A$ (even more: there is no ring~$A$ such that~$U=\Spec A$).
 \end{example}
 
 \begin{example}
@@ -47,18 +50,20 @@ It's time for some examples. These are taken from \iftex\cite{foag}\fi\ifblog\hr
 
   Another way to glue the two open sets is by~$t_1\mapsto 1/t_2$ (and likewise~$t_2\mapsto 1/t_1$). The origin in the first component is somehow sent to a point at infinity (or better: \emph{the} point) in the second component, while the origin in the second is sent to the point at infinity of the first. We've obtained the projective line in a rather ad-hoc way. I will discuss a more canonical method later.
 
-  This should feel familiar, from our manifolds course. But whereas differential geometry excludes the affine line with the doubled origin (it is not Hausdorff enough for those pesky non-algebraic geometers) it is a scheme! It's not a scheme you will wish to work (we do like some notion of \emph{separated}) with but with the Zariski topology being so coarse (it's the cofinite topology for god's sake, you can't get much coarser) there's no way of excluding it: only trivial schemes are Hausdorff.
+  This should feel familiar from our manifolds course. But whereas differential geometry excludes the affine line with the doubled origin (it is not Hausdorff enough for those pesky non-algebraic geometers) it is a scheme! It's not a scheme you will wish to work (we do like some notion of \emph{separated}) with but with the Zariski topology being so coarse (it's the cofinite topology in~$\mathbb{A}^1$ for god's sake, you can't get much coarser) there's no way of excluding it: only trivial schemes are Hausdorff.
+
+  Another interesting fact about the scheme~$\mathbb{P}^1_k$ is its ring of global sections, i.e., the ring~$\mathcal{O}_{\mathbb{P}^1_k}(\mathbb{P}^1_k)$. Recall that Liouville's theorem in complex analysis says that the only holomorphic functions on the Riemann sphere (or bounded holomorphic functions on the complex plane) are the constant ones. Now try to construct a regular function on~$\mathbb{P}^1_k$ that looks like a polynomial on the affine line. That's impossible, hence~$\mathcal{O}_{\mathbb{P}^1_k}(\mathbb{P}^1_k)=k$! Think about what this would mean if~$\mathbb{P}^1_k$ was an affine scheme.
 \end{example}
 
 \begin{example}
   Now consider~$\Spec\mathbb{Z}[x]$. This is an affine scheme, so it might've been better to discuss it in my previous post, but I will leave this as an exercise: try to understand \href{http://www.neverendingbooks.org/index.php/mumfords-treasure-map.html}{Mumford's treasure map}.
 \end{example}
 
-Before I introduce projective schemes, a small word on local rings. Recall that for a domain there is a corresponding quotient field. Now we can consider a subring of the quotient field that is almost a domain: it has a unique maximal ideal. In the geometric sense this maximal ideal consists of the functions vanishing at a point. This geometric intuition is most familiar from manifolds, but applies to algebraic geometry too.
+Before I introduce projective schemes, a small word on local rings. Recall that for a domain there is a corresponding quotient field. Now we can consider a subring of the quotient field that is almost a field: it has a unique maximal ideal. In the geometric sense this maximal ideal consists of the functions vanishing at a point. This geometric intuition is most familiar from manifolds, but applies to algebraic geometry too. This construction has a generalization to arbitary rings, consult your favourite algebra textbook.
 
 It is possible to localize at a certain prime ideal (or more precisely: its complement). So we will define the \emph{local ring at a point~$[\mathfrak{p}]$} to be the ring~$A_{\mathfrak{p}}$, where~$A$ is the ring of global sections of an affine open subset of our scheme. Convince yourself that this definition is correct.
 
-One last term I need in order to introduce what I want is the notion of a \emph{stalk of~$\mathcal{F}$ at a point~$x$}. This is defined as the direct limit over all sections over open sets containing~$x$, i.e.,~$\mathcal{F}_x\coloneqq\varinjlim_{U\ni x}\mathcal{F}(U)$. This is the same as the local ring at a point~$[\mathfrak{p}]$ in a scheme.
+One last term I need in order to introduce what I want is the notion of a \emph{stalk of a sheaf~$\mathcal{F}$ in a ringed space at a point~$x$}. This is defined as the direct limit over all sections over open sets containing~$x$, i.e.,~$\mathcal{F}_x\coloneqq\varinjlim_{U\ni x}\mathcal{F}(U)$. This is the same as the local ring at a point~$[\mathfrak{p}]$ in a scheme.
 
 Now a scheme is said to be a \emph{locally ringed space} if its stalks are local rings. Notice that this is one (hopefully) the most ambiguous terminology you'll ever encounter: the space is not ringed locally, it is equipped with local rings. It is therefore not some local property in the topological sense. If you speak Dutch: it would be the difference between \emph{lokaalgeringde ruimte} and \emph{lokaal geringde ruimte}, we are using the first spelling.
 
@@ -72,7 +77,7 @@ In Example~\ref{example:projective-line-doubled-origin} I introduced the project
   \begin{equation}
     S_\bullet=\bigoplus_{n\in\mathbb{Z}}S_n
   \end{equation}
-  where~$n$ denotes the \emph{grading} such that~$\cdot(S_m\times S_n)\subset S_{m+n}$. Therefore~$S_0$ is a subring of~$S_\bullet$ and~$S_\bullet$ is an~$S_0$\nobreakdash-algebra.
+  where~$n$ denotes the \emph{grading} such that~$f(S_m\times S_n)\subset S_{m+n}$ where~$f$ is the multiplication. Therefore~$S_0$ is a subring of~$S_\bullet$ and~$S_\bullet$ is an~$S_0$\nobreakdash-algebra.
 \end{definition}
 
 If you like arbitrary gradings, prof.\ Van Oystaeyen is the place to be, but I will stick to~$\mathbb{Z}$\nobreakdash-gradings. Now we will introduce a specific class of graded rings.
@@ -107,4 +112,32 @@ Remark that a projective scheme obviously is a locally ringed space: the local r
 
 You can now review the discussion of curves in \todo{nice reference}, everything we saw there for that specific case is now stated in general. And you can think about~$\mathbb{P}^1/\mathbb{Z}$ now: it's~$\Proj\mathbb{Z}[x_1,x_2]$. This particular scheme will become important in a few weeks. Remark that this construction (obviously) doesn't give us anything about~$\mathbb{P}^1/\mathbb{F}_1$: there is no such thing as~$\mathbb{F}_1[x]$ let alone~$\mathbb{F}_1[x_1,x_2]$!
 
-Now if you read a text on algebraic geometry and encounter the term \emph{quasiprojective scheme}, this is nothing but a compact (but not Hausdorff) open subscheme of a \emph{projective scheme over~$A$}, which is a~$\Proj S_\bullet$ where~$S_\bullet$ is a finitely generated graded ring over~$A$.
+Now if you read a text on algebraic geometry and encounter the term \emph{quasiprojective scheme}, this is nothing but a compact (yet not Hausdorff therefore often called \emph{quasicompact}) open subscheme of a \emph{projective scheme over~$A$}, which is a~$\Proj S_\bullet$ where~$S_\bullet$ is a finitely generated graded ring over~$A$.
+
+
+\subsection{Properties of schemes}
+Due to the already substantial length of this post I will try to be concise here, only giving what is needed to understand the idea between scheme-theoretic properties.
+
+\begin{example}
+  Schemes being \emph{topological spaces} it is obvious that we can look whether some topological properties apply. Examples of these are irreducibility and a notion of dimension. And the notions of closed and generic points is topological in nature as well. On the other hand it is rather useless to look at all the separation axioms: our topologies are too coarse for any of this machinery to be useful.
+\end{example}
+
+\begin{example}
+  Schemes are \emph{ringed spaces} as well. So the rings that occur as rings of sections over each open set can be checked for a certain property. For instance reducedness (no nonzero nilpotents) or integrality (no zerodivisors) will be important.
+\end{example}
+
+\begin{example}
+  Now because a scheme locally looks like an affine scheme, we can say that a scheme is locally \emph{something} if it can be covered by~$\Spec A_i$ such that every~$A_i$ is \emph{something} (a scheme can be locally Noetherian for instance).
+\end{example}
+
+\begin{example}
+   Now we come to the most important concept in this section: properties as \emph{relative notions}, i.e., relative to a certain morphism. So at this moment we are not referring to scheme-theoretic properties, but to scheme morphism-theoretic properties! Now should come an overview of all the properties a morphism of schemes can satisfy but I will not go into this, I will only introduce one property and apply it to get to the actual notion of a scheme-theoretic property. 
+\end{example}
+
+\begin{definition}
+  A morphism of schemes~$f\colon X\to Y$ is said to be \emph{locally of finite type} if for every affine open subset~$\Spec B$ of~$Y$ and every affine open subset~$\Spec A$ in~$f^{-1}(\Spec B)$ the morphism~$B\to A$ (reversing the arrows when we drop~$\Spec$) is such that~$A$ is a finitely generated~$B$-algebra. Now~$f$ is \emph{of finite type} if it is locally of finite type and quasicompact (i.e., each~$f^{-1}(\Spec B)$ where~$\Spec B$ is an affine open subset of~$Y$ is quasicompact, i.e., can be covered by finitely many~$\Spec A_i$)
+\end{definition}
+
+Now this is a relative notion, how can we make it a bit more absolute? Remark that we always worked with~$\mathbb{C}$\nobreakdash-algebras in our varieties course, or that every ring is a~$\mathbb{Z}$\nobreakdash-algebra. So we now have a canonical structure map~$f\colon X\to\Spec R$ if for every affine open subset~$\Spec A$ of~$X$ we have that~$A$ is an~$R$\nobreakdash-algebra.
+
+Now we apply this to our~$\mathbb{F}_1$\nobreakdash-dream: we are trying to replace the absolute point~$\Spec\mathbb{Z}$ (which is too big) by~$\Spec\mathbb{F}_1$ (just a single point as~$\mathbb{F}_1$ is a field) we are somehow trying to consider all~$\mathbb{Z}$\nobreakdash-algebras as~$\mathbb{F}_1$\nobreakdash-algebras.
