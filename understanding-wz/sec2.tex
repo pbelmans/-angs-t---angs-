@@ -1,42 +1,62 @@
 \section{The objects}
 
 \subsection{The $\lambda$-ring over $\mathbb{Z}$}
+Let's briefly recall what we know about this object. As a set it is~$1+\mathbb{Z}[\![t]\!]$\todo{notation}. The additive structure comes from the multiplicative structure on the usual ring of formal power series~$1+\mathbb{Z}[\![t]\!]$. The multiplicative structure on the other hand is a bit more involved. We define the product of two basic\todo{topological vector basis?} power series
+\begin{equation}
+  \begin{aligned}
+    \frac{1}{1-at}&=1+at+a^2t^2+a^3t^3+\ldots \\
+    \frac{1}{1-bt}&=1+bt+b^2t^2+b^3t^3+\ldots \\
+  \end{aligned}
+\end{equation}
+to be given by
+\begin{equation}
+  \frac{1}{1-abt}=1+abt+a^2b^2t^2+a^3b^3t^3+\ldots.
+\end{equation}
+Now we wish to write a general element~$1+a_1+a_2t^2+\ldots$ of~$\Lambda(\mathbb{Z})$ as a sum (i.e., a power-series theoretic product of~$1/(1-\alpha_it)$.
 
 
-\subsection{The Burnside ring of the infinite cyclic group $\hat{\Omega}(\mathrm{C}_\infty)$}
-\todo{turn mathrmc into mathbfc}
-Rather than introducing~$\hat{\Omega}(\mathrm{C}_\infty)$ through what it is in theory I will construct it in concrete terms. First of all, let~$\mathrm{C}_\infty=\langle g\rangle$ denote the infinite cyclic group and we'll write its group operation multiplicatively. Now let this group act from the left on a set~$X$. This will be a \emph{cyclic set}. The action of~$\mathrm{C}_\infty$ on~$X$ partitions its elements in orbits. These orbits can be finite or infinite. Two orbits of size~$n$ (or cycles of length~$n$) are isomorphic (as cyclic sets), so let~$\mathrm{C}_\infty(n)$ denote the cycle length~$n$ where~$n\in\mathbb{N}^\times\cup\left\{ \infty \right\}$. Observe that every cyclic set is the disjoint union of copies of~$\mathrm{C}_\infty(n)$.
 
-We can put two finiteness conditions on~$X$:
-\begin{enumerate}
-  \item all cycles must be of \emph{finite length} (i.e., no~$\mathrm{C}_\infty(\infty)$ in~$X$);
-  \item for every~$n\in\mathbb{N}^\times$ there are only \emph{finitely many} copies of the cycle~$\mathrm{C}_\infty(n)$ in~$X$.
-\end{enumerate}
-If these two conditions are satisfied we will call~$X$ an \emph{almost finite set}.
+\subsection{The Burnside ring of the infinite cyclic group $\hat{\Omega}(\mathbf{C}_\infty)$}
+Rather than introducing~$\hat{\Omega}(\mathbf{C}_\infty)$ through its general construction I will construct it in very concrete and combinatorial terms. First of all, let~$\mathbf{C}_\infty=\langle g\rangle$ denote the infinite cyclic group and we'll write its group operation multiplicatively. Now let this group act from the left on a set~$X$. This will be a \emph{cyclic set}. The action of~$\mathbf{C}_\infty$ on~$X$ partitions its elements in orbits. These orbits can be finite or infinite. Two orbits of size~$n$ (or cycles of length~$n$) are isomorphic (as cyclic sets), so let~$\mathbf{C}_\infty(n)$ denote the cycle length~$n$ where~$n\in\mathbb{N}^\times\cup\left\{ \infty \right\}$. Observe that every cyclic set is the disjoint union of copies of~$\mathbf{C}_\infty(n)$.
 
-Because almost finite cyclic sets are determined by which cycles occur in their decomposition we can identify two cyclic sets if they are made up out from the same cycles. This describes the Burnside ring of the infinite cyclic group~$\hat{\Omega}(\mathrm{C}_\infty)$ as \emph{a set}.
+\begin{definition}
+  We can put two finiteness conditions on~$X$:
+  \begin{enumerate}
+    \item all cycles must be of \emph{finite length} (i.e., no~$\mathbf{C}_\infty(\infty)$ in~$X$);
+    \item for every~$n\in\mathbb{N}^\times$ there are only \emph{finitely many} copies of the cycle~$\mathbf{C}_\infty(n)$ in~$X$.
+  \end{enumerate}
+  If these two conditions are satisfied we will call~$X$ an \emph{almost finite cyclic set}.
+\end{definition}
 
-Now let the \emph{addition} be the disjoint union: if~$X_1$ and~$X_2$ are two almost finite cyclic sets~$X_1\sqcup X_2$ is again equipped with a~$\mathrm{C}_\infty$\nobreakdash-action and the finiteness conditions are obviously satisfied. Likewise the \emph{multiplication} is the cartesian product and the~$\mathrm{C}_\infty$\nobreakdash-action is defined pointwise. Observe that the finiteness conditions are satisfied for the orbit of an element~$(x_1,x_2)\in X_1\times X_2$ by taking the least common multiple of the lengths of the cycles as the length of the new cycle. And there are only finitely many cycles of a given length~$\ell$ as there are only finitely many cycles in~$X_1$ and~$X_2$ whose lengths give rise to a cycle of length~$\ell$ as a least common multiple. We have introduced \emph{the Burnside ring of the infinite cyclic group~$\hat{\Omega}(\mathrm{C}_\infty)$}.
+Because almost finite cyclic sets are determined by which cycles occur in their decomposition we can identify two cyclic sets if they are made up out from the same cycles. This describes the Burnside ring of the infinite cyclic group~$\hat{\Omega}(\mathbf{C}_\infty)$ as a \emph{set}.
 
-For the remainder of this series it might be useful to visualize an almost finite cyclic set as a (discrete) solid of revolution, listing all cycles in order of their length. The action of~$\mathrm{C}_\infty$ is obviously the cyclic permutation of all cycles at once. Or you could keep one of two important examples in mind
+Now let the \emph{addition} be the disjoint union: if~$X_1$ and~$X_2$ are two almost finite cyclic sets~$X_1\sqcup X_2$ is again equipped with a~$\mathbf{C}_\infty$\nobreakdash-action and the finiteness conditions are obviously satisfied using the representation of an almost finite cyclic set as the disjoint union (or sum) of its constituent cycles.
+
+Likewise the \emph{multiplication} is the cartesian product and the~$\mathbf{C}_\infty$\nobreakdash-action is defined pointwise. Observe that the finiteness conditions are satisfied by taking the least common multiple of the lengths of the cycles as the length of the new cycle. Because the cardinality of the cartesian product should be preserved under the multiplication, the immediately see that
+\begin{equation}
+  \mathbf{C}_\infty(n)\cdot\mathbf{C}_\infty(m)=\gcd(n,m)\mathbf{C}_\infty(\mathrm{lcm}(n,m)).
+\end{equation}
+And there are only finitely many cycles of a given length~$\ell$ as there are only finitely many cycles in~$X_1$ and~$X_2$ whose lengths give rise to a cycle of length~$\ell$ as a least common multiple. So we have a proper ring structure and we will call it \emph{the Burnside ring of the infinite cyclic group~$\hat{\Omega}(\mathbf{C}_\infty)$}.
+
+For the remainder of this series it might be useful to visualize an almost finite cyclic set as a (discrete) solid of revolution, listing all cycles in order of their length. The action of~$\mathbf{C}_\infty$ is obviously the cyclic permutation of all cycles at once. Or you could keep one of two important examples in mind:
 \begin{enumerate}
   \item the roots of unity with the action given by exponentiation;
   \item the geometric points of a curve~$X(\overline{F}_p)$ where the action is given by the Frobenius morphism.
 \end{enumerate}
 
-We are now ready to describe the (vertical) morphism~$\hat{\varphi}\colon\hat{\Omega}(\mathrm{C}_\infty)\to\mathrm{gh}(\mathrm{C}_\infty)=\mathbb{Z}^{\mathbb{N}^\times}$. It will be the product of the family of maps~$\varphi_{\mathrm{C}_\infty^n}$ indexed by~$n\in\mathbb{N}^\times$, where we define~$\varphi_{\mathrm{C}_\infty^n}(X)$ to be the number of elements of~$X$ which are invariant under the (unique) subgroup~$\mathrm{C}_\infty^n=\langle g^n\rangle$ of index~$n$ in~$\mathrm{C}_\infty$.
+We are now ready to describe the (vertical) morphism~$\hat{\varphi}\colon\hat{\Omega}(\mathbf{C}_\infty)\to\mathrm{gh}(\mathbf{C}_\infty)=\mathbb{Z}^{\mathbb{N}^\times}$. It will be the product of the family of maps~$\varphi_{\mathbf{C}_\infty^n}$ indexed by~$n\in\mathbb{N}^\times$, where we define~$\varphi_{\mathbf{C}_\infty^n}(X)$ to be the number of elements of~$X$ which are invariant under the (unique) subgroup~$\mathbf{C}_\infty^n=\langle g^n\rangle$ of index~$n$ in~$\mathbf{C}_\infty$.
 
-Because there only finitely many cycles of a certain length and an element of~$X$ is only invariant under~$\hat{\varphi}$ if the order of the cycle is a divisor of~$n$ this is a good map into~$\mathrm{gh}(\mathrm{C}_\infty)$. It is also a ring morphism, where the addition and multiplication on~$\mathrm{gh}(\mathrm{C}_\infty)$ are pointwise\todo{correct? with my description of cartesian product structure?}
+Because there only finitely many cycles of a certain length and an element of~$X$ is only invariant under~$\hat{\varphi}$ if the order of the cycle is a divisor of~$n$ this is a good map into~$\mathrm{gh}(\mathbf{C}_\infty)$. It is also a ring morphism, where the addition and multiplication on~$\mathrm{gh}(\mathbf{C}_\infty)$ are pointwise\todo{correct? with my description of cartesian product structure?}
 
-Remark that~$\hat{\varphi}$ is injective because the relations between different positions of an infinite~$\mathbb{Z}$\nobreakdash-valued vector give rise to information about the number of cycles of a given length: the number of~$\mathrm{C}_\infty(n)$ can be determined by the value~$\varphi_{\mathrm{C}_\infty^n}(X)$ and the values of~$\varphi_{\mathrm{C}_\infty^m}$ where~$m\divides n$.
+Remark that~$\hat{\varphi}$ is injective because the relations between different positions of an infinite~$\mathbb{Z}$\nobreakdash-valued vector give rise to information about the number of cycles of a given length: the number of~$\mathbf{C}_\infty(n)$ can be determined by the value~$\varphi_{\mathbf{C}_\infty^n}(X)$ and the values of~$\varphi_{\mathbf{C}_\infty^m}$ where~$m\divides n$.
 
-But~$\hat{\varphi}$ is not surjective, an element~$d\in\mathrm{gh}(\mathrm{C}_\infty)$ lies in the image of~$\hat{\varphi}$ if and only if
+But~$\hat{\varphi}$ is not surjective, an element~$d\in\mathrm{gh}(\mathbf{C}_\infty)$ lies in the image of~$\hat{\varphi}$ if and only if
 \begin{equation}
   \sum_{i=1}^nd\left( \gcd(i,n) \right)=\sum_{i\divides n}\varphi\left( \frac{n}{i} \right)d(i)\equiv 0\bmod n
 \end{equation}
 where (hurray for notation\todo{opt for other notation?})~$\varphi$ is the Euler totient function.
 
-For the other vertical morphism associated to~$\hat{\Omega}(\mathrm{C}_\infty)$ (i.e.,~$\mathrm{itp}\colon\mathrm{Nr}(\mathbb{Z})\to\hat{\Omega}(\mathrm{C}_\infty)$) we'll need to discuss the domain first, which leads us immediately to the next section.
+For the other vertical morphism associated to~$\hat{\Omega}(\mathbf{C}_\infty)$ (i.e.,~$\mathrm{itp}\colon\mathrm{Nr}(\mathbb{Z})\to\hat{\Omega}(\mathbf{C}_\infty)$) we'll need to discuss the domain first, which leads us immediately to the next section.
 
 
 \subsection{The necklace algebra $\mathrm{Nr}(\mathbb{Z})$}
@@ -47,13 +67,13 @@ As a set it is (our recurring theme)~$\mathbb{Z}^{\mathbb{N}^\times}$. Addition 
 
 Now let~$\mathbf{b}=(b_1,b_2,\ldots)$ be an element of~$\mathrm{Nr}(\mathbb{Z}$, we can define the \emph{interpretation}~$\mathrm{itp}(\mathbf{b})$ to be the almost finite cyclic set~$X(\mathbf{b})$, which given by
 \begin{equation}
-  X(\mathbf{b})=\sum_{n=1}^{+\infty}b_n\mathrm{C}_\infty(n)
+  X(\mathbf{b})=\sum_{n=1}^{+\infty}b_n\mathbf{C}_\infty(n)
 \end{equation}
-where addition is considered in~$\hat{\Omega}(\mathrm{C}_\infty)$, i.e., it is the disjoint union. We have just written down the decomposition in its cycles!
+where addition is considered in~$\hat{\Omega}(\mathbf{C}_\infty)$, i.e., it is the disjoint union. We have just written down the decomposition in its cycles!
 
 Remark that we will allow \emph{virtual} almost finite cyclic sets, where we will split~$X(\mathbf{b})$ into a part with positive coefficients and one with negative coefficients.
 
-From our observations concerning the addition and multiplication in~$\hat{\Omega}(\mathrm{C}_\infty)$ we can see this defines a ring isomorphism.
+From our observations concerning the addition and multiplication in~$\hat{\Omega}(\mathbf{C}_\infty)$ we can see this defines a ring isomorphism.
 
 
 \subsection{The ring of big Witt vectors $\mathrm{W}(\mathbb{Z})$}
