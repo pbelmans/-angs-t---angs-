@@ -1,0 +1,59 @@
+\section{Curves}
+In this series we collect our rough prep-notes for the lectures ahead. We focus on the main ideas and give precise references. More complete course-notes may follow afterwards.
+
+Fix a perfect field~$k$ (say a finite field) with algebraic closure~$\overline{k}$ and absolute Galois group~$G = \operatorname{Gal}(\overline{k}/k)$.
+
+Our aim is to study smooth projective~$k$-curves via their function fields. This will allow us later to associate 'curves' to number fields.
+
+We need two categories:
+
+\subsection{$\mathsf{Curves}/k$}
+
+The \emph{objects} are smooth projective algebraic curves defined over~$k$ (that is, a smooth closed subvariety~$C$ of dimension one of some projective space~$\mathbb{P}^n(\overline{k})$ defined by a set of homogeneous polynomials all of their coefficients belonging to~$k$). We will call such objects \emph{curves} defined over~$k$.
+
+The \emph{morphisms} will be surjective algebraic maps~$C \to C'$ defined over~$k$ (that is, all coordinate functions have their coefficients in~$k$). Remember that any non-constant rational map between two curves is automatically surjective. We will call such morphisms \emph{covers}.
+
+\subsection{$\mathsf{1Fields}/k$}
+
+The \emph{objects} are field extensions~$K$ of~$k$ of transcendence degree one with~$k$ as their 'field of constants'. That is,~$K \cap \overline{k} = k$.
+
+The \emph{morphisms} will be field inclusions~$K \hookrightarrow K'$ fixing~$k$.
+
+\begin{theorem}
+  These categories are (anti)-equivalent to each other.
+
+  Details are in Section I.6 of~\cite{algebraic-geometry} when~$k = \overline{k}$ and modifications for the general case are in Section II.2 of~\cite{arithmetic-of-elliptic-curves}.
+
+  \begin{proof}[Sketch of proof]
+    The direction from curves to fields is straightforward.
+    
+    The contravariant functor~$\mathsf{Curves}/k \longrightarrow \mathsf{1Fields}/k$ assigns to a curve~$C$ its function field~$k(C)$ (the field consisting of all rational functions~$f\colon C \rightarrow \overline{k}$ defined over~$k$).
+    
+    This functor associates to a cover~$\phi\colon C \mapsto C'$ the field-inclusion~$\phi^{\ast}\colon k(C') \rightarrow k(C)$ obtained by composition (that is,~$\phi^{\ast}(f) = f \circ \phi\colon C \rightarrow \overline{k}$ for all~$f \in k(C')$).
+    
+    Conversely, the contravariant functor~$\mathsf{1Fields}/k \longrightarrow \mathsf{Curves}/k$ assigns to a field~$K$ of transcendence degree one
+    
+    \begin{itemize}
+      \item the \emph{geometric} points~$C(\overline{k})$ of the curve~$C$, which is the set of all discrete valuations rings in~$K \otimes \overline{k}$ with residue field~$\overline{k}$. The Galois group~$G$ acts on this set, and,
+      \item the \emph{schematic} points of~$C$ are the~$G$-orbits of this action. Equivalently, these are the discrete valuation rings of~$K$ with residue field a finite field extension~$L$ of~$k$. The degree of such a scheme-point is the size of the~$G$-orbit (or the~$k$-dimension of the residue field~$L$ of the discrete valuation ring).
+    \end{itemize}
+  \end{proof}
+\end{theorem}
+
+
+\begin{example}
+  Under this equivalence, the purely transcendental field~$k(x)$ corresponds to the projective line~$\mathbb{P}^1$ over~$k$. Its geometric points~$\mathbb{P}^1(\overline{k})$ are the points
+  \begin{equation}
+  	\{ [\alpha : 1]~:~\alpha \in \overline{k} \} \cup \{ \infty = [1 : 0] \}
+  \end{equation}
+  
+  The discrete valuation ring of~$\overline{k}(x)$ corresponding to~$[\alpha : 1]$ has uniformizing parameter~$x-\alpha$ and the one corresponding to~$\infty$ has uniformising parameter~$\tfrac{1}{x}$.
+  
+  The Galois group fixes~$\infty$ and acts on the point~$[\alpha : 1]$ as it does on~$\alpha \in \overline{k}$. Hence, the schematic points of~$\mathbb{P}^1$ are~$\infty$ together with all irreducible monic polynomials in~$k[x]$.
+  
+  Under the equivalence, the set of all non-constant maps~$C \mapsto \mathbb{P}^1$ corresponds to the set of all~$k$-field morphisms~$k(x) \hookrightarrow k(C)$ and as these are determined by the image of~$x$ they are determined by~$f \in k(C)$. The cover corresponding to~$f$
+  \begin{equation}
+    C(\overline{k}) \mapsto \mathbb{P}^1(\overline{k}) \quad \text{maps} \quad P \mapsto [f(P) : 1]
+  \end{equation}
+  if~$f$ is regular in~$P$ and to~$\infty$ otherwise.
+\end{example}
