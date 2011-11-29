@@ -1,0 +1,62 @@
+Gauss dubbed it his ``golden theorem''. In this post we will replace ${\mathbb{Z}}$ by the structurally similar ring ${\mathbb{F}_{p}[X]}$ and prove higher versions of quadratic reciprocity, thereby turning gold into platinum.
+
+\subsection{The golden theorem}
+
+Remember that the classic quadratic reciprocity states that for ${p}$ and ${q}$ distinct and odd prime numbers, we have:
+\begin{equation}
+  \bigg( \frac{p}{q} \bigg) \bigg( \frac{q}{p} \bigg)=(-1)^{(\frac{p-1}{2})(\frac{q-1}{2})}= \left\{ \begin{array}{ll} 1 & \textrm{if $p \equiv 1$ mod $4$ or $q \equiv 1$ mod $4$}\\ -1 & \textrm{if $p \equiv q \equiv 3$ mod $4$} \end{array} \right.
+\end{equation}
+where $\big( \frac{p}{q} \big)$ is the Legendre symbol, with value equal to $1$ if the equation $x^{2} \equiv p$ has a solution mod $q$, and $-1$ if it doesn't. To see why this is useful, consider the following question: find all odd primes $p$ for which $5$ is a quadratic residue mod $p$. Using quadratic reciprocity, the solution is easy:
+\begin{equation}
+  \bigg( \frac{p}{5} \bigg) \bigg( \frac{5}{p} \bigg)=(-1)^{(\frac{p-1}{2})(\frac{5-1}{2})}=1,
+\end{equation}
+which holds iff $(5/p)=(p/5)=1$ iff $p=\pm 1\bmod5$. There are a number of other interesting applications, such as finding integer solutions to degree $2$ polynomial equations.
+
+\subsection{Legendre revisited}
+
+Suppose you have an irreducible polynomial ${P}$ that does not divide a polynomial ${a}$, and ${d}$ a divisor of ${p-1}$, then by some elementary computations, the equation ${x^{d} \equiv a}$ has a solution mod ${P}$ iff ${a^{\frac{\vert P \vert -1}{d}} \equiv 1}$ mod ${P}$, with ${\vert P \vert = p^{deg(P)}}$. In general we will denote by ${(a/P)_{d}}$ the unique element in ${\mathbb{F}_{p}^{*} \subset (\mathbb{F}_{p}[X]/(P))^{*}}$, such that
+\begin{equation}
+  a^{\frac{\vert P \vert -1}{d}} \equiv \bigg( \frac{a}{P} \bigg)_{d}\bmod P.
+\end{equation}
+If ${P\,\vert\, a}$ we define ${(a/P)_{d}=0}$. This symbol is called the ${d}$-th power residue symbol.
+
+\subsection{Carlitz' version}
+
+Using this newly introduced symbol, we can state and prove the ${d}$-th power reciprocity law:
+\begin{theorem}
+  Let ${P}$ and ${Q}$ be monic, irreducible polynomials in ${\mathbb{F}_{p}[X]}$ of degrees ${\delta}$ and ${\nu}$ respectively. Then,
+  \begin{equation}
+    \bigg( \frac{Q}{P} \bigg)_{d} = (-1)^{\frac{p-1}{d}\delta \nu} \bigg( \frac{P}{Q} \bigg)_{d}.
+  \end{equation}
+  
+  \begin{proof}
+    The first step will consist of a simple reformulation. Define ${(a/P)=(a/P)_{q-1}}$. If we prove that
+    \begin{equation}
+      \bigg( \frac{Q}{P} \bigg) = (-1)^{\delta \nu} \bigg( \frac{P}{Q} \bigg),
+    \end{equation}
+    then the result will follow by raising to the ${(p-1)/d}$ power and noting that ${(a/P)_{d}=(a/P)^{\frac{p-1}{d}}}$.
+    
+    Take ${\alpha}$ and ${\beta}$ roots of ${P}$ and ${Q}$ respectively. Over the field ${\mathbb{F}(\alpha,\beta)}$ we have
+    \begin{equation}
+      P(X)=(X-\alpha)(X - \alpha^{p}) \cdots (X-\alpha^{p^{\delta-1}})
+    \end{equation}
+    and
+    \begin{equation}
+      Q(X)=(X-\beta)(X-\beta^{p}) \cdots (X-\beta^{p^{\nu-1}}),
+    \end{equation}
+    using Fermat's little theorem and the Frobenius map.
+    
+    Noting that for a polynomial ${f}$ over ${\mathbb{F}(\alpha,\beta)}$, the equality ${f(X) \equiv f(\alpha)}$ holds mod ${(X-\alpha)}$, and for a polynomial ${g \in \mathbb{F}_{p}[X]}$ we have that ${g(X^{p})=g(X)^{p}}$, we can compute ${(Q/P)}$.
+    \begin{align*} \bigg( \frac{Q}{P} \bigg) & \equiv Q(X)^{1+p+\cdots+p^{\delta-1}} \\ & \equiv Q(X)Q(X^{p}) \cdots Q(X^{p^{\delta -1}}) \\ & \equiv Q(\alpha)Q(\alpha^{p}) \cdots Q(\alpha^{p^{\delta-1}}) \bmod (X-\alpha) \end{align*}
+    By invoking symmetry, this condition will also hold mod ${(X-\alpha^{p^{i}})}$ and thus also mod ${P}$. Plugging in the equation for $Q(X)$, and noting that both sides of the resulting congruence,
+    \begin{equation}
+      \bigg( \frac{Q}{P} \bigg) \equiv \prod_{i=0}^{\delta -1} \prod_{j=0}^{\nu -1} (\alpha^{p^{i}} - \beta^{p^{j}}) \bmod P,  
+    \end{equation}
+    are in ${\mathbb{F}(\alpha,\beta)}$ (and thus equal), we get
+    \begin{equation}
+      \bigg( \frac{Q}{P} \bigg) = (-1)^{\delta \nu} \prod_{i=0}^{\delta -1} \prod_{j=0}^{\nu -1} (\beta^{p^{j}} - \alpha^{p^{i}}) = (-1)^{\delta \nu} \bigg( \frac{P}{Q} \bigg),  
+    \end{equation}
+    completing the proof.
+  \end{proof}
+\end{theorem}
+
