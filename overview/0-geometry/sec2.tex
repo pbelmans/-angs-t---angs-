@@ -1,0 +1,88 @@
+\section{Genus}
+In these rough prep-notes, we are working towards the proof of the Riemann-Hurwitz genus formula\todo{refer to formula later on}. ``0-geometry'' means we want to use only fields and their discrete valuations so that we can port some of this later to number fields.
+
+In the previous section we have seen that any field~$K$ of transcendence degree~$1$ over~$k$ with~$K \cap \overline{k} = k$ is really the function field~$K = k(C)$ of a smooth projective curve~$C$ defined over~$k$.
+
+A geometric point~$P \in C$ is a discrete valuation ring~$\mathcal{O}_P$ in the extended field~$K^e = K \otimes \overline{k} = \overline{k}(C)$.
+
+Our aim is to determine the genus of~$C$ from~$K^e$ and the discrete valuation rings~$\mathcal{O}_P$.
+
+\subsection{Divisors}
+For~$f \in K^e$ and~$P \in C$ we denote the valuation of~$f$ in the discrete valuation ring~$\mathcal{O}_P$ by~$\operatorname{ord}_P(f)$ (that is,~$f = u t^{\operatorname{ord}_P(f)}$ for~$t$ is a uniformizer and~$u$ a unit in~$\mathcal{O}_P$). 
+
+We \emph{claim} that there are only finitely many~$P \in C$ such that~$\operatorname{ord}_P(f) \not= 0$ and that~$\sum_{P \in C} \operatorname{ord}_P(f) = 0$.
+
+We can assume that~$f \notin \overline{k}$ and so the subring~$\overline{k}[f] \subset K^e$ is a polynomial ring. Let~$R$ be the integral closure of~$\overline{k}[f]$ in~$K^e$ (which is a finite field extension of~$\overline{k}(f)$ say of dimension~$r$). Then~$R$ is a Dedekind domain, projective of rank~$r$ over~$\overline{k}[f]$ and there are maximal ideals~$\mathcal{P}_i$ in~$R$ such that
+\begin{equation}
+  (f) = \mathcal{P}_1^{e_1} \cdots \mathcal{P}_s^{e_s}.
+\end{equation}
+Because the localization of~$R$ at~$\mathcal{P}_i$ is a discrete valuation ring with residue field~$\overline{k}$, each~$\mathcal{P}_i$ defines a point~$P_i \in C$ and we have~$\sum_i e_i = r$.
+
+Similarly, let~$S$ be the integral closure of the polynomial algebra~$\overline{k}[\frac{1}{f}]$ in~$K^e$, then there are maximal ideals~$\mathcal{Q}_j$ (corresponding to points~$Q_j \in C$) such that
+\begin{equation}
+  \left(\frac{1}{f}\right) = \mathcal{Q}_1^{f_1} \cdots \mathcal{Q}_t^{f_t}
+\end{equation}
+and~$\sum_j f_j = r$. But then the \emph{divisor} of~$f$ satisfies the claims
+\begin{equation}
+  \operatorname{div}(f) = \sum_{P \in C} \operatorname{ord}_P(f) [P] = \sum_{i=1}^s e_i [P_i] - \sum_{j=1}^t f_j [Q_j].
+\end{equation}
+
+
+\subsection{Differential forms}
+Consider the~$K^e$-vectorspace~$\Omega_C$ spanned by all 'differential forms'~$\mathrm{d}f$ where~$f \in K^e$, subject to the usual rules:
+\begin{itemize}
+  \item $\mathrm{d}(f+g)=\mathrm{d}f+\mathrm{d}g$ for all~$f,g \in K^e$;
+  \item $\mathrm{d}(fg) = f\,\mathrm{d}g + g\,\mathrm{d}f$ for all~$f,g \in K^e$;
+  \item $\mathrm{d}a = 0$ for all~$a \in \overline{k}$.
+\end{itemize}
+
+We \emph{claim} that~$\Omega_C$ has dimension one. More precisely, if~$x \in K^e$ is transcendental over~$\overline{k}$ such that~$K^e$ is a finite separable field extension of the subfield~$\overline{k}(x)$, then~$\Omega_C = K^e \mathrm{d}x$.
+
+\begin{proof}
+  The proof is a computation. Let~$g \in K^e$ have a minimal polynomial over~$\overline{k}(x)$ of the form
+  \begin{equation}
+    G(Y) = Y^n + f_1 Y^{n-1} + \cdots + f_{n-1} Y + f_n
+  \end{equation}
+  with all~$f_i \in \overline{k}(x)$. Now consider these two polynomials in~$\overline{k}(x)[Y]$: 
+  \begin{equation}
+    \begin{aligned}
+      G_1(Y) &= n Y^{n-1} + (n-1) f_1 Y^{n-2} + \cdots + f_{n-1},\\
+      G_2(Y) &= Y^n + \frac{\partial f_{1}}{\partial x} Y^{n-1} + \cdots + \frac{\partial f_{n-1}}{\partial x} Y + \frac{\partial f_n}{\partial x}
+    \end{aligned}
+  \end{equation}
+  By the above equations among differential forms we get
+  \begin{equation}
+    0 = \mathrm{d} G(g) = G_2(g)\,\mathrm{d}x + G_1(g)\, \mathrm{d}g
+  \end{equation}
+  Because~$G_1(g) \not= 0$ by separability, it follows that~$\mathrm{d}g \in K^e \mathrm{d}x$. Done!
+\end{proof}
+
+
+\subsection{Genus}
+In particular, if~$t$ is a uniformizing parameter of the discrete valuation ring~$\mathcal{O}_P$, then for any differential form~$\omega \in \Omega_C$ there is a unique~$f \in K^e$ such that~$\omega = f\,\mathrm{d}t$. We define~$\operatorname{ord}_P(\omega) =\operatorname{ord}_P(f)$. Clearly, this number depends only on~$\omega$ (and~$P$), but not on the choice of uniformizer (check!).
+
+Slightly more involved is the \emph{claim} that~$\operatorname{ord}_P(\omega) \not= 0$ for  finitely many~$P \in C$. Here's the idea:
+
+Take~$x \in K^e$ such that~$K^e$ is a finite separable extension of~$\overline{k}(x)$ of dimension~$r$, write~$\omega = f\,\mathrm{d}x$ and consider the corresponding cover~$x\colon C \rightarrow \mathbb{P}^1$. As before, there are at most~$r$ points of~$C$ lying over a point~$Q \in \mathbb{P}^1$.
+
+Now, write~$K^e=\overline{k}(x)(\alpha)$ and let~$D \in \overline{k}(x)$ be the discriminant of the minimal polynomial of~$\alpha$ over~$\overline{k}(x)$. Then, away from the finite number of poles and zeroes of~$D$, there are precisely~$r$ points of~$C$ lying over any point~$Q \in \mathbb{P}^1$. 
+
+So, removing a finite number of points from~$C$, in the remaining~$P \in C$ we have~$f(P) \not= 0,\infty$,~$x(P) \not= \infty$ and~$x-x(P)$ is a uniformizer of~$\mathcal{O}_P$. But in such points we have~$\operatorname{ord}_P(\omega) =\operatorname{ord}_P(f\,\mathrm{d}(x-x(P))) = 0$.
+
+The number~$\sum_{P \in C} \operatorname{ord}_P(\omega)$ is thus well-defined and we \emph{claim} that it doesn't depend on the choice of differential form. For, any other form can be written as~$\omega' = f \omega$ for some~$f \in K^e$ and then we have
+\begin{equation}
+  \sum_{P \in C} \operatorname{ord}_P(\omega') = \sum_{P \in C} (\operatorname{ord}_P(f) +\operatorname{ord}_P(\omega))
+\end{equation}
+and we know already that~$\sum_{P \in C} \operatorname{ord}_P(f)=0$. The \emph{genus\emph}~$g_C$ of the curve~$C$ is then determined from that number by~$2g_C - 2 = \sum_{P \in C}\operatorname{ord}_P(\omega)$.
+
+\begin{example}
+  Take the projective line~$\mathbb{P}^1$ corresponding to the purely transcendental field~$\overline{k}(x)$ and consider~$\omega = \mathrm{d}x$. In a point~$\alpha \not= \infty$ we know that~$x-\alpha$ is a uniformizer, so
+  \begin{equation}
+    \operatorname{ord}_{\alpha}(\omega) = \operatorname{ord}_{\alpha}(\mathrm{d}x) = \operatorname{ord}_{\alpha}(\mathrm{d}(x-\alpha)) = 0.
+  \end{equation}
+  In~$\infty$ the uniformizer is~$\frac{1}{x}$, whence
+  \begin{equation}
+    \operatorname{ord}_{\infty}(\omega) =\operatorname{ord}_{\infty}(\mathrm{d}x) =\operatorname{ord}_{\infty}\left(-x^2\,\mathrm{d}\left(\frac{1}{x}\right)\right) = -2.
+  \end{equation}
+  Thus,~$\sum_{P \in \mathbb{P}^1} \operatorname{ord}_P(\omega) = -2$ and so the genus of the projective line~$g_{\mathbb{P}^1} = 0$.
+\end{example}
