@@ -1,0 +1,31 @@
+With all the fuss about~$\mathbb{F}_1$ and the~$abc$-conjecture, one could forget that there are other mathematical theories and conjectures still out there. The purpose of this post is to give a bit of information about one of those theories, 'Local Langlands correspondence'. This theory gives us a bijection between representations of the Weil-Deligne group of~$F$ and irreducible smooth representations of~$\GL_n (F)$ (don't worry if these things don't mean anything to you, all will be revealed in time). For now, let's start with defining the latter of those two.
+
+\subsection{Smooth representations of~$\GL_n(F)$}
+For the remainder of this article,~$F$ is a local non-archimedean field (which means that~$F$ is either a finite extension of~$\mathbb{Q}_p$ with~$p$ a prime or~$F$ is~$\mathbb{F}_q (\!(t)\!)$, the field of formal Laurent power series over a finite field~$\mathbb{F}_q$ with~$q$ a prime power). For the corresponding valuations, we take~$\mathcal{O}_F$ to be the elements with valuations greater or equal to~$0$ and~$\mathcal{P}_F$ to be the unique maximal ideal of~$\mathcal{O}_F$.
+
+A representation of~$\GL_n(F)$ consists of a complex vector space~$V$ and a group homomorphism~$\pi\colon\GL_n(F) \rightarrow End(V)$. One can define a topology on~$\GL_n(F)$ by defining a base of open neighborhoods of~$I_n$ by taking the congruence subgroups~$K_N, N \in \mathbb{N}$. Those groups are defined recursively as followed: for~$K_0$, take~$\GL_n (\mathcal{O}_F)$. Define~$K_N$ as the unique subgroup of~$\GL_n(F)$ that satisfies the following exact sequence:~$$ 1 \rightarrow K_N \rightarrow K_0 \rightarrow \GL_n(\mathcal{O}_F/\mathcal{P}_{F}^N)\rightarrow 1$$
+
+For example, take~$F = \mathbb{F}_q (\!(t)\!)$, then~$\mathcal{O}_F = \mathbb{F}_q [[t]]$ and $\mathcal{P}_F = t \mathbb{F}_q [[t]]$. It follows that~$K_0 = \GL_n(\mathbb{F}_q [[t]])$ and~$K_N = I_n + t^N M_n(\mathbb{F}_q [[t]])$.
+
+We call a representation~$(V,\pi)$ a \emph{smooth representation} if the map~$\pi(-)v\colon\GL_n(F) \rightarrow V, g \mapsto \pi(g)v$ is continuous with the discrete topology on V for every~$v \in V$. This is equivalent to saying that for every~$v \in V$, there exists a N so that~$K_N \subset \Stab_{\GL_n} (v)$.
+
+To define the Local Langlands correspondence, you need to look at the equivalence class of irreducible smooth representations of~$\GL_n(F)$ and you need to study algebraic closures of local non-archimedean fields.
+
+\subsection{The Weil group and the Weil-Deligne group}
+When we work in a finite field~$\mathbb{F}_q$ or a field with characteristic 0, we don't have to worry about non-separable extensions, but when you work e.g. in~$F = \mathbb{F}_q (\!(t)\!)$, you can have problems (taking the~$p$-th root of~$t$ for instance will give a non-separable extension of~$F$). To avoid these problems, we can take the separable closure of~$F$,~$F^{\textrm{sep}}$ and define the \emph{absolute Galois group} $\Gal(F^{\textrm{sep}}/F)$. For the remainder, I will take~$F = \mathbb{F}_q (\!(t)\!)$. There are analogies for the characteristic 0 local non-archimedean fields, but they are more difficult to describe.
+
+Since all extensions of $\mathbb{F}_q$ are separable,~$\overline{ \mathbb{F}_q} \subset F^{\textrm{sep}}$. So we can make a map~$\Gal(F^{\textrm{sep}}/F) \rightarrow \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, which is just the restriction map. It is clearly surjective. In my last post, I said that~$x \rightarrow x^q$ is an element of~$\Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$ of infinite order, which implies that~$\mathbb{Z} \subset \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, so we can take the inverse image of~$\mathbb{Z}$. This group is the \emph{Weil group} $\mathrm{W}_F$. One defines a topology on it, by taking the normal subgroups of finite index of~$\mathrm{W}_F$ as the open neighborhoods of~$0$. Denote~$\nu: W_F \rightarrow \mathbb{Z}$. We define the \emph{Weil-Deligne group}~$\mathrm{W}'_F$ as the semidirect product of~$\mathrm{W}_F$ and~$(\mathbb{C},+)$, so~$\mathrm{W}'_F = \mathrm{W}_F \ltimes \mathbb{C}$ with group action:
+\begin{equation}
+  \sigma x \sigma^{-1} = q^{\nu(\sigma)}x, \sigma \in \mathrm{W}_F, x \in \mathbb{C}.
+\end{equation}
+
+We define an <strong>admissible representation </strong>of~$\mathrm{W}'_F$ as an homomorphism~$\rho'\colon \mathrm{W}'_F \rightarrow \GL_n(\mathbb{C})$ so that~$\rho'|_{\mathrm{W}_F}$ is continuous and semisimple (with the discrete topology on~$\mathbb{C}^n$), and the image of~$(e,z) \in \{e\}\times\mathbb{C}$ is a matrix of the form~$e^{zu}$, with~$u$ a nilpotent element of~$\mathfrak{gl}_n(\mathbb{C})$. For all~$\sigma \in \mathrm{W}_F$, we get~$\rho(\sigma)u\rho(\sigma)^{-1} = q^{\nu(\sigma)}u$.
+
+\subsection{Local Langlands correspondence for~$\GL_n(F)$}
+Now, for the theorem that defines the correspondence.
+
+\begin{theorem}
+  There exists a bijection between n-dimensional admissible representations of~$\mathrm{W}'_F$ and equivalence classes of irreducible smooth representations of~$\GL_n(F)$.
+\end{theorem}
+
+This theorem has been proved for both~$F = \mathbb{F}_q (\!(t)\!)$ and for~$F$ a finite extension of~$\mathbb{Q}_p$, but it's still a mystery why this correspondence exists. It's a bit like `monstrous Moonshine', which is also proven, but no one knows why it's there, but that's a subject for another post.
