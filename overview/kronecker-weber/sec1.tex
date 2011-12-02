@@ -1,0 +1,141 @@
+\section{The Hasse principle at work}
+Last time on the seminar, we used the Kronecker-Weber theorem to discuss number theory in~$\mathbb{F}_1$. Due to my almost nonexistent knowledge of number theory, I thought it would be a great exercise to work this theorem out. It is anything but trivial and it requires a lot of lemmas and fundamental theorems, which I will write about this time.
+
+\subsection{The theorem and notations}
+\begin{theorem}[Global Kronecker-Weber theorem]
+  If~$K/\mathbb{Q}$ is a finite abelian Galois extension, then there exists an~$n$ such that~$K \subseteq \mathbb{Q}(\zeta_n)$, with~$\zeta_n$ a primitive root of~$1$.
+\end{theorem}
+
+There is also a local version of this theorem, given by replacing~$\mathbb{Q}$ by~$\mathbb{Q}_p$ for some prime~$p$. This theorem has been proved in various ways, the ``easiest'' one by using class field theory. I will give another proof, based on the book "Introduction to cyclotomic fields" by Lawrence C. Washington\todo{bibliography}. It will use the Hasse principle, which we will prove in the first step of the proof.
+
+\begin{theorem}
+  If the local Kronecker-Weber theorem is true for every prime~$p$, then so is the global Kronecker-Weber theorem.
+\end{theorem}
+
+For the remainder of this series,~$p$ is always a prime and~$\mathbb{Q}_p$ are the~$p$-adic numbers with ring of integers~$\mathbb{Z}_p$. For an arbitrary number or local field~$K$, one can define~$K_\mathfrak{p}$ as the completion of~$K$ with respect to a prime ideal~$\mathfrak{p}$. For 2 extensions~$L_1$ and~$L_2$ of a number or local field~$K$, we denote the compositum as~$L_1L_2$.
+
+\subsection{Preliminary work}
+Next proposition is probably one of the most important theorems in number theory and is worth a post itself, but one has to choose a subject and stick to it.
+
+\begin{proposition}
+  Let~$L/K$ be a finite Galois extension, where~$K$ may be a number field or a local field. Let~$\mathfrak{p}$ be a prime of~$K$. Then we have the following equality
+  \begin{equation}
+    \mathfrak{p}=\mathfrak{b}_1^e \mathfrak{b}_2^e\ldots \mathfrak{b}_g^e, 
+  \end{equation}
+  with~$\mathfrak{b}_i$ primes in~$L$ lying above~$K$.~$e$ is called the ramification index. Let~$f$ be the degree of the extension~$\mathcal{O}_L \bmod \mathfrak{b}_i / \mathcal{O}_K \bmod \mathfrak{p}$. Then we have 
+  \begin{equation}
+    \left[L:K\right] = efg. 
+  \end{equation}
+ ~$\mathfrak{p}$ is said to be totally ramified in~$L$ if~$e =n~$ and to be unramified if~$e=1$. Moreover, for all~$1 \leq i<j \leq g$, there exists a~$\sigma \in \Gal(L/K)$ such that~$\sigma(\mathfrak{b}_i) = \mathfrak{b}_j$.
+\end{proposition}
+
+
+In local fields, it is easy to see that if~$K \subset L \subset M$ with ramification indices~$e_{LK},e_{ML},e_{MK}$ and with extension degrees of the residue fields~$f_{LK},f_{ML},f_{MK}$, then we have~$e_{LK}e_{ML} = e_{MK}$ and~$f_{LK}f_{ML}=f_{MK}$. In general, one sees that if~$K \subset L \subset M$ and a prime~$\mathfrak{p}$ of~$K$ ramifies in~$L$, then it ramifies in~$M$.
+
+In case of cyclotomic fields, next theorem says something about ramification.
+
+\begin{theorem}
+  A prime~$\mathfrak{p}$ of~$K$ ramifies in a cyclotomic extension~$K(\zeta_n)$ if and only if~$p\divides n$.
+\end{theorem}
+
+One may hope that there are extensions of~$\mathbb{Q}$ that aren't ramified at any prime. Unfortunately, there aren't any: if~$K/\mathbb{Q}$ is unramified at all primes,~$K = \mathbb{Q}$. This is easily proved using a theorem of Minkowski (for a proof, see <a title="Proof of Minkowski bound" href="http://planetmath.org/encyclopedia/ProofOfMinkowskisBound.html">here</a>) and the fact that if a prime divides the discriminant of a number field~$K$, it always ramifies (the converse is also true).\todo{link fix}
+
+A useful theorem is the following, where~$\mathbb{Q}$ can be replaced by~$\mathbb{Q}_p$ in both this theorem and its corollary:
+
+\begin{theorem}
+  Let~$K$ and~$L$ be finite Galois extensions of~$\mathbb{Q}$. Then~$\Gal(KL/\mathbb{Q}) \cong H$, with~$H$ a subgroup of~$\Gal(K/\mathbb{Q}) \times \Gal(L/\mathbb{Q})$ consisting of all elements~$(\phi,\psi)$ such that~$\phi|_{K \cap L} = \psi|_{K \cap L}$.
+\end{theorem}
+
+\begin{corollary}
+  Let~$L/\mathbb{Q}$ be an abelian Galois extension, with
+  \begin{equation}
+    \Gal(L/\mathbb{Q}) = \prod_{i=1}^m G_i. 
+  \end{equation}
+  Then
+  \begin{equation}
+    L = \prod_{i=1}^m L^{G_i}. 
+  \end{equation}
+\end{corollary}
+
+Since all abelian groups are products of cyclic groups of prime order, we can reduce Kronecker-Weber to Galois extensions with Galois group a cyclic group of prime order, since previous corollary gives the general case.
+
+\begin{definition}
+  Let~$L/K$ be a Galois extension, with~$\mathfrak{p}$ a prime of~$K$ and~$\mathfrak{b}$ a prime lying above~$\mathfrak{p}$. Define
+  \begin{equation}
+    D_\mathfrak{b}=\left\{\sigma \in \Gal(L/K)|\sigma(\mathfrak{b}) = \mathfrak{b}\right\}
+  \end{equation}
+  as the decomposition group of~$\mathfrak{b}$ with inertia group
+  \begin{equation}
+    I_\mathfrak{b} = \left\{\sigma \in D_\mathfrak{b}|\sigma(x) \equiv x \bmod \mathfrak{b} \text{ for all } \alpha \in \mathcal{O}_L\right\}.
+  \end{equation}
+\end{definition}
+
+In general, 2 decomposition groups~$D_{\mathfrak{b}_1}$ and~$D_{\mathfrak{b}_2}$ with~$\mathfrak{b}_1$ and~$\mathfrak{b}_2$ primes lying above~$\mathfrak{p}$, will be conjugated. Moreover, we have: 
+\begin{equation}
+  \sigma D_{\mathfrak{b}_1} \sigma^{-1} = D_{\mathfrak{b}_2} \Rightarrow \sigma I_{\mathfrak{b}_1} \sigma^{-1} = I_{\mathfrak{b}_2}.
+\end{equation}
+Knowing this, it's easy to see that if you work in abelian extensions, there is only one decomposition group and one inertia group. In this case, it's easier to write~$I_{\mathfrak{p}}$ instead of~$I_{\mathfrak{b}}$, since the inertia group doesn't depend on~$\mathfrak{b}$ anymore.
+If you work in a local field~$K$ which is an extension of~$\mathbb{Q}_p$, you can discard the index~$\mathfrak{b}$ and write~$I_K$ instead.
+
+The order of~$D_\mathfrak{b}$ is~$ef$, since the number of elements in the orbit of~$\mathfrak{b}$ is~$g$. The order of~$I_\mathfrak{b}$ will be~$e$ and since 
+\begin{equation}
+  \{\id_L\}\subseteq I_\mathfrak{b} \subseteq D_\mathfrak{b} \subseteq \Gal(L/K),
+\end{equation}
+we have a tower of extensions
+\begin{equation}
+  L\supseteq L^{I_\mathfrak{b}} \supseteq L^{D_\mathfrak{b}} \supseteq K, 
+\end{equation}
+on which we can use the index calculation
+\begin{equation}
+  n = \left[L:K\right] = \left[L:L^{I_\mathfrak{b}}\right]\left[L^{I_\mathfrak{b}}:L^{D_\mathfrak{b}}\right]\left[L^{D_\mathfrak{b}}:K\right]=efg. 
+\end{equation}
+Furthermore,~$\mathfrak{p}$ will be unramified in~$L^{I_\mathfrak{b}}$. In case of a unique inertia group,~$L^{I_\mathfrak{b}}$ is the largest field between~$L$ and~$K$ that has this property. Also,~$I_\mathfrak{b}$ is always a normal subgroup of~$D_\mathfrak{b}$ (not only in case of abelian extensions).
+
+Next four theorems will prove vital for proving the ``local implies global'' Kronecker-Weber theorem.
+
+\begin{theorem}
+  Let~$L/K$ be a Galois extension of number fields, with~$\mathfrak{p}$ a prime of~$K$ with a prime~$\mathfrak{b}$ lying over. Then we have
+  \begin{equation}
+    \Gal(L_\mathfrak{b}/K_\mathfrak{p}) \cong D_\mathfrak{b} 
+  \end{equation}
+  and the inertia groups of~$\mathfrak{b}$ are isomorphic in both extensions.
+\end{theorem}
+
+\begin{theorem}
+  Let~$L/K/\mathbb{Q}_p$ be a tower of finite Galois extensions. Then there exists a surjective homomorphism~$f\colon I_L \rightarrow I_K$.
+\end{theorem}
+
+\begin{theorem}
+  The inertia group of~$\mathbb{Q}_p(\zeta_n)/\mathbb{Q}_p$ is~$(\mathbb{Z}/p^e\mathbb{Z})^*$, where~$e$ is determined by~$p^e|n, p^{e+1} \nmid n.$
+\end{theorem}
+
+\begin{theorem}
+  The Galois group of an abelian extension~$K/\mathbb{Q}$ is generated by the inertia groups~$I_{p}$'s, with~$p$ running over all primes of~$\mathbb{Q}$.
+\end{theorem}
+
+\subsection{Local implies global}
+All these theorem imply the first step in the proof of Kronecker-Weber.
+
+\begin{theorem}
+  If the local Kronecker-Weber theorem is true for every prime~$p$, then so is the global Kronecker-Weber theorem.
+
+  \begin{proof}
+    Let~$K/\mathbb{Q}$ be an abelian extension and~$p$ a rational prime that ramifies, with~$\mathfrak{b}$ a prime lying above~$p$. Take completions~$K_\mathfrak{b}$ and~$\mathbb{Q}_p$. We know that~$\Gal(K_\mathfrak{b}/\mathbb{Q}_p) = D_\mathfrak{b}$, so it is necessarily abelian, since it is a subset of~$\Gal(K/\mathbb{Q})$. Assuming local Kronecker-Weber, we know that~$K_\mathfrak{b} \subset \mathbb{Q}_p(\zeta_{n_p})$ for some~$n_p$. Now, let~$p^{e_p}$ be the exact power of~$p$ that divides~$n_p$ and let
+    \begin{equation}
+      n = \prod_{p \text{ ramifies in } K} p^{e_p}. 
+    \end{equation}
+
+    We will now prove that~$K \subset \mathbb{Q}(\zeta_n)$. Take~$L = K(\zeta_n)$. The main objective will be to prove that~$\left[L:\mathbb{Q}\right] \leq \varphi(n)$, since $\left[\mathbb{Q}(\zeta_n):\mathbb{Q}\right] = \varphi(n)$ and~$\zeta_n \in L$ implies that~$\mathbb{Q}(\zeta_n) = L$ and so~$K \subset \mathbb{Q}(\zeta_n)$.
+    We know that a prime~$p$ is unramified in~$\mathbb{Q}(\zeta_n)/\mathbb{Q}$ if~$p$ doesn't divide~$n$, so the primes that ramify in~$K$ and~$\mathbb{Q}(\zeta_n)$ are the same. So~$L$ and~$K$ have the same ramifying primes. Take a prime~$p$ of~$\mathbb{Q}$ that ramifies in~$L$, with a prime~$\mathfrak{b}$ lying over it. By one of the above theorems, we can calculate~$I_{\mathfrak{b}}$ locally. Since we are working in abelian extensions and consequently there is only one inertia group, we denote~$I_p$ instead of~$I_{\mathfrak{b}}$. Taking completions and using that~$K_\mathfrak{b} \subset \mathbb{Q}_p(\zeta_{n_p})$, we get
+    \begin{equation}
+      K_\mathfrak{b}(\zeta_n) \subset \mathbb{Q}_p(\zeta_{n_p},\zeta_n) = \mathbb{Q}_p(\zeta_m), 
+    \end{equation}
+    with~$m = \lcm(n_p,n)$. Since the highest power of~$p$ that divides both~$m$ and~$n$ is~$e_p$, we have that the inertia groups of both~$\mathbb{Q}_p(\zeta_m)$ and~$\mathbb{Q}_p(\zeta_n)$ are $(\mathbb{Z}/p^{e_p}\mathbb{Z})^*$. Since~$\mathbb{Q}_p(\zeta_n) \subset K_\mathfrak{b}(\zeta_n) \subset \mathbb{Q}_p(\zeta_m)$, we have that~$I_p = (\mathbb{Z}/p^{e_p}\mathbb{Z})^*$ and so~$|I_p| = \varphi(p^{e_p})$. Since all the~$I_p$ generate~$\Gal(L/\mathbb{Q})$ and we work in abelian extensions, we get
+    \begin{equation}
+      |\Gal(L/\mathbb{Q})|\leq \prod_{p \text{ ramifies}} |I_p|  = \varphi(n). 
+    \end{equation}
+    So~$\left[L:\mathbb{Q}\right] \leq \varphi(n)$ and we are done !
+  \end{proof}
+\end{theorem}
+
+Next time, I'll post (some of) the proof for the local Kronecker-Weber theorem.
