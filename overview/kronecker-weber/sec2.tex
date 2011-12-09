@@ -1,0 +1,122 @@
+\section{Proof of the local version}
+
+Last time, I proved that the Hasse principle is valid for Kronecker-Weber Theorem. So in order to prove Kronecker-Weber, the local version still has to be proved. As noted before, you only need to prove it for Galois extensions~$K/\mathbb{Q}_p$ with Galois group~$\mathbb{Z}/q^m\mathbb{Z}$, where~$q$ is a prime number that can be equal to~$p$. There will be 3 cases to prove:
+\begin{itemize}
+  \item The extension is unramified.
+  \item The extension is ramified, but the ramification degree~$e$ is not divisible by~$p$ (also known as \emph{tamely} ramified).
+  \item The extension is ramified with ramification degree~$e$ divisible by~$p$ (\emph{wildly} ramified).
+\end{itemize}
+In all these cases, we will have need for Hensel's lemma:
+
+\begin{lemma}
+  Let~$L$ be a local field, with ring of integers~$\mathcal{O}_L$ and maximal ideal~$\mathfrak{b}$. Let~$l$ be its residue field. Suppose~$f \in \mathcal{O}_L [x]$, monic with restriction~$\bar{f}$ in~$l[x]$. Suppose~$\bar{f}$ has a root~$\alpha$ in~$l$, such that~$\bar{f}'(\alpha) \neq 0$. Then there exists a root~$\beta \in \mathcal{O}_L$ of~$f$, with~$\beta \equiv \alpha \bmod \mathfrak{b}$.
+\end{lemma}
+
+Let us start the unramified case, which will be the easiest. We will use the notation from the previous post.
+
+\subsection{$K/\mathbb{Q}_p$ is unramified}
+There is a much stronger result for this, which I will prove here. Taking~$K = \mathbb{Q}_p$ will give what we want.
+
+\begin{theorem}
+  Suppose~$L/K$ is an unramified, finite Galois extension, where~$L$ and~$K$ are finite extensions of~$\mathbb{Q}_p$ (not necessarily Galois over~$\mathbb{Q}_p$). Then there exists an~$n \in \mathbb{N},p \nmid n$ so that~$L = K(\zeta_n)$. Furthermore,~$\Gal(L/K)$ will be cyclic.
+
+  \begin{proof}
+    Take~$L/K$ like in the theorem, with prime~$\mathfrak{p}$ in both extensions, since~$e=1$. Let~$l$ and~$k$ be the residue fields of respectively~$L$ and~$K$. Since~$e = 1$,~$\Gal(L/K) = \Gal(l/k)$. The right hand side is a Galois group of an extension in finite fields, hence it is cyclic. Since~$l/k$ is a Galois extension, there exists a primitive element~$\alpha$ so that~$l = k[\alpha]$. Consequently, there exists an~$n$, with~$\gcd(n,p)=1$, such that~$X^n-1$ has a root in~$l$, namely~$\alpha$. Using Hensel's lemma, we find a~$\beta \in \mathcal{O}_L$ as a root of~$X^n-1$ and~$\beta \equiv \alpha \bmod \mathfrak{p}$. Since~$\beta$ is a root of~$1$ and, due to being equivalent to~$\alpha$, has order at least~$n$, we have
+    \begin{equation}
+      \left[K(\beta):K\right] \geq \left[k[\alpha]:k\right] = \left[l:k\right] = \left[L:K\right]. 
+    \end{equation}
+    But~$\beta \in L$, so we get~$L = K(\beta)$ and~$\beta = \zeta_n$.
+
+    This was the easy one, the next two cases are harder.
+  \end{proof}
+\end{theorem}
+
+\subsection{$K/\mathbb{Q}_p$ is tamely ramified}
+This case follows from 3 lemmas. I will give the proofs depending on how difficult or technical it is.
+
+\begin{lemma}
+  Let~$p\neq 2$ be a prime. Then~$\mathbb{Q}_p$ contains the~$p-1$-th roots of unity, but none other.
+
+  \begin{proof}
+    Let~$\mu_p$ be the set of roots of unity in~$\mathbb{Q}_p$. Thanks to Hensel's lemma, we have a surjective morphism~$\phi:\mu_p \rightarrow \mathbb{F}_p^*$, so we need to prove that it is injective. So suppose we have a root of unity of~$(1+tp)^n$. Using Newton's binomial formula, we get
+    \begin{equation}
+      \sum_{i = 1}^n \binom{n}{i} (tp)^{i}=0.  
+    \end{equation}
+    Now, there are 2 cases:~$t = 0$ and we are done, or
+    \begin{equation}
+      \sum_{i = 1}^n \binom{n}{i} (tp)^{i-1}=0, 
+    \end{equation}
+    but then, since~$p\divides 0$,~$p\divides\binom{n}{1}=n.$ Since~$\mathbb{Q}_p$ contains the~$n$-th root of~$1$ and~$p\divides n$,~$\mu_p$ must contain the~$p$-th roots of unity. So we are reduced to~$(1+tp)^p = 1$. But then we have
+    \begin{equation}
+      \sum_{i = 1}^p \binom{p}{i} (tp)^{i}=0. 
+    \end{equation}
+    If~$t \neq 0$, we have
+    \begin{equation}
+      \sum_{i = 1}^p \binom{p}{i} (tp)^{i-1}=0. 
+    \end{equation}
+    But every term is divisible by~$p^2$ except for the first one, which is only divisible by~$p$, so we have a contradiction. This concludes the proof.
+  \end{proof}
+\end{lemma}
+
+In case of~$p=2$,~$\mathbb{Q}_2$ only has~$-1,1$ as roots of unity. This is proved by noticing that~$(\mathbb{Z}/8\mathbb{Z})^* = \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$.
+
+\begin{lemma}
+  Let~$L/K/\mathbb{Q}_p$ be a tower of finite extensions, with~$L/K$ Galois. Let~$\mathfrak{p}_K$ be the unique maximal ideal of~$K$ and suppose that that~$L/K$ is totally ramified of degree~$e$. Then there exists a~$\pi \in K$ a generator of~$\mathfrak{p}_K$ and a root~$\alpha$ of the polynomial~$f(X) = X^e - \pi$, such that~$L = K(\alpha)$.
+
+  \begin{proof}
+    Use of the non-archimedean absolute value, choosing a uniformizing parameter and using the fact that elements of the Galois group preserve absolute values, this is a long but not very difficult proof and will be omitted.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}
+ ~$\mathbb{Q}_p((-p)^{\frac{1}{p-1}}) = \mathbb{Q}_p(\zeta_p)$
+
+  \begin{proof}
+    It can be proved that the maximal ideal of~$\mathbb{Q}_p(\zeta_p)$ is given by~$(1-\zeta_p)$ and that~$(p) = (1-\zeta_p)^{p-1}$. Consequently,~$(1-\zeta_p)^p = (p(1-\zeta_p))$. Take the polynomial
+    \begin{equation}
+      g(X) = \frac{(X+1)^p-1}{X}=\sum_{i=1}^{p} \binom{p}{i}X^{i-1}, 
+    \end{equation}
+    which is the minimal polynomial of~$\zeta_p-1$, so we get
+    \begin{equation}
+      0 = g(\zeta_p) \equiv (\zeta_p-1)^{p-1}+p \bmod (\zeta_p-1)^p. 
+    \end{equation}
+    This can be modified to
+    \begin{equation}
+      u = \frac{(\zeta_p-1)^{p-1}}{-p} \equiv 1 \bmod (\zeta_p-1).
+    \end{equation}
+    Now look at the polynomial~$f(X) = X^{p-1}- u$. Then~$f(1) \equiv 0 \bmod (\zeta_p - 1)$ and~$(\zeta_p - 1)\nmid f'(1)$. Hensel's lemma (again) implies that there exists an~$\alpha \in \mathbb{Q}_p(\zeta_p)$ as a root of~$f$. But~$(-p)^{\frac{1}{p-1}} = \frac{\zeta_p-1}{\alpha}$, so~$(-p)^{\frac{1}{p-1}} \in \mathbb{Q}_p(\zeta_p)$. Now, the minimal polynomial of~$(-p)^{\frac{1}{1-p}}$ is~$X^{p-1}+p$, since it is irreducible due to Eisenstein's criterion, so~$(-p)^{\frac{1}{1-p}}$ and~$\zeta_p$ have the same degree over~$\mathbb{Q}_p$. This gives~$\mathbb{Q}_p((-p)^{\frac{1}{1-p}}) = \mathbb{Q}_p(\zeta_{p})$.
+  \end{proof}
+\end{lemma}
+
+\begin{proof}
+  Now, for the proof of the tamely ramified case. Let~$L/\mathbb{Q}_p$ be a tamely ramified abelian extension of ramification degree~$e, p\nmid e$, with~$K/\mathbb{Q}_p$ the maximal unramified subextension. We already know that~$K \subset \mathbb{Q}_p(\zeta_n)$ for some~$n$. We also have~$L/K$ is totally ramified with degree~$e$. From one of the above lemmas, we know that~$L = K(\pi^{\frac{1}{e}})$ with~$\pi$ a generator of the unique maximal ideal~$\mathfrak{p}_K$ of~$\mathcal{O}_K$.~$K/\mathbb{Q}_p$ is unramified, so~$p$ is also a generator of~$\mathfrak{p}_K$. This gives~$\pi = -up$ for some unit~$u$ of~$\mathcal{O}_K$.~$u$ is a unit,~$p \nmid e$, so the discriminant of~$f(X) = X^e-u$ is not divisible by~$p$. This implies that~$K(u^{\frac{1}{e}})/K$ is unramified.~$K \subset \mathbb{Q}_p(\zeta_n)$, so
+  \begin{equation}
+    K(u^{\frac{1}{e}}) \subset K(\zeta_M) \subset \mathbb{Q}_p(\zeta_{Mn}), 
+  \end{equation}
+  with~$M$ an integer. Let~$T$ be the compositum of~$\mathbb{Q}_p(\zeta_{Mn})$ and~$L$.~$T$ is an abelian extension of~$\mathbb{Q}_p$ and~$u^{\frac{1}{e}},\pi^{\frac{1}{e}} \in T$, which gives~$(-p)^{\frac{1}{e}} \in T$. Since~$\mathbb{Q}_p((-p)^{\frac{1}{e}}) \subset T$ and~$T/\mathbb{Q}_p$ is abelian, it is an Galois extension over~$\mathbb{Q}_p$. Since all the roots of~$X^e +p$ are~$\zeta_e^k (-p)^{\frac{1}{e}}, k=0,\ldots,e-1$, we know that~$\zeta_e \in \mathbb{Q}_p((-p)^{\frac{1}{e}})$.~$\mathbb{Q}_p((-p)^{\frac{1}{e}})$ is totally ramified and since every subfield of a totally ramified subfield is totally ramified in case of local fields,~$\mathbb{Q}_p(\zeta_e)$ is also totally ramified. But~$p \nmid e$, so it can't ramify, except when it's the trivial extension, so~$\zeta_e \in \mathbb{Q}_p$ and~$e \divides p-1$. We have a tower of extensions
+  \begin{equation}
+    \mathbb{Q}_p((-p)^{\frac{1}{e}}) \subset \mathbb{Q}_p((-p)^{\frac{1}{p-1}}) \subset \mathbb{Q}_p(\zeta_p). 
+  \end{equation}
+  Consequently,
+  \begin{equation}
+    L = K(\pi^{\frac{1}{e}}) \subset K(u^{\frac{1}{e}},(-p)^{\frac{1}{e}}) \subset \mathbb{Q}_p(\zeta_{Mnp}), 
+  \end{equation}
+  which concludes this case.
+\end{proof}
+
+\subsection{$K/\mathbb{Q}_p$ is widely ramified}
+This is the hardest case, so I won't give the entire proof, but I will describe the way the proof works. We know that we just have to work with extensions with Galois group~$\mathbb{Z}/q^{m}\mathbb{Z}$, with~$q$ a prime. Since we work in the widely ramified case, this breaks down to~$q = p$. There are 2 cases to consider:~$p = q = 2$ or~$p = q \neq 2$ (2 is always a bad prime). Let us first proof the last case.
+
+Take an abelian widely ramified extension~$L/\mathbb{Q}_p$ of degree~$p^m$, with cyclic Galois group. We first construct 2 Galois extensions of~$\mathbb{Q}_p$ of degree~$p^m$, one totally ramified, the other unramified:
+\begin{itemize}
+  \item Consider the extension~$\mathbb{Q}_p(\zeta_{p^{m+1}})$ with Galois group~$\mathbb{Z}/p^{m+1}\mathbb{Z}$ and let~$K_r$ be the fixed field by the subgroup of order~$p-1$. This will be a totally ramified extension of degree~$p^m$ with cyclic Galois group.
+  \item Take an irreducible polynomial in~$\mathbb{F}_p[X]$ of degree~$p^m$, lift it to an irreducible polynomial in~$\mathbb{Z}_p[X]$ and construct the corresponding Galois extension. This will give an unramified extension~$K_u$ with Galois group~$\mathbb{Z}/p^m\mathbb{Z}$.
+\end{itemize}
+
+As we know from the unramified case,~$K_u \subset \mathbb{Q}_p(\zeta_n)$ for some~$n$. Since one extension is unramified and the other is totally ramified, we necessarily have~$K_u \cap K_v = \mathbb{Q}_p$ and consequently,~$\Gal(K_uK_v/\mathbb{Q}_p) = (\mathbb{Z}/p^m\mathbb{Z}^2)$. Suppose that~$L \not\subset \mathbb{Q}_p(\zeta_n,\zeta_{p^{m+1}})$, then we should have
+\begin{equation}
+  \Gal(L(\zeta_n,\zeta_{p^{m+1}})) = (\mathbb{Z}/p^m\mathbb{Z})^2 \times\mathbb{Z}/p^k\mathbb{Z}, 
+\end{equation}
+with~$k > 0$. This implies that there is a Galois extension of~$\mathbb{Q}_p$ with Galois group~$(\mathbb{Z}/p\mathbb{Z})^3$. The next part is to prove that there doesn't exist such an extension, but this is very hard and requires knowledge of Kummer theory.
+
+The case~$p=q=2$ is similar. One concludes that there should exist a Galois extension of~$\mathbb{Q}_2$ with Galois group~$(\mathbb{Z}/2\mathbb{Z})^4$ or~$(\mathbb{Z}/4\mathbb{Z})^3$ and once again it is proved that this is impossible.
