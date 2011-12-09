@@ -1,0 +1,90 @@
+\subsection{Cyclotomic extensions}
+
+In this post I'll try to explain why some prime ideals of~${\mathbb{Z}}$ split into bigger ideals in~${\mathbb{Z}[\mu_n]}$. First of all, we will denote the~${n}$-th cyclotomic extension of~${\mathbb{Q}}$ by~${\mathbb{Q}(\mu_n)}$, with~${\mu_n}$ a primitive~${n}$-the root, such as~${e^{\frac{2i\pi}{n}}}$. Another way of representing this extension of fields is by considering the minimal polynomial of~${\mu_n}$, which happens to have a (rather unsurprising) name: the~${n}$-th cyclotomic polynomial, denoted by~${\Phi_n}$.
+
+A few of the important properties of these polynomials are:
+
+In~${\mathbb{Z}[X]}$, these polynomials are irreductible, and can be recursively defined by
+\begin{itemize}
+	\item $ \Phi_1(X) = X - 1~$
+	\item $ \Phi_n(X) = \frac{X^n - 1}{\prod_{d|n, d < n}\Phi_d}~$
+	\item The degree of~${\Phi_n(X)}$ is equal to~${\varphi(n)}$, the Euler characteristic evaluated in~${n}$. Using the Mobius inversion formula, one can easily show that
+    \begin{equation}
+      \Phi_n(X) = \prod_{d\mid n} \left( X^{n/d} - 1 \right)^{\mu(d)}  .
+    \end{equation}
+\end{itemize}
+
+We have the canonically isomorphic fields
+\begin{equation}
+  \mathbb{Q}(\mu_n) \simeq \frac{\mathbb{Q}[X]}{(\Phi_n(X))} .
+\end{equation}
+
+The ring of integers of~${\mathbb{Q}(\mu_n)}$, namely those elements who satisfy a unitary polynomial with coefficients in~${\mathbb{Z}}$, is equal to~${\mathbb{Z}[\mu_n]}$, making life easy for now.
+
+\subsection{Prime splitting}
+
+A prime ideal~${\frak{p} \subset \mathbb{Z} }$ is equal to~${p\mathbb{Z}}$ with~${p}$ a prime number. There is no reason why~${p\mathbb{Z}[\mu_n]}$ should be a prime ideal (in~${\mathbb{Z}[\mu_n]}$), and in fact sometimes it is not. Consider as an example the prime~${7}$ in~${\mathbb{Z}[\mu_3]}$:
+
+\begin{equation}
+  \frac{\mathbb{Z}[\mu_3]}{(7)} \simeq \frac{\mathbb{Z}[X]}{(X^2 + X + 1, 7)} \simeq \frac{\mathbb{F}_7[X]}{X^2 + X + 1}
+\end{equation}
+
+The polynomial~${X^2 + X + 1}$ factors as~${(X-2)(X-4)}$ in~${\mathbb{F}_7}$, and therefore 7 splits in 2 maximal ideals~${\frak{m}_1, \frak{m}_2}$ corresponding to~${X-2}$,~${X-4}$ respectively. In general we have
+
+\begin{equation}
+  \frac{\mathbb{Z}[\mu_n]}{(p)} \simeq \frac{\mathbb{F}_p[X]}{(\Phi_n(X))}.
+\end{equation}
+
+The prime ideals 'lying above~${p}$' are the irreducible factors of~${\Phi_n(X)}$ in~${\mathbb{F}_p[X]}$. If~${\frak{m}}$ is such a prime ideal (which is automatically maximal, for technical reasons), then~${\mathbb{Z}[\mu_n]/\frak{m}}$ is a finite field extension of~${\mathbb{F}_p}$.
+
+Since every finite field extension is isomorphic to~${\mathbb{F}_{p^d}}$, the only thing left to do is find out what exactly the number~${d}$ stands for. The number~${d}$ is obviously equal to the degree of an irreducible factor~${L}$ of~${\Phi_n(X)}$, since~${\mathbb{Z}[\mu_n]/\frak{m}\simeq \mathbb{F}_p[X]/(L)}$. A slightly more interesting way of putting it is saying that~${d}$ is the smallest number such that a field with~${p^d}$ elements contains a primitive~${n}$-th root; this being equivalent with
+
+\begin{equation}
+  n \mid (p^d - 1) .
+\end{equation}
+
+If this number~${d}$, called the ramification number, is greater than 1, we say that~${p}$ is ramified in~${\mathbb{Z}[\mu_n]}$, otherwise we say~${p}$ is unramified. Because the Galois group~${\mathrm{Gal}(\mathbb{Q}(\mu_n) / \mathbb{Q})}$ acts transitively on the set of prime ideals lying above a prime~${p}$, and a prime~${p}$ that splits into several factors will have the same ramification number in each factor.
+
+\subsection{The relation with covering maps}
+
+Let~${q = \frac{a}{b} = \frac{p_1^{e_1}\ldots p_r^{e_r}}{q_1^{f_1}\ldots q_s^{l_s}}}$ and~${p}$ a prime number such that~${v_p(q) = 0}$. We have that~${\bar{a} \cdot \bar{b}^{-1} \in \mathbb{F}_p^*}$, and the covering map sends 
+\begin{equation}
+  p \mapsto \mathrm{ord}(\bar{a} \cdot \bar{b}^{-1}).
+\end{equation}
+Saying that~${k = \mathrm{ord}(\bar{q})}$ boils down to 
+\begin{equation}
+  \bar{q}^k \equiv 1 \qquad \text{in } \mathbb{F}_p.
+\end{equation}
+The prime~${p}$ will be unramified in~${\mathbb{Z}[\mu_q]}$, since the previous statement says that~${k \mid (p^{1} - 1)}$. This means the prime~${p}$ will be split in~${\varphi(q)}$ different pieces, since the degree of~${\Phi_q}$ is~${\varphi(q)}$. Since the order of~${\bar{q} = k}$, we find that there exists a~${k^{\text{th}}}$-primitive root~${\varepsilon}$ such that in~${\mathbb{Z}[\varepsilon]}$ there exists a prime ideal~${\mathfrak{m}}$ lying above~${p}$ having the property 
+\begin{equation}
+  q - \varepsilon \in \mathfrak{m}.
+\end{equation}
+
+\subsection{Some examples to make things more clear}
+\begin{example}
+	As a first example, consider~${p = 11}$ and~${q = 10}$. Since~${10^2 = 100 \simeq 1 \mod 11}$, we see that~${10}$ is of order~$2$. As expected, the prime~${11}$ is totally unramified in~${\mathbb{Z}[\mu_{10}]}$, since the minimum polynomial 
+  \begin{equation}
+    \Phi_{10} = X^4 - X^3 + X^2 - X + 1.
+  \end{equation}
+  has zeros in~${2,6,7}$ and~${8}$ when working in~${\mathbb{F}_{11}[X]}$.The only nontrivial~${2}$-root is~${\varepsilon\coloneqq-1}$, and of course~${\mathbb{Z}[-1] = \mathbb{Z}}$. Nevertheless we find that~${q - \varepsilon = 10 + 1 = 11}$ is clearly part of~${(p)}$.
+\end{example}
+
+\begin{example}
+  As a second example, we take again~${p = 11}$ but now~${q = 3}$. Calculations show that the order is now~$5$. The cyclotomic polynomial~${\Phi_3 = X^2 + X + 1}$ splits into~${(X - 2)(X - 10)}$ when working in~${\mathbb{F}_{11}[X]}$. If we take~${\varepsilon = e^{\frac{2i\pi}{5}}}$, then
+  \begin{equation}
+    \mathbb{Z}[\varepsilon] = \mathbb{Z}[\mu_5] = \frac{\mathbb{Z}[X]}{(X^4 + X^3 + X^2 + X + 1)} 
+  \end{equation}
+  and the prime~$11$ splits up into ideals corresponding to the factors~${X - 3, X - 4, X - 5}$ and~${X - 9}$. The numbers~${3,4,5}$ and~${9}$ are exactly the elements of~${\mathbb{F}_{11}}$ that have order~$5$. We call~${\frak{m}}$ the prime ideal lying above~$11$ corresponding to the factor~${(X - 3)}$. Then we have that
+  \begin{equation}
+    q - \varepsilon \simeq q - X 
+  \end{equation}
+  in
+  \begin{equation}
+    \frac{\mathbb{F}_{11}[X]}{(X-3)}  
+  \end{equation}
+  and we find that
+  \begin{equation}
+    q - \varepsilon \simeq 0 \mod \mathfrak{m}  
+  \end{equation}
+  what we wanted.
+\end{example}
