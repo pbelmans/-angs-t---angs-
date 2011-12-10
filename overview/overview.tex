@@ -14,8 +14,8 @@
   \hbox{
     \rule{1pt}{\textheight}
     \hspace*{0.05\textwidth}
-    \parbox[b]{0.9\textwidth}{
-      \vbox{
+    \parbox[b]{0.9\textwidth}{%
+      \vbox{%
         {\noindent\HUGE\bfseries\thetitle} \\[4pt]
         {\noindent\Large\textcolor{gray}{antwerp noncommutative geometry seminar}}\\[\baselineskip]
 
@@ -27,8 +27,8 @@
 
         \vspace{0.6\textheight}
 
-        \begin{tabular}[c]{cp{10cm}}
-          \multirow{2}{*}{\includegraphics[height=0.8cm]{ua.pdf}} & Universiteit Antwerpen \\
+        \begin{tabular}[c]{cp{5cm}}
+          \multirow{2}{*}{\includegraphics[height=0.7cm]{ua.pdf}} & Universiteit Antwerpen \\
           & 2011--2012
         \end{tabular}\\[\baselineskip]
       }
@@ -42,6 +42,10 @@
 \clearpage
 
 \section*{Introduction}
+List of todos
+\begin{itemize}
+  \item tikzify Figure 1.2
+\end{itemize}
 
 \part{Series}
 
@@ -53,93 +57,93 @@
 \input{0-geometry/sec4.tex}
 
 
-\chapter{The abc of the $abc$-conjecture and the Mason-Stothers theorem}
+\chapter{The abc of the \texorpdfstring{$abc$}-conjecture and the Mason-Stothers theorem}
 \input{abc-and-mason-stothers/sec1.tex}
 \input{abc-and-mason-stothers/sec2.tex}
 \input{abc-and-mason-stothers/sec3.tex}
 
 
-\chapter{La carte et le territoire: understanding schemes and $\mathcal{M}$-schemes}
+\chapter{La carte et le territoire: understanding schemes and \texorpdfstring{$\mathcal{M}$}{M}-schemes}
 \input{m-schemes/sec1.tex}
 \input{m-schemes/sec2.tex}
 \input{m-schemes/sec3.tex}
 \input{m-schemes/sec4.tex}
 \input{m-schemes/sec5.tex}
 \input{m-schemes/sec6.tex}
+%
+%
+%\chapter{Playing Witt rings}
+%\section{Gather your Witts}
+%\input{playing-witt-rings/sec1.tex}
+%\section{Cartier's big Witt functor}
+%\input{playing-witt-rings/sec2.tex}
+%\section{Lenstra's jewellery}
+%\input{playing-witt-rings/sec3.tex}
+%
+%
+%\chapter{Understanding~$\mathrm{W}(\mathbb{Z})$}
+%\input{understanding-wz/sec1.tex}
+%\input{understanding-wz/sec2.tex}
+%\input{understanding-wz/sec3.tex}
+%\input{understanding-wz/sec4.tex}
+%
+%
+%\chapter{Chebotar\"ev density}
+%\input{chebotarev-density/sec1.tex}
+%\input{chebotarev-density/sec2.tex}
+%
+%
+%\chapter{The Kronecker-Weber theorem}
+%\input{kronecker-weber/sec1.tex}
+%\input{kronecker-weber/sec2.tex}
+%
+%
+%\chapter{Ordinals and algebraic closures}
+%\input{on-no-and-on/sec1.tex}
+%
+%
+%
+%\part{Assorted posts}
+%
+%\setcounter{section}{0}\todo{find a better solution}
+%
+%\section{The Smirnov letters}
+%\input{the-smirnov-letters/post.tex}
+%
+%\section{What is $\mathbb{P}^1$ over~$\mathbb{F}_1$?}
+%\input{what-is-p1/post.tex}
+%
+%\section{What is the ``curve'' $\Spec\mathbb{Z}$?}
+%\input{what-is-spec-z/post.tex}
+%
+%\section{Rational numbers and covers $\Spec\mathbb{Z}\to\mathbb{P}^1/\mathbb{F}_1$}
+%\input{rational-numbers/post.tex}
+%
+%\section{The exceptional map and Mersenne primes}
+%\input{exceptional-map/post.tex}
+%
+%\section{$\mathbb{F}_1$ and the $abc$-conjecture}
+%\input{f1-abc/post.tex}
+%
+%\section{Ostrowski's theorem for a polynomial ring}
+%\input{ostrowski/post.tex}
+%
+%\section{The algebraic closures of finite fields and their subfields}
+%\input{algebraic-closures-of-finite-fields/post.tex}
+%
+%\section{Advanced alchemy: Carlitz' take on quadratic reciprocity}
+%\input{carlitz-take/post.tex}
+%
+%\section{Local Langlands correspondence}
+%\input{local-langlands/post.tex}
+%
+%\section{Prime splitting in cyclotomic fields}
+%\input{prime-splitting/post.tex}
+%
+%\section{Prime number theorem: an example why polynomials are much easer than numbers}
+%\input{prime-number-theorem/post.tex}
 
-
-\chapter{Playing Witt rings}
-\section{Gather your Witts}
-\input{playing-witt-rings/sec1.tex}
-\section{Cartier's big Witt functor}
-\input{playing-witt-rings/sec2.tex}
-\section{Lenstra's jewellery}
-\input{playing-witt-rings/sec3.tex}
-
-
-\chapter{Understanding~$\mathrm{W}(\mathbb{Z})$}
-\input{understanding-wz/sec1.tex}
-\input{understanding-wz/sec2.tex}
-\input{understanding-wz/sec3.tex}
-\input{understanding-wz/sec4.tex}
-
-
-\chapter{Chebotar\"ev density}
-\input{chebotarev-density/sec1.tex}
-\input{chebotarev-density/sec2.tex}
-
-
-\chapter{The Kronecker-Weber theorem}
-\input{kronecker-weber/sec1.tex}
-\input{kronecker-weber/sec2.tex}
-
-
-\chapter{Ordinals and algebraic closures}
-\input{on-no-and-on/sec1.tex}
-
-
-
-\part{Assorted posts}
-
-\setcounter{section}{0}\todo{find a better solution}
-
-\section{The Smirnov letters}
-\input{the-smirnov-letters/post.tex}
-
-\section{What is $\mathbb{P}^1$ over~$\mathbb{F}_1$?}
-\input{what-is-p1/post.tex}
-
-\section{What is the ``curve'' $\Spec\mathbb{Z}$?}
-\input{what-is-spec-z/post.tex}
-
-\section{Rational numbers and covers $\Spec\mathbb{Z}\to\mathbb{P}^1/\mathbb{F}_1$}
-\input{rational-numbers/post.tex}
-
-\section{The exceptional map and Mersenne primes}
-\input{exceptional-map/post.tex}
-
-\section{$\mathbb{F}_1$ and the $abc$-conjecture}
-\input{f1-abc/post.tex}
-
-\section{Ostrowski's theorem for a polynomial ring}
-\input{ostrowski/post.tex}
-
-\section{The algebraic closures of finite fields and their subfields}
-\input{algebraic-closures-of-finite-fields/post.tex}
-
-\section{Advanced alchemy: Carlitz' take on quadratic reciprocity}
-\input{carlitz-take/post.tex}
-
-\section{Local Langlands correspondence}
-\input{local-langlands/post.tex}
-
-\section{Prime splitting in cyclotomic fields}
-\input{prime-splitting/post.tex}
-
-\section{Prime number theorem: an example why polynomials are much easer than numbers}
-\input{prime-number-theorem/post.tex}
-
-\bibliographystyle{unsrt}
+\bibliographystyle{alpha}
 \bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography,the-smirnov-letters/bibliography,playing-witt-rings/bibliography,chebotarev-density/bibliography,0-geometry/bibliography}
 
 \end{document}
