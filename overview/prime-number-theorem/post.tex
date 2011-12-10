@@ -1,0 +1,93 @@
+The reason that people are looking for a fictional field~$\mathbb{F}_1$ is to solve problems in number fields, that have counterparts in function fields. Some problems are already solved in one of them, but not in the other, e.g.\ Riemann's hypothesis. Others are already solved in both worlds, like the Prime number theorem (PNT), which is the subject of this post. The original proof(s) of PNT in number theory (proved independently by Jacques Hadamard, a Frenchman, in 1896 and by Charles de la Vall\'ee Poussin, a Belgian, in 1899) involve(s) very long calculations using complex analysis and integrals, although a (relatively speaking) short proof was found in 1980 by Donald Newman.
+
+The proof of PNT in function fields however, which will be given in this post, is much shorter, doesn't use complex numbers at all and doesn't involve more than some series manipulation and the Moebius inversion formula. It also gives an immediate error estimation, whose analogy would be true in number fields if the Riemann hypothesis is true.
+
+\subsection{The players}
+We work in the polynomial ring~$A = \mathbb{F}_q[t]$. In number theory, the PNT gives a fact about (surprise, surprise) primes, so we need some sort of primes in $\mathbb{F}_q[t]$. These primes will be the monic, irreducible polynomials of~$\mathbb{F}_q[t]$.
+
+In number theory, we work with the Riemann zeta function~$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}$. In a polynomial ring, we need to connect a natural number with every monic polynomial~$f$ to have an analogous zeta function. To do that, we set
+\begin{equation}
+  |f|\coloneqq|\mathbb{F}_q[t]/(f)| = q^{\deg(f)} 
+\end{equation}
+and we define the zeta function of~$A$
+\begin{equation}
+  \zeta_A(s)\coloneqq \sum_{f \in A,f \text{ monic}} \frac{1}{|f|^s}. 
+\end{equation}
+Like in the case of~$\zeta(s)$, we want to have a function on~$\mathbb{C}$ (yes I know, complex numbers, but it's just for the analytic continuation, nothing else), except for a finite number of poles. Since the number of monic polynomials of degree~$d$ is~$q^d$, we get
+\begin{equation}
+  \zeta_A(s) = \sum_{n=0}^\infty \frac{q^n}{q^{ns}}=\sum_{n=0}^\infty q^{n(1-s)} = \frac{1}{1-q^{1-s}}. 
+\end{equation}
+This is a very nice analytic continuation, with only a pole at~$1$. Remember that with the Riemann zeta function, there too is an analytic continuation to~$\mathbb{C}\setminus\{1\}$.
+
+\subsection{The rules}
+Although we won't need any complex numbers or integrals, there are a few basic rules needed.
+\begin{itemize}
+  \item The geometric series
+	\item The logarithmic derivative
+	\item The Moebius inversion formula
+  \item An Euler product for~$\zeta_A(s)$
+\end{itemize}
+
+\paragraph{The geometric series} Nothing new to say about this. We use the fact that
+\begin{equation}
+  \sum_{n=0}^\infty z^n = \frac{1}{1-z} 
+\end{equation}
+if~$|z| < 1$.
+
+\paragraph{The logarithmic derivative}
+For a complex function~$f$, we define the logarithmic derivative as
+\begin{equation}
+  \frac{f'}{f} = \log(f)'
+\end{equation}
+Depending on how~$f$ looks, we will be using the left or the right side of this equation.
+
+\paragraph{The Moebius inversion formula} To use this formula, we first have to define a arithmetic function. This is just a function~$a\colon \mathbb{N} \rightarrow \mathbb{C}$. For two arithmetic functions~$a$ and~$b$, we have the following formula
+\begin{equation}
+  \forall n \in \mathbb{N}: a(n) = \sum_{d\divides n} b(d) \Leftrightarrow b(n) = \sum_{d\divides n} \mu(d)a(\frac{n}{d}),
+\end{equation}
+where~$\mu$ stands for the Moebius function.
+
+\paragraph{An Euler product of $\zeta_A(s)$} In the case of~$\zeta(s)$, we have the identity
+\begin{equation}
+  \zeta(s) = \prod_{p \text{ prime}} \left( 1-\frac{1}{p^s} \right)^{-1}, 
+\end{equation}
+which has a counterpart for~$\zeta_A(s)$, namely
+\begin{equation}
+  \zeta_A(s) = \!\!\!\!\!\prod_{P \text{ irreducible and monic}}\left( 1-\frac{1}{|P|^s} \right)^{-1},
+\end{equation}
+which is easily proved in the same way as the Euler product of~$\zeta(s)$.
+
+\subsection{The game}
+Define~$a_d$, the number of monic irreducibles of degree~$d$. We can combine the Euler identity and the analytic continuation of~$\zeta_A(s)$ and we get
+\begin{equation}
+  \frac{1}{1-q^{1-s}} = \prod_{d=1}^{\infty}(1-q^{-ds})^{-1}.
+\end{equation}
+To simplify matters, it will be easier to set~$u\coloneqq q^{-s}$. Taking the logarithmic derivative with respect to~$u$ of both sides (left side is easier with~$\frac{f'}{f}$, right side with~$\log(f)'$), we get
+\begin{equation}
+  \frac{q}{1-qu} = \sum_{d=1}^\infty \frac{d a_d u^{d-1}}{1-u^d}.
+\end{equation}
+Multiplying with~$u$ and using the geometric series on both sides, we get
+\begin{equation}
+  \sum_{n=1}^\infty (qu)^n = \sum_{d=1}^\infty d a_d \sum_{k=1}^\infty u^{dk} .
+\end{equation}
+Comparing coefficients, we get the formula
+\begin{equation}
+  \sum_{d\divides n} d a_d = q^n, 
+\end{equation}
+on which we use the Moebius inversion formula to get~$a_n$
+\begin{equation}
+  a_n = \frac{1}{n} \sum_{d\divides n} \mu(d)q^{\frac{n}{d}}.
+\end{equation}
+Now, we see that the greatest power of~$q$ in this equation is~$n$, so we take the absolute value of the difference~$|a_n - \frac{q^n}{n}|$. The next greatest power of~$q$ that can possibly (not necessarily) occur, is~$\frac{n}{2}$. So we estimate
+\begin{equation}
+  \left| a_n - \frac{q^n}{n} \right| \leq \frac{\sqrt{q}}{n} +  \sum_{d\divides n} |\mu(d)| q^{n/d} 
+\end{equation}
+with~$\frac{n}{d} \leq \frac{n}{3}$. Since~$\sum_{d\divides n} |\mu(d)|$ is equal to~$2^t$, with~$t$ the number of primes that are divisors of~$n$. Since~$2^t \leq p_1 \ldots p_t \leq n$, where~$p_i$ is a prime that divides~$n$, we have
+\begin{equation}
+  \left| a_n - \frac{q^n}{n} \right| \leq \frac{\sqrt{q}}{n} + \sqrt[3]{q}, 
+\end{equation}
+this translates to
+\begin{equation}
+  a_n = \frac{q^n}{n} + O\left( \frac{\sqrt{q}}{n} \right), 
+\end{equation}
+which is what we want.
