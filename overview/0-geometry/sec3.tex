@@ -1,10 +1,16 @@
 \section{Hurwitz}
-The genus formula of \href{http://en.wikipedia.org/wiki/Bernhard_Riemann}{Bernhard Riemann} (on the left) and \href{http://en.wikipedia.org/wiki/Adolf_Hurwitz}{Adolf Hurwitz} (on the right) asserts that if~$\phi\colon C_1 \rightarrow C_2$ is a separable cover of curves, we have an inequality relating their genera:
+The genus formula of \href{http://en.wikipedia.org/wiki/Bernhard_Riemann}{Bernhard Riemann} (on the left in Figure~\ref{figure:riemann-hurwitz}) and \href{http://en.wikipedia.org/wiki/Adolf_Hurwitz}{Adolf Hurwitz} (on the right in Figure~\ref{figure:riemann-hurwitz}) asserts that if~$\phi\colon C_1 \rightarrow C_2$ is a separable cover of curves, we have an inequality relating their genera:
 \begin{equation}
+  \label{equation:riemann-hurwitz}
   2 \genus_{C_1} - 2 \geq \deg(\phi)(2 \genus_{C_2} -2) + \sum_{P \in C_1} (e_{\phi}(P)-1)
 \end{equation}
 
-<img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/riemannhurwitz.jpg">
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=10cm]{0-geometry/riemannhurwitz}
+  \caption{Bernhard Riemann and Adolf Hurwitz}
+  \label{figure:riemann-hurwitz}
+\end{figure}
 
 Let's first understand all these terms. The cover~$\phi\colon C_1 \rightarrow C_2$ is separable if the induced field-extension~$\phi^{\ast}(\overline{k}(C_2)) \subset \overline{k}(C_1)$ is finite and separable. The dimension~$[\overline{k}(C_1) : \phi^{\ast}(\overline{k}(C_2))]$ is called the degree of~$\phi$. By using a discriminant argument as in Section~\ref{section:genus} we know that for all but finitely many points~$Q \in C_2$ there are exactly~$\deg(\phi)$ points of~$C_1$ lying over it.
 
@@ -16,7 +22,12 @@ If~$R$ is the integral closure of~$\mathcal{O}_Q$ in~$\overline{k}(C_1)$, then~$
 \end{equation}
 where the~$P_i$ are the maximal ideals of~$R$ which corresponds to points~$P_i \in C_1$. The integer~$e_i$ is called the ramification index of~$\phi$ in~$P_i$ and will be denoted~$e_{\phi}(P_i)$. Clearly we have that~$\deg(\phi) = \sum_i e_{\phi}(P_i)$. 
 
-<img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/ramification.jpg">
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=10cm]{0-geometry/ramification}
+  \caption{Ramification visualized}
+  \label{figure:ramification-visualized}
+\end{figure}
 
 Further, for almost all~$P \in C_1$ we will have~$e_{\phi}(P)=1$. With these notations we can now begin the
 

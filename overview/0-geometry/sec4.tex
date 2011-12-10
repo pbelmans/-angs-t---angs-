@@ -1,4 +1,4 @@
-\section{The~$abc$-theorem for curves}
+\section{The \texorpdfstring{$abc$}{abc}-theorem for curves}
 Here we give the promised proof of the~$abc$-conjecture for function fields.
 
 As always,~$k$ is a perfect (e.g. finite) field and~$K=k(X)$ is the function field of a smooth projective curve~$X$ defined over~$k$. We take elements~$u,v \in K^*$ satisfying~$u+v=1$ and consider the cover~$u\colon X \mapsto \mathbb{P}^1_k$ corresponding to the embedding~$k(u) \hookrightarrow K$. We want to determine the (schematic) zero- and pole-divisors of~$u$ and~$v$ and call them~$a=\divisor_0(u), b=\divisor_0(v)$ and~$c=\divisor_{\infty}(u)=\divisor_{\infty}(v)$.
@@ -24,7 +24,7 @@ and therefore~$c = \sum_l e_u(R_l)[R_l]$. We already know that
   2 \genus_K - 2 \geq -2n + \sum^{\textrm{scheme}}_{P \in c} (e_u(P)-1) \deg(P).
 \end{equation}
 
-Because for all points~$e_u(P)-1 \geq 0$, the inequality only becomes better if we restrict the sum to a subset of points, say to the support of~$a+b+c$ (that is to~$P_1,\cdots,P_r,Q_1,\cdots,Q_s,R_1,\cdots,R_t$). Then we get
+Because for all points~$e_u(P)-1 \geq 0$, the inequality only becomes better if we restrict the sum to a subset of points, say to the support of~$a+b+c$ (that is to~$P_1,\ldots,P_r,Q_1,\ldots,Q_s,R_1,\ldots,R_t$). Then we get
 \begin{equation}
   \begin{aligned}
     2 \genus_K -2 &\geq -2n + \sum_{\mathclap{P \in \Supp(a+b+c)}}\, e_u(P)\deg(P) - \sum_{\mathclap{P \in \Supp(a+b+c)}}\,\deg(P) \\
@@ -36,7 +36,7 @@ which gives us the required form of the $abc$-conjecture for curves
   n=\deg(u)=\deg_s(u) \leq 2\genus_K - 2 + \sum_{\mathclap{P \in \Supp(a+b+c)}}\, \deg(P).
 \end{equation}
 
-\paragraph{Case 2} If~$K/k(u)$ is not separable, take a maximal separable subfield~$k(u) \subset M \subset K$, then by definition of~$\deg_s(u)$ and case 1 we have
+\paragraph{Case 2} If~$K/k(u)$ is not a separable field extension, take a maximal separable subfield~$k(u) \subset M \subset K$, then by definition of~$\deg_s(u)$ and case 1 we have
 \begin{equation}
   \deg_s(u) \leq 2\genus_M - 2 + \sum_{\mathclap{P' \in \Supp(a'+b'+c')}}\, \deg(P')
 \end{equation}

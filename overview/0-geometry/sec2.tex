@@ -1,12 +1,8 @@
 \section{Genus}
 \label{section:genus}
-In these rough prep-notes, we are working towards the proof of the Riemann-Hurwitz genus formula\todo{refer to formula later on}. ``0-geometry'' means we want to use only fields and their discrete valuations so that we can port some of this later to number fields.
+In these rough prep-notes, we are working towards the proof of the Riemann-Hurwitz genus formula in~\eqref{equation:riemann-hurwitz}. ``0-geometry'' means we want to use only fields and their discrete valuations so that we can port some of this later to number fields.
 
-In the previous section we have seen that any field~$K$ of transcendence degree~$1$ over~$k$ with~$K \cap \overline{k} = k$ is really the function field~$K = k(C)$ of a smooth projective curve~$C$ defined over~$k$.
-
-A geometric point~$P \in C$ is a discrete valuation ring~$\mathcal{O}_P$ in the extended field~$K^e = K \otimes \overline{k} = \overline{k}(C)$.
-
-Our aim is to determine the genus of~$C$ from~$K^e$ and the discrete valuation rings~$\mathcal{O}_P$.
+In the previous section we have seen that any field~$K$ of transcendence degree~$1$ over~$k$ with~$K \cap \overline{k} = k$ is really the function field~$K = k(C)$ of a smooth projective curve~$C$ defined over~$k$. A \emph{geometric point}~$P \in C$ is a discrete valuation ring~$\mathcal{O}_P$ in the extended field~$K^e = K \otimes \overline{k} = \overline{k}(C)$. Our aim is to determine the genus of~$C$ from~$K^e$ and the discrete valuation rings~$\mathcal{O}_P$.
 
 \subsection{Divisors}
 For~$f \in K^e$ and~$P \in C$ we denote the valuation of~$f$ in the discrete valuation ring~$\mathcal{O}_P$ by~$\operatorname{ord}_P(f)$ (that is,~$f = u t^{\operatorname{ord}_P(f)}$ for~$t$ is a uniformizer and~$u$ a unit in~$\mathcal{O}_P$). 
@@ -74,7 +70,7 @@ The number~$\sum_{P \in C} \operatorname{ord}_P(\omega)$ is thus well-defined an
 \begin{equation}
   \sum_{P \in C} \operatorname{ord}_P(\omega') = \sum_{P \in C} (\operatorname{ord}_P(f) +\operatorname{ord}_P(\omega))
 \end{equation}
-and we know already that~$\sum_{P \in C} \operatorname{ord}_P(f)=0$. The \emph{genus\emph}~$g_C$ of the curve~$C$ is then determined from that number by~$2g_C - 2 = \sum_{P \in C}\operatorname{ord}_P(\omega)$.
+and we know already that~$\sum_{P \in C} \operatorname{ord}_P(f)=0$. The \emph{genus\emph}~$\genus_C$ of the curve~$C$ is then determined from that number by~$2\genus_C - 2 = \sum_{P \in C}\operatorname{ord}_P(\omega)$.
 
 \begin{example}
   Take the projective line~$\mathbb{P}^1$ corresponding to the purely transcendental field~$\overline{k}(x)$ and consider~$\omega = \mathrm{d}x$. In a point~$\alpha \not= \infty$ we know that~$x-\alpha$ is a uniformizer, so
@@ -85,5 +81,5 @@ and we know already that~$\sum_{P \in C} \operatorname{ord}_P(f)=0$. The \emph{g
   \begin{equation}
     \operatorname{ord}_{\infty}(\omega) =\operatorname{ord}_{\infty}(\mathrm{d}x) =\operatorname{ord}_{\infty}\left(-x^2\,\mathrm{d}\left(\frac{1}{x}\right)\right) = -2.
   \end{equation}
-  Thus,~$\sum_{P \in \mathbb{P}^1} \operatorname{ord}_P(\omega) = -2$ and so the genus of the projective line~$g_{\mathbb{P}^1} = 0$.
+  Thus,~$\sum_{P \in \mathbb{P}^1} \operatorname{ord}_P(\omega) = -2$ and so the genus of the projective line~$\genus_{\mathbb{P}^1} = 0$.
 \end{example}
