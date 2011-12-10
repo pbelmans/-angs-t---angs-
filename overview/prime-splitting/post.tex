@@ -24,13 +24,11 @@ The ring of integers of~${\mathbb{Q}(\mu_n)}$, namely those elements who satisfy
 \subsection{Prime splitting}
 
 A prime ideal~${\frak{p} \subset \mathbb{Z} }$ is equal to~${p\mathbb{Z}}$ with~${p}$ a prime number. There is no reason why~${p\mathbb{Z}[\mu_n]}$ should be a prime ideal (in~${\mathbb{Z}[\mu_n]}$), and in fact sometimes it is not. Consider as an example the prime~${7}$ in~${\mathbb{Z}[\mu_3]}$:
-
 \begin{equation}
   \frac{\mathbb{Z}[\mu_3]}{(7)} \simeq \frac{\mathbb{Z}[X]}{(X^2 + X + 1, 7)} \simeq \frac{\mathbb{F}_7[X]}{X^2 + X + 1}
 \end{equation}
 
 The polynomial~${X^2 + X + 1}$ factors as~${(X-2)(X-4)}$ in~${\mathbb{F}_7}$, and therefore 7 splits in 2 maximal ideals~${\frak{m}_1, \frak{m}_2}$ corresponding to~${X-2}$,~${X-4}$ respectively. In general we have
-
 \begin{equation}
   \frac{\mathbb{Z}[\mu_n]}{(p)} \simeq \frac{\mathbb{F}_p[X]}{(\Phi_n(X))}.
 \end{equation}
@@ -38,11 +36,9 @@ The polynomial~${X^2 + X + 1}$ factors as~${(X-2)(X-4)}$ in~${\mathbb{F}_7}$, an
 The prime ideals 'lying above~${p}$' are the irreducible factors of~${\Phi_n(X)}$ in~${\mathbb{F}_p[X]}$. If~${\frak{m}}$ is such a prime ideal (which is automatically maximal, for technical reasons), then~${\mathbb{Z}[\mu_n]/\frak{m}}$ is a finite field extension of~${\mathbb{F}_p}$.
 
 Since every finite field extension is isomorphic to~${\mathbb{F}_{p^d}}$, the only thing left to do is find out what exactly the number~${d}$ stands for. The number~${d}$ is obviously equal to the degree of an irreducible factor~${L}$ of~${\Phi_n(X)}$, since~${\mathbb{Z}[\mu_n]/\frak{m}\simeq \mathbb{F}_p[X]/(L)}$. A slightly more interesting way of putting it is saying that~${d}$ is the smallest number such that a field with~${p^d}$ elements contains a primitive~${n}$-th root; this being equivalent with
-
 \begin{equation}
   n \mid (p^d - 1) .
 \end{equation}
-
 If this number~${d}$, called the ramification number, is greater than 1, we say that~${p}$ is ramified in~${\mathbb{Z}[\mu_n]}$, otherwise we say~${p}$ is unramified. Because the Galois group~${\mathrm{Gal}(\mathbb{Q}(\mu_n) / \mathbb{Q})}$ acts transitively on the set of prime ideals lying above a prime~${p}$, and a prime~${p}$ that splits into several factors will have the same ramification number in each factor.
 
 \subsection{The relation with covering maps}

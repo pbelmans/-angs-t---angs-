@@ -1,0 +1,49 @@
+\section{The~$abc$-theorem for curves}
+Here we give the promised proof of the~$abc$-conjecture for function fields.
+
+As always,~$k$ is a perfect (e.g. finite) field and~$K=k(X)$ is the function field of a smooth projective curve~$X$ defined over~$k$. We take elements~$u,v \in K^*$ satisfying~$u+v=1$ and consider the cover~$u\colon X \mapsto \mathbb{P}^1_k$ corresponding to the embedding~$k(u) \hookrightarrow K$. We want to determine the (schematic) zero- and pole-divisors of~$u$ and~$v$ and call them~$a=\divisor_0(u), b=\divisor_0(v)$ and~$c=\divisor_{\infty}(u)=\divisor_{\infty}(v)$.
+
+Let~$R$ be the integral closure of~$k[u]$ in~$K$, then in~$R$ we can write the ideals~$u$ and~$(v)=(1-u)$ as products of prime-ideals (which correspond to schematic points of~$X$)
+\begin{equation}
+  \begin{aligned}
+    (u) &= P_1^{e_u(P_1)} \cdots P_r^{e_u(P_r)}
+    (v) &= Q_1^{e_u(Q_1)} \cdots Q_s^{e_u(Q_s)}
+  \end{aligned}
+\end{equation}
+and so~$a = \sum_i e_u(P_i) [P_i]$ and~$b = \sum_j e_u(Q_j) [Q_j]$. If~$S$ is the integral closure of~$k[\frac{1}{u}]$ in~$K$, then we have in~$S$ a decomposition
+\begin{equation}
+  \left( \frac{1}{u} \right) = R_1^{e_u(R_1)} \cdots R_t^{e_u(R_t)}
+\end{equation}
+and therefore~$c = \sum_l e_u(R_l)[R_l]$. We already know that
+\begin{equation}
+  \deg(a)=\deg(b)=\deg(c)=n=[K : k(u)].
+\end{equation}
+
+\paragraph{Case 1} Let us assume that the field extension~$K/k(u)$ is separable. Then, by the Riemann-Hurwitz formula (or rather, the scheme-version of it) we get the inequality (use that the genus of~$\mathbb{P}^1_k$ is zero):
+\begin{equation}
+  2 \genus_K - 2 \geq -2n + \sum^{\textrm{scheme}}_{P \in c} (e_u(P)-1) \deg(P).
+\end{equation}
+
+Because for all points~$e_u(P)-1 \geq 0$, the inequality only becomes better if we restrict the sum to a subset of points, say to the support of~$a+b+c$ (that is to~$P_1,\cdots,P_r,Q_1,\cdots,Q_s,R_1,\cdots,R_t$). Then we get
+\begin{equation}
+  \begin{aligned}
+    2 \genus_K -2 &\geq -2n + \sum_{\mathclap{P \in \Supp(a+b+c)}}\, e_u(P)\deg(P) - \sum_{\mathclap{P \in \Supp(a+b+c)}}\,\deg(P) \\
+    &= -2n+3n-\sum_{\mathclap{P \in \Supp(a+b+c)}}\, \deg(P)
+  \end{aligned}
+\end{equation}
+which gives us the required form of the $abc$-conjecture for curves
+\begin{equation}
+  n=\deg(u)=\deg_s(u) \leq 2\genus_K - 2 + \sum_{\mathclap{P \in \Supp(a+b+c)}}\, \deg(P).
+\end{equation}
+
+\paragraph{Case 2} If~$K/k(u)$ is not separable, take a maximal separable subfield~$k(u) \subset M \subset K$, then by definition of~$\deg_s(u)$ and case 1 we have
+\begin{equation}
+  \deg_s(u) \leq 2\genus_M - 2 + \sum_{\mathclap{P' \in \Supp(a'+b'+c')}}\, \deg(P')
+\end{equation}
+where~$a'$ (resp.~$b'$,~$c'$) are the schematic fibers of the cover~$Y \mapsto \mathbb{P}^1_k$ over the~$k$-rational points~$0$ (resp.~$1$,~$\infty$) and where~$Y$ is the curve with function field~$M$. We are done if we can show that~$\genus_K=\genus_M$ and that in the cover~$X \mapsto Y$ there is a unique point~$P$ lying over each point~$P'$ with~$\deg(P)=\deg(P')$.
+
+As~$K/M$ is purely inseparable, we have a tower of subfields 
+\begin{equation}
+  M=M_0 \subset M_1 \subset \cdots \subset M_z=K
+\end{equation}
+such that~$M_i / M_{i-1}$ is purely inseparable of degree~$p$ for all~$i$. That is, raising to the~$p$-th power gives a field-isomorphism~$M_i \simeq M_{i-1}$. The genus is a field-invariant, so~$\genus_{M_i}=\genus_{M_{i-1}}$ and there is a bijection between the discrete valuation rings in~$M_i$ and~$M_{i-1}$. That is, a bijection between points~$P_i \leftrightarrow P_{i-1}$ of the corresponding curves~$Y_i \mapsto Y_{i-1}$. Finally, because~$t_{P_i}^p = t_{P_{i-1}}$ it follows that~$\deg(P_i)=\deg(P_{i-1})$, and we are done by induction on~$i$.
