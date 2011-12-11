@@ -1,4 +1,4 @@
-\section{On~$\mathsf{No}$ and~$\mathsf{On}$}
+\section{On \texorpdfstring{$\mathsf{No}$}{No} and \texorpdfstring{$\mathsf{On}$}{On}}
 Finite fields might seem to be easy to understand, but they are definitely not. Some examples of our limited knowledge are:
 \begin{itemize}
   \item We represent the field~$\mathbb{F}_{p^n}$ by~$\mathbb{F}_p[x]/(f(x))$ whith~$f(x)$ a monic irreducible polynomial of degree~$n$. The polynomial~$f$ is not unique, and there is no best option.
@@ -32,11 +32,15 @@ The relations on numbers are defined as:
   \item~$x = y$ iff~$x \leq y$ and~$x \geq y$
 \end{itemize}
 
-This is a total order. A remarkable property is that~$x^L < x < x^R$ for all numbers~$x$. We now define an addition and multiplication. We know that~$x + y$ must lie between both~$x^L + y$ and~$x + y^L$ (on the left) and~$x^R + y$ and~$x + y^R$ (on the right). From~$x - x^L > 0$ and~$y - y^L > 0$ we can deduce~$(x - x^L)(y - y^L) > 0$, so that we must have~$xy > x^Ly + xy^L - x^Ly^L$. This motivates following definition:
-\begin{itemize}
-  \item~$x + y = \{x^L + y, x + y^L \vert x^R + y, x + y^R \}$
-  \item~$xy = \{ x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R \vert x^Ly + xy^R - x^Ly^R, x^Ry + xy^L - x^Ry^L \}$
-\end{itemize}
+This is a total order. A remarkable property is that~$x^L < x < x^R$ for all numbers~$x$. We now define an addition and multiplication. We know that~$x + y$ must lie between both~$x^L + y$ and~$x + y^L$ (on the left) and~$x^R + y$ and~$x + y^R$ (on the right). From~$x - x^L > 0$ and~$y - y^L > 0$ we can deduce~$(x - x^L)(y - y^L) > 0$, so that we must have~$xy > x^Ly + xy^L - x^Ly^L$. This motivates following definition:
+\begin{equation}
+  \mathrlap{
+  \begin{aligned}
+    x + y &\coloneqq \{x^L + y, x + y^L \vert x^R + y, x + y^R \} \\
+    xy &\coloneqq \{ x^Ly + xy^L - x^Ly^L, x^Ry + xy^R - x^Ry^R \vert x^Ly + xy^R - x^Ly^R, x^Ry + xy^L - x^Ry^L \}
+  \end{aligned}
+  }
+\end{equation}
 With this addition and multiplication, the Class~$\textsf{No}$ of all surreal numbers forms a Field, but not a field (because~$\textsf{No}$ is not a set).
 
 \subsection{Examples of numbers}
@@ -44,7 +48,7 @@ According to the definition, every number is constructed as two sets of \emph{ea
 
 Starting from~$0$, the next generation of numbers can be constructed. We obtain~$1 = \{ 0 \vert \}$ and~$-1 = \{ \vert 0 \}$. It is easy to verify that~$\{ 0 \vert 0 \}$ is not a number. We have~$-1 < 0 < 1$. This was the \emph{first day}.
 
-The number~$\{ 0 \vert 1 \}$ lies somewhere between~$0$ and~$1$. We call this number~$\frac{1}{2}$. What about~$\{ -1, 0 \vert 1 \}$? We can verify the inequalities~$\{ -1, 0 \vert 1 \} \leq \{ 0 \vert 1 \}$ and~$\{ -1, 0 \vert 1 \} \geq \{ 0 \vert 1 \}$, so we have two expressions for the same number. They are \emph{equal}, but not \emph{identical}.
+The number~$\{ 0 \vert 1 \}$ lies somewhere between~$0$ and~$1$. We call this number~$\frac{1}{2}$. Now what about~$\{ -1, 0 \vert 1 \}$? We can verify the inequalities~$\{ -1, 0 \vert 1 \} \leq \{ 0 \vert 1 \}$ and~$\{ -1, 0 \vert 1 \} \geq \{ 0 \vert 1 \}$, so we have two expressions for the same number. They are \emph{equal}, but not \emph{identical}.
 
 We can go on like this with~$\frac{1}{4} = \{ 0 \vert \frac{1}{2} \}$ and~$\frac{3}{4} = \{ \frac{1}{2} \vert 1 \}$. The whole number~$n$ is born on day~$n$ as~$\{ n-1 \vert 0 \}$. All \href{http://en.wikipedia.org/wiki/Dyadic_rational}{dyadic rationals} and whole numbers are born on finite days. On day~$\omega$,~$L$ and~$R$ can be infinite sets. Examples are:
 \begin{itemize}
