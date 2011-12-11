@@ -1,4 +1,4 @@
-\section{Water and cabbages in $\mathbb{F}_1$-geometry}
+\section{Water and cabbages in \texorpdfstring{$\mathbb{F}_1$}{F-un}-geometry}
 Today we'll try to grasp the meaning of Chebotar\"ev's density theorem, and hint at how this may help us get a fix on~$\mathbb{F}_{1}$-geometry, formerly known as recreational number theory.
 
 \subsection{Status quo}
@@ -27,10 +27,10 @@ Specializing to the case~$m=10$, you get the intuitive result that there are ``a
 
 \subsection{Frobenius' highest honour}
 
-Frobenius, the only mathematician I know of who's also a noun, has his own density theorem. To formulate it correcty, we need two new concepts, decomposition type and cycle pattern. Given a monic integer polynomial of degree~$d$ with non-zero discriminant~$\Delta(f)$, and a prime~$p$ that doesn't divide~$\Delta(f)$, you can factor~$f\bmod p$ into~$n$ distinct irreducibles. The numbers $d_{1},\ldots,d_{n}$, with~$d_{i}$ the degree of the~$i$-th factor in this decomposition, comprise the decomposition type of~$f\bmod p$. Notice that the~$d_{i}$ form a partition of~$d$. Since~$f$ has~$d$ different roots~$\alpha_{1},\ldots,\alpha_{d}$, the Galois group~$G$ of~$f$ consists of~$\mathbb{Q}$-automorphisms of~$\mathbb{Q}(\alpha_{1},\ldots, \alpha_{d})$. Elementary Galois theory says this is a subgroup of~$S_{d}$, so every element~$\sigma \in G$ can be written as a product of disjoint cycles, including cycles of length~$1$. The length of each of these cycles will again form a partition of the degree~$d$, the cycle pattern. Frobenius connects the two.
+Frobenius, the only mathematician I know of who's also a noun, has his own density theorem. To formulate it correcty, we need two new concepts, decomposition type and cycle pattern. Given a monic integer polynomial of degree~$d$ with non-zero discriminant~$\Delta(f)$, and a prime~$p$ that doesn't divide~$\Delta(f)$, you can factor~$f\bmod p$ into~$n$ distinct irreducibles. The numbers $d_{1},\ldots,d_{n}$, with~$d_{i}$ the degree of the~$i$-th factor in this decomposition, comprise the decomposition type of~$f\bmod p$. Notice that the~$d_{i}$ form a partition of~$d$. Since~$f$ has~$d$ different roots~$\alpha_{1},\ldots,\alpha_{d}$, the Galois group~$G$ of~$f$ consists of~$\mathbb{Q}$-automorphisms of~$\mathbb{Q}(\alpha_{1},\ldots, \alpha_{d})$. Elementary Galois theory says this is a subgroup of~$\mathrm{S}_{d}$, so every element~$\sigma \in G$ can be written as a product of disjoint cycles, including cycles of length~$1$. The length of each of these cycles will again form a partition of the degree~$d$, the cycle pattern. Frobenius connects the two.
 
 \begin{theorem}
-  The set of primes~$p$ for which~$f$ has a given decomposition type~$d_{1},\ldots,d_{n}$ has a density which is equal to~$1/\vert G \vert$ times the number of~$\sigma \in G$ with cycle pattern~$d_{1},\ldots,d_{n}$.
+  The set of primes~$p$ for which the polynomial~$f$ has a given decomposition type~$d_{1},\ldots,d_{n}$ has a density which is equal to~$1/\vert G \vert$ times the number of~$\sigma \in G$ with cycle pattern~$d_{1},\ldots,d_{n}$.
 \end{theorem}
 
 Considering a special case once again, look at the partition~$d=1+\ldots+1$. Trivially, only the identity has this as a cycle pattern, and thus we see that the number of primes~$p$ for which~$f$ splits into linear factors has density~$1/\vert G \vert$. It's worth noting that by using a good algebra program like GAP{,} you can use this result to determine the order of the Galois group of a polynomial, and a fortiori the group itself. If your gut feeling is that the two theorems are connected, you're absolutely right! To make this concrete, we'll need Chebotar\"ev's result.
@@ -41,6 +41,6 @@ In general, Dirichlet for a certain~$m$ implies Frobenius for the polynomial~$X^
 
 It seems best to postpone the detailed formulation of Chebotar\"ev's theorem, since I need some more technical stuff like \emph{places}, which would make this post unnecessarily long. Let me finish by explaining the first part of the title with a quote from (tadaa) Lenstra:
 \begin{quote}
-  So, Chebotar\"ev had to carry water and cabbages from the lower part of Odessa to the higher part of Odessa. This is, of course, the most difficult direction.
+  \textsl{``So, Chebotar\"ev had to carry water and cabbages from the lower part of Odessa to the higher part of Odessa. This is, of course, the most difficult direction.''}
 \end{quote}
 Inspite of its humorous simplicity, I can't stop thinking about this quote which, like most of Lenstra's \emph{debaucheries}, says more than meets the eye.
