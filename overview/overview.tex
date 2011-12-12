@@ -113,11 +113,13 @@ List of todos
 
 \setcounter{section}{0}
 \renewcommand\leftmark{ASSORTED POSTS}
-\renewcommand{\thesection}{\Alph{section}}
+\renewcommand\thesection{\Alph{section}}
 
 \section{The Smirnov letters}
 \myauthor{Lieven \textsc{Le Bruyn}}
 \input{the-smirnov-letters/post.tex}
+\let\stdsection\section  
+\renewcommand\section{\newpage\stdsection} 
 
 \section{What is \texorpdfstring{$\mathbb{P}^1$}{the projective line} over \texorpdfstring{$\mathbb{F}_1$}{F\_un}?}
 \myauthor{Lieven \textsc{Le Bruyn}}
