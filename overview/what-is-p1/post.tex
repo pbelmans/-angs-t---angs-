@@ -13,13 +13,18 @@ I claim that the multiplicative group of the non-zero elements of the algebraic 
 
 Clearly, any element~$\alpha \in \mathbb{F}^{\ast}_{p^n}$   has order some divisor of~$p^n-1$ and hence is prime to~$p$. Conversely, if~$(m,p)=1$ then~$\overline{p}$ is a unit in~$\mathbb{Z}/m\mathbb{Z}$ and therefore for some~$n$ we have~$p^n \cong 1~mod(m)$. But then,~$m\divides p^n-1$ and there are primitive~$m$-th roots of unity in~$\mathbb{F}_{p^n}$.
 
-However, describing this correspondence explicitly from a given construction of~$\overline{\mathbb{F}}_p$ is very challenging. For example, \href{http://en.wikipedia.org/wiki/John_Horton_Conway}{John Conway} proved in \href{http://en.wikipedia.org/wiki/On_Numbers_and_Games}{ONAG}\todo{cite} that~$\overline{\mathbb{F}}_2$ can be identified with all ordinals smaller than~$\omega^{\omega^{\omega}}$ equipped with nim-addition and multiplication.
+However, describing this correspondence explicitly from a given construction of~$\overline{\mathbb{F}}_p$ is very challenging. For example, \href{http://en.wikipedia.org/wiki/John_Horton_Conway}{John Conway} proved in~\cite{on-numbers-and-games} that~$\overline{\mathbb{F}}_2$ can be identified with all ordinals smaller than~$\omega^{\omega^{\omega}}$ equipped with nim-addition and multiplication.
 
 Finding the correspondence between small ordinals and odd roots of unity is the topic of the post \href{http://www.neverendingbooks.org/index.php/the-odd-knights-of-the-round-table.html}{The odd knights of the round table} (and follow-up posts \href{http://www.neverendingbooks.org/index.php/seating-the-first-few-thousand-knights.html}{here} and \href{http://www.neverendingbooks.org/index.php/seating-the-first-few-billion-knights.html}{here}).
 
-<p>Below is the correpondence between~$\mathbb{F}_{2^4}^{\ast}$ (identified with the ordinals from~$1$ to~$15$) and the 15-th roots of unity (nim-addition and nim-multiplication tables on the left). The lines describe the involution~$x \mapsto x+1$.</p>
+Below is the correpondence between~$\mathbb{F}_{2^4}^{\ast}$ (identified with the ordinals from~$1$ to~$15$) and the 15-th roots of unity (nim-addition and nim-multiplication tables on the left). The lines describe the involution~$x \mapsto x+1$.
 
-<p><img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/F16.jpg"></p>
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=11cm]{what-is-p1/F16}
+  \caption{Seating 16 knights at the table}
+  \label{figure:f16}
+\end{figure}
 
 The schematic points of~$\mathbb{P}^1$ over~$\mathbb{F}_p$ is the set of all~$\Gal(\overline{\mathbb{F}}_p/\mathbb{F}_p) = \hat{\mathbb{Z}}$-orbits on the geometric points, and the degree of a scheme-point is the number of geometric points in the orbit.
 

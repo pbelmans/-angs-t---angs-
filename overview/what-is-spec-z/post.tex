@@ -1,45 +1,57 @@
-The mantra recited by $\mathbb{F}_1$-followers is that $\Spec(\mathbb{Z})$ is far too large to serve as the terminal object in the category of schemes, and, one should view it as a 'geometric' object over 'something' living 'under $\mathbb{Z}$' called $\mathbb{F}_1$ : the field with one element.
+The mantra recited by~$\mathbb{F}_1$-followers is that~$\Spec(\mathbb{Z})$ is far too large to serve as the terminal object in the category of schemes, and, one should view it as a 'geometric' object over 'something' living 'under~$\mathbb{Z}$' called~$\mathbb{F}_1$: the field with one element.
 
-In this seminar we will encounter a fair number of proposals as to what this elusive object $\Spec(\mathbb{Z})$ viewed over $\Spec(\mathbb{F}_1)$ might be. Let's start with the simplest and earliest proposal.
+In this seminar we will encounter a fair number of proposals as to what this elusive object~$\Spec(\mathbb{Z})$ viewed over~$\Spec(\mathbb{F}_1)$ might be. Let's start with the simplest and earliest proposal.
 
-\emph{Smirnov's proposal} is that the smooth projective curve $\Spec(\mathbb{Z})$ should have as its schematic points the set $\{ 2,3,5,7,11,13,17,\cdots \} \cup \{ \infty \}$, that is, the set of all prime numbers together with $\infty$, and, that the degree of the 'point' $p$ should be equal to $\log(p)$ whereas the degree of $\infty$ is equal to $1$.
+\emph{Smirnov's proposal} is that the smooth projective curve~$\Spec(\mathbb{Z})$ should have as its schematic points the set~$\{ 2,3,5,7,11,13,17,\cdots \} \cup \{ \infty \}$, that is, the set of all prime numbers together with~$\infty$, and, that the degree of the 'point'~$p$ should be equal to~$\log(p)$ whereas the degree of~$\infty$ is equal to~$1$.
 
-<img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/SpecZSmirnov.jpg" alt="" />
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=11cm]{what-is-spec-z/SpecZSmirnov}
+  \caption{An interpretation of Smirnov's $\Spec\mathbb{Z}$}
+  \label{figure:smirnov-spec-z}
+\end{figure}
 
 \subsection{Attempted explanation}
-We have seen <a href="http://www.noncommutative.org/index.php/0-geometry-curves.html">before</a> that a schematic point $P$ of a curve $C$ defined over $k$ corresponds to a discrete valuation ring in the function field $k(C)$ and that its degree $\deg(P)$ equals $[\mathcal{O}_P/\mathfrak{m}_P : k]$.
+We have seen in Section~\ref{section:genus} that a schematic point~$P$ of a curve~$C$ defined over~$k$ corresponds to a discrete valuation ring in the function field~$k(C)$ and that its degree~$\deg(P)$ equals~$[\mathcal{O}_P/\mathfrak{m}_P : k]$.
 
-By analogy, the schematic points of the 'projective curve' $\Spec(\mathbb{Z})$ should correspond to all discrete valuations on $\mathbb{Q}$, which by \href{http://en.wikipedia.org/wiki/Ostrowski's_theorem}{Ostrovski's theorem} are either the $p$-adic valuations $v_p(q)=n$ if $q=p^n \frac{r}{s}$ and $(r,p)=(s,p)=1$ or the real valuation $v_{\infty}(q) = -\log |q|$ (minus sign because of the convention that the value of $0$ should be $\infty$).
+By analogy, the schematic points of the 'projective curve'~$\Spec(\mathbb{Z})$ should correspond to all discrete valuations on~$\mathbb{Q}$, which by \href{http://en.wikipedia.org/wiki/Ostrowski's_theorem}{Ostrovski's theorem} are either the~$p$-adic valuations~$v_p(q)=n$ if~$q=p^n \frac{r}{s}$ and~$(r,p)=(s,p)=1$ or the real valuation~$v_{\infty}(q) = -\log |q|$ (minus sign because of the convention that the value of~$0$ should be~$\infty$).
 
-To motivate the non-sensical definition of the degrees, <a href="http://www.noncommutative.org/index.php/0-geometry-genus.html">recall</a> that the degree of the divisor $\div(f) = \sum_{P \in C} \ord_P(f) [P]$ equals zero for all $f \in \overline{k}(C)$.
+To motivate the non-sensical definition of the degrees, recall that the degree of the divisor~$\div(f) = \sum_{P \in C} \ord_P(f) [P]$ equals zero for all~$f \in \overline{k}(C)$.
 
-Now, if $f$ is in the function field $k(C)$, then its divisor must be invariant under the action of the Galois group $\Gal(\overline{k}/k)$ (that is, $\ord_{\sigma(P)}(f) = \ord_P(f)$ for all Galois-automorphisms $\sigma$). But then, we can write $\div(f)$ as a sum over the schematic points (which are the orbits of the geometric points under the action of the Galois group) and hence its degree is
-
-$\deg(\div(P)) = \sum^{\text{scheme}}_{P \in C}\ord_P(f) \deg(P) = 0$
-
-where now the sum is taken over all schematic points of $C$. Once again, by analogy, if $f = \pm \frac{p_1^{e_1} \cdots p_r^{e_r}}{q_1^{f_1} \cdots q_s^{f_s}} \in \mathbb{Q}$, then its 'divisor' is
+Now, if~$f$ is in the function field~$k(C)$, then its divisor must be invariant under the action of the Galois group~$\Gal(\overline{k}/k)$ (that is,~$\ord_{\sigma(P)}(f) = \ord_P(f)$ for all Galois-automorphisms~$\sigma$). But then, we can write~$\div(f)$ as a sum over the schematic points (which are the orbits of the geometric points under the action of the Galois group) and hence its degree is
+\begin{equation}
+  \deg(\div(P)) = \sum^{\text{scheme}}_{P \in C}\ord_P(f) \deg(P) = 0
+\end{equation}
+where now the sum is taken over all schematic points of~$C$. Once again, by analogy, if~$f = \pm \frac{p_1^{e_1} \cdots p_r^{e_r}}{q_1^{f_1} \cdots q_s^{f_s}} \in \mathbb{Q}$, then its 'divisor' is
 
 $\div(f) = \sum_i e_i [p_i] - \sum_j f_j [q_j] - \log |f| [\infty]$
 
-and Smirnov's proposal for the degrees of the scheme points of $\Spec(\mathbb{Z})$ is (up to a common multiple) the only one assuring that the degree of all such divisors is zero.
+and Smirnov's proposal for the degrees of the scheme points of~$\Spec(\mathbb{Z})$ is (up to a common multiple) the only one assuring that the degree of all such divisors is zero.
 
 \subsection{What is the field of constants?}
 
-In this proposal $\Spec(\mathbb{Z})$ is a smooth projective curve with function field $\mathbb{Q}$. To determine the 'field' over which it is defined we have (in analogy with the functionfield case where the field of constants is $K \cap \overline{k}$) to determine
+In this proposal~$\Spec(\mathbb{Z})$ is a smooth projective curve with function field~$\mathbb{Q}$. To determine the 'field' over which it is defined we have (in analogy with the functionfield case where the field of constants is~$K \cap \overline{k}$) to determine
+\begin{equation}
+  \mathbb{Q} \cap \overline{\mathbb{F}_1} = \mathbb{Q} \cap \pmb{\mu} = \{ +1,-1 \}
+\end{equation}
 
-$\mathbb{Q} \cap \overline{\mathbb{F}_1} = \mathbb{Q} \cap \pmb{\mu} = \{ +1,-1 \}$
-
-So, $\Spec(\mathbb{Z})$ is not really a curve over $\mathbb{F}_1$, but rather over $\mathbb{F}_{1^2}$.
+So,~$\Spec(\mathbb{Z})$ is not really a curve over~$\mathbb{F}_1$, but rather over~$\mathbb{F}_{1^2}$.
 
 \subsection{Smirnov's surface}
 
-In a <a href="http://www.noncommutative.org/index.php/the-smirnov-letters.html">letter to Manin</a> Smirnov explained that, as a first step towards the intersection theory on $\Spec(\mathbb{Z}) \times \Spec(\mathbb{Z})$ (which might lead to a proof of the Riemann hypothesis by mimicking Weil's proof in the function field case) he embarked on the intersection theory in the somewhat easier product of two curves
+In~\cite{letters-to-manin} Smirnov explained that, as a first step towards the intersection theory on~$\Spec(\mathbb{Z}) \times \Spec(\mathbb{Z})$ (which might lead to a proof of the Riemann hypothesis by mimicking Weil's proof in the function field case) he embarked on the intersection theory in the somewhat easier product of two curves
 \begin{equation}
   \mathbb{P}^1/\mathbb{F}_1\times\Spec(\mathbb{Z}).
 \end{equation}
-Combining the above with the description of the projective line over $\mathbb{F}_1$ in Section~\ref{section:what-is-p1}, we can now depict this \emph{Smirnov surface}
+Combining the above with the description of the projective line over~$\mathbb{F}_1$ in Section~\ref{section:what-is-p1}, we can now depict this \emph{Smirnov surface} in Figure~\ref{figure:smirnov-spec-z-axes}.
 
-<img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/smirnovplane.jpg" alt="" />
+Recall that the schematic points of~$\mathbb{P}^1~/~\mathbb{F}_1$ are~$\{ 0,\infty \} \cup \{  [1],[2],[3],\ldots \}$ where the point~$[n]$ represents all primitive~$n$-th roots of unity and so has degree~$\varphi(n)$.
 
-Recall that the schematic points of $\mathbb{P}^1~/~\mathbb{F}_1$ are $\{ 0,\infty \} \cup \{  [1],[2],[3],\ldots \}$ where the point $[n]$ represents all primitive $n$-th roots of unity and so has degree $\varphi(n)$.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=11cm]{what-is-spec-z/smirnovplane.jpg}
+  \caption{$\mathbb{P}^1_{\mathbb{Z}}$ with its two axes}
+  \label{figure:smirnov-spec-z-axes}
+\end{figure}
+
 

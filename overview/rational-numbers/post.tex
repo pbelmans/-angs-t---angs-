@@ -1,48 +1,49 @@
-In analogy with the function-field case we expect rational numbers $q \in \mathbb{Q}$ to define maps from the arithmetic curve $\Spec(\mathbb{Z})$ to the projective line $\mathbb{P}^1 / \mathbb{F}_1$. For all non-constant $q$ (that is, if $q \not= \pm 1$) we expect this map to be a cover.
+\label{section:rational-numbers}
+In analogy with the function-field case we expect rational numbers~$q \in \mathbb{Q}$ to define maps from the arithmetic curve~$\Spec(\mathbb{Z})$ to the projective line~$\mathbb{P}^1 / \mathbb{F}_1$. For all non-constant~$q$ (that is, if~$q \not= \pm 1$) we expect this map to be a cover.
 
 \subsection{The geometric picture}
 
-A non-constant rational function $f \in \overline{k}(C)$ defines a cover $C(\overline{k}) \mapsto \mathbb{P}^1(\overline{k})$ by sending a point $P$ to the point $[f(P):1]$ if $f$ is defined in $P$ or to $\infty = [1 : 0]$ otherwise.
+A non-constant rational function~$f \in \overline{k}(C)$ defines a cover~$C(\overline{k}) \mapsto \mathbb{P}^1(\overline{k})$ by sending a point~$P$ to the point~$[f(P):1]$ if~$f$ is defined in~$P$ or to~$\infty = [1 : 0]$ otherwise.
 
-If $f \in k(C)$, then this maps Galois orbits of points of $C(\overline{k})$ (that is, scheme-points of $C$) to Galois orbits of points of $\mathbb{P}^1(\overline{k})$, so it defines a scheme-map $f\colon C \mapsto \mathbb{P}^1$. We have seen before that the degree of this map equals the degree of the zero-divisor $\divisor_0(f)$ of $f$ (or equivalently, of the pole-divisor $\divisor_{\infty}(f)$). That is, if $\divisor_0(f) = \sum n_P [P]$ then $\deg(f)=\sum n_P \deg(P)$.
+If~$f \in k(C)$, then this maps Galois orbits of points of~$C(\overline{k})$ (that is, scheme-points of~$C$) to Galois orbits of points of~$\mathbb{P}^1(\overline{k})$, so it defines a scheme-map~$f\colon C \mapsto \mathbb{P}^1$. We have seen before that the degree of this map equals the degree of the zero-divisor~$\divisor_0(f)$ of~$f$ (or equivalently, of the pole-divisor~$\divisor_{\infty}(f)$). That is, if we have~$\divisor_0(f) = \sum n_P [P]$ then~$\deg(f)=\sum n_P \deg(P)$.
 
 \subsection{The definition}
 
-The schematic points of $\mathbb{P}^1 / \mathbb{F}_1$ are $\{ 0,\infty \} \cup \{ [1],[2],[3],[4],\cdots \}$ with $[n]$ the set of all primitive $n$-th roots of unity.
+The schematic points of~$\mathbb{P}^1 / \mathbb{F}_1$ are~$\{ 0,\infty \} \cup \{ [1],[2],[3],[4],\cdots \}$ with~$[n]$ the set of all primitive~$n$-th roots of unity.
 
-For $q = \frac{a}{b} = \pm \frac{p_1^{e_1} \cdots p_r^{e_r}}{q_1^{f_1} \cdots q_s^{f_s}} \not= \pm 1 \in \mathbb{Q}$ we define a map $q\colon\Spec(\mathbb{Z}) \rightarrow \mathbb{P}^1 / \mathbb{F}_1$ by
+For~$q = \frac{a}{b} = \pm \frac{p_1^{e_1} \cdots p_r^{e_r}}{q_1^{f_1} \cdots q_s^{f_s}} \not= \pm 1 \in \mathbb{Q}$ we define a map~$q\colon\Spec(\mathbb{Z}) \rightarrow \mathbb{P}^1 / \mathbb{F}_1$ by
 \begin{itemize}
-  \item sending every $p_i$ to $0$ 
-  \item sending every $q_j$ to $\infty$
-  \item sending $\infty$ to $0$ if $\log |q| < 0$ and to $\infty$ if $\log |q| > 0$
-  \item sending the prime number $p \notin \{ p_1,\cdots,p_r,q_1,\cdots,q_s \}$ to $[n]$ if $n$ is the order of the unit $\overline{q} = \overline{a}.\overline{b}^{-1} \in \mathbb{F}_p^*$.
+  \item sending every~$p_i$ to~$0$ 
+  \item sending every~$q_j$ to~$\infty$
+  \item sending~$\infty$ to~$0$ if~$\log |q| < 0$ and to~$\infty$ if~$\log |q| > 0$
+  \item sending the prime number~$p \notin \{ p_1,\cdots,p_r,q_1,\cdots,q_s \}$ to~$[n]$ if~$n$ is the order of the unit~$\overline{q} = \overline{a}.\overline{b}^{-1} \in \mathbb{F}_p^*$.
 \end{itemize}
 
-To 'explain' the last line, it is equivalent to the existence of a primitive $n$-th root of unity $\epsilon$, of order prime to $p$, such that there is a prime ideal $P$ in $\mathbb{Z}[\epsilon]$ lying over $(p)$ such that $v_P(q-\epsilon) > 0$, or equivalently, that $q(P)=\epsilon(P)$.
+To 'explain' the last line, it is equivalent to the existence of a primitive~$n$-th root of unity~$\epsilon$, of order prime to~$p$, such that there is a prime ideal~$P$ in~$\mathbb{Z}[\epsilon]$ lying over~$(p)$ such that~$v_P(q-\epsilon) > 0$, or equivalently, that~$q(P)=\epsilon(P)$.
 
-\subsection{The finite cover $q$}
+\subsection{The finite cover~$q$}
 
-Assume that $q = \frac{a}{b}$ with $(a,b)=1$ and $0 < b < a$, then $\divisor_0(q) = \sum_i e_i [p_i]$ and hence by the convention that $\deg([p_i]) = \log(p_i)$ we must define
+Assume that~$q = \frac{a}{b}$ with~$(a,b)=1$ and~$0 < b < a$, then~$\divisor_0(q) = \sum_i e_i [p_i]$ and hence by the convention that~$\deg([p_i]) = \log(p_i)$ we must define
 \begin{equation}
   \deg(q) = \deg(\divisor_0(q)) = \sum_i e_i \log(p_i) = \log(a)
 \end{equation}
 
-It is easy to see that the fibers of $q$ are all finite. For, if $q$ maps $p$ to $[n]$, then by definition we have
+It is easy to see that the fibers of~$q$ are all finite. For, if~$q$ maps~$p$ to~$[n]$, then by definition we have
 \begin{equation}
-  a^n \equiv b^n\bmod p$ and $a^m \not\equiv b^m\bmod p.
+  a^n \equiv b^n\bmod p$ and~$a^m \not\equiv b^m\bmod p.
 \end{equation}
-for all $m < n$.
+for all~$m < n$.
 
-In other words, the fiber $q^{-1}([n])$ is the set of all prime-divisors of $a^n-b^n$ which do not divide $a^m-b^m$ for some $1 \leq m < n$.
+In other words, the fiber~$q^{-1}([n])$ is the set of all prime-divisors of~$a^n-b^n$ which do not divide~$a^m-b^m$ for some~$1 \leq m < n$.
 
-It is a lot more challenging to prove that $q$ is indeed a cover, that is, that all fibers are non-empty. In fact, this is not always the case, but the exceptions are well understood.
+It is a lot more challenging to prove that~$q$ is indeed a cover, that is, that all fibers are non-empty. In fact, this is not always the case, but the exceptions are well understood.
 
-This is the content of the so called \href{http://en.wikipedia.org/wiki/Zsigmondy's_theorem}{Zsigmondy theorem} after the Austrian mathematician \href{http://en.wikipedia.org/wiki/Karl_Zsigmondy}{Karl Zsigmondy} who proved in 1892 that if $(a,b)=1$ and $1 \leq b < a$ then for any natural number $n > 1$ there is a prime number $p$ (called a primitive prime divisor) that divides $a^n-b^n$ and does not divide $a^k-b^k$ for any positive integer $k < n$, with the following exceptions:
+This is the content of the so called \href{http://en.wikipedia.org/wiki/Zsigmondy's_theorem}{Zsigmondy theorem} after the Austrian mathematician \href{http://en.wikipedia.org/wiki/Karl_Zsigmondy}{Karl Zsigmondy} who proved in 1892 that if~$(a,b)=1$ and~$1 \leq b < a$ then for any natural number~$n > 1$ there is a prime number~$p$ (called a primitive prime divisor) that divides~$a^n-b^n$ and does not divide~$a^k-b^k$ for any positive integer~$k < n$, with the following exceptions:
 \begin{itemize}
-  \item $a = 2, b = 1$, and $n = 6$  as $2^6-1=3^2.7$ and $7=2^3-1$, $3=2^2-1$, or
-  \item $a+b$ is a power of two and $n=2$.
+  \item~$a = 2, b = 1$, and~$n = 6$  as~$2^6-1=3^2.7$ and~$7=2^3-1$,~$3=2^2-1$, or
+  \item~$a+b$ is a power of two and~$n=2$.
 \end{itemize}
 
-It is a pleasant exercise to draw part of the graph for specific maps $q\colon\Spec(\mathbb{Z}) \mapsto \mathbb{P}^1 / \mathbb{F}_1$ and to relate its geometric properties to deep open problems in number theory.
+It is a pleasant exercise to draw a certain portion of the graph for specific (cover) maps~$q\colon\Spec(\mathbb{Z}) \to \mathbb{P}^1 / \mathbb{F}_1$ and to relate its geometric properties to deep open problems in number theory.
 
-For example, a result of Schinzel's from 1962 asserts that for all maps $q$ there are infinitely many points $[n]$ over which the fiber has at least two elements. However, nobody knows whether all such map have one fiber consisting of at least three elements\ldots
+For example, a result of Schinzel's from 1962 asserts that for all maps~$q$ there are infinitely many points~$[n]$ over which the fiber has at least two elements. However, nobody knows whether all such map have one fiber consisting of at least three elements\ldots

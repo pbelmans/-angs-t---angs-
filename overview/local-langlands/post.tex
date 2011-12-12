@@ -7,19 +7,27 @@ A representation of~$\GL_n(F)$ consists of a complex vector space~$V$ and a grou
 
 For example, take~$F = \mathbb{F}_q (\!(t)\!)$, then~$\mathcal{O}_F = \mathbb{F}_q [[t]]$ and $\mathcal{P}_F = t \mathbb{F}_q [[t]]$. It follows that~$K_0 = \GL_n(\mathbb{F}_q [[t]])$ and~$K_N = I_n + t^N M_n(\mathbb{F}_q [[t]])$.
 
-We call a representation~$(V,\pi)$ a \emph{smooth representation} if the map~$\pi(-)v\colon\GL_n(F) \rightarrow V, g \mapsto \pi(g)v$ is continuous with the discrete topology on V for every~$v \in V$. This is equivalent to saying that for every~$v \in V$, there exists a N so that~$K_N \subset \Stab_{\GL_n} (v)$.
+We call a representation~$(V,\pi)$ a \emph{smooth representation} if the map
+\begin{equation}
+  \pi(-)v\colon\GL_n(F) \rightarrow V, g \mapsto \pi(g)v 
+\end{equation}
+is continuous with the discrete topology on V for every~$v \in V$. This is equivalent to saying that for every~$v \in V$, there exists a N so that~$K_N \subset \Stab_{\GL_n} (v)$.
 
 To define the Local Langlands correspondence, you need to look at the equivalence class of irreducible smooth representations of~$\GL_n(F)$ and you need to study algebraic closures of local non-archimedean fields.
 
 \subsection{The Weil group and the Weil-Deligne group}
 When we work in a finite field~$\mathbb{F}_q$ or a field with characteristic 0, we don't have to worry about non-separable extensions, but when you work e.g. in~$F = \mathbb{F}_q (\!(t)\!)$, you can have problems (taking the~$p$-th root of~$t$ for instance will give a non-separable extension of~$F$). To avoid these problems, we can take the separable closure of~$F$,~$F^{\textrm{sep}}$ and define the \emph{absolute Galois group} $\Gal(F^{\textrm{sep}}/F)$. For the remainder, I will take~$F = \mathbb{F}_q (\!(t)\!)$. There are analogies for the characteristic 0 local non-archimedean fields, but they are more difficult to describe.
 
-Since all extensions of $\mathbb{F}_q$ are separable,~$\overline{ \mathbb{F}_q} \subset F^{\textrm{sep}}$. So we can make a map~$\Gal(F^{\textrm{sep}}/F) \rightarrow \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, which is just the restriction map. It is clearly surjective. In my last post, I said that~$x \rightarrow x^q$ is an element of~$\Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$ of infinite order, which implies that~$\mathbb{Z} \subset \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, so we can take the inverse image of~$\mathbb{Z}$. This group is the \emph{Weil group} $\mathrm{W}_F$. One defines a topology on it, by taking the normal subgroups of finite index of~$\mathrm{W}_F$ as the open neighborhoods of~$0$. Denote~$\nu\colon\mathrm{W}_F \rightarrow \mathbb{Z}$. We define the \emph{Weil-Deligne group}~$\mathrm{W}'_F$ as the semidirect product of~$\mathrm{W}_F$ and~$(\mathbb{C},+)$, so~$\mathrm{W}'_F = \mathrm{W}_F \ltimes \mathbb{C}$ with group action:
+Since all extensions of $\mathbb{F}_q$ are separable,~$\overline{ \mathbb{F}_q} \subset F^{\textrm{sep}}$. Therefore we can construct a map~$\Gal(F^{\textrm{sep}}/F) \rightarrow \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, which is just the restriction map. It is clearly surjective. In my last post, I said that~$x \rightarrow x^q$ is an element of~$\Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$ of infinite order, which implies that~$\mathbb{Z} \subset \Gal(\overline{ \mathbb{F}_q} /\mathbb{F}_q)$, so we can take the inverse image of~$\mathbb{Z}$. This group is the \emph{Weil group} $\mathrm{W}_F$. One defines a topology on it, by taking the normal subgroups of finite index of~$\mathrm{W}_F$ as the open neighborhoods of~$0$. Denote~$\nu\colon\mathrm{W}_F \rightarrow \mathbb{Z}$. We define the \emph{Weil-Deligne group}~$\mathrm{W}'_F$ as the semidirect product of~$\mathrm{W}_F$ and~$(\mathbb{C},+)$, so~$\mathrm{W}'_F = \mathrm{W}_F \ltimes \mathbb{C}$ with group action:
 \begin{equation}
   \sigma x \sigma^{-1} = q^{\nu(\sigma)}x, \sigma \in \mathrm{W}_F, x \in \mathbb{C}.
 \end{equation}
 
-We define an \emph{admissible representation} of~$\mathrm{W}'_F$ as an homomorphism~$\rho'\colon \mathrm{W}'_F \rightarrow \GL_n(\mathbb{C})$ so that~$\rho'|_{\mathrm{W}_F}$ is continuous and semisimple (with the discrete topology on~$\mathbb{C}^n$), and the image of~$(e,z) \in \{e\}\times\mathbb{C}$ is a matrix of the form~$e^{zu}$, with~$u$ a nilpotent element of~$\mathfrak{gl}_n(\mathbb{C})$. For all~$\sigma \in \mathrm{W}_F$, we get~$\rho(\sigma)u\rho(\sigma)^{-1} = q^{\nu(\sigma)}u$.
+We define an \emph{admissible representation} of~$\mathrm{W}'_F$ as an homomorphism
+\begin{equation}
+  \rho'\colon \mathrm{W}'_F \rightarrow \GL_n(\mathbb{C}) 
+\end{equation}
+so that~$\rho'|_{\mathrm{W}_F}$ is continuous and semisimple (with the discrete topology on~$\mathbb{C}^n$), and the image of~$(e,z) \in \{e\}\times\mathbb{C}$ is a matrix of the form~$e^{zu}$, with~$u$ a nilpotent element of~$\mathfrak{gl}_n(\mathbb{C})$. For all~$\sigma \in \mathrm{W}_F$, we get~$\rho(\sigma)u\rho(\sigma)^{-1} = q^{\nu(\sigma)}u$.
 
 \subsection{Local Langlands correspondence for~$\GL_n(F)$}
 Now, for the theorem that defines the correspondence.

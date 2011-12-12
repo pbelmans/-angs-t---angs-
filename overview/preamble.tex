@@ -7,7 +7,7 @@
 \usepackage{mathtools}
 \usepackage{multirow}
 \usepackage{tikz}
-\usepackage{titlesec}
+%\usepackage{titlesec}
 \usepackage[normalem]{ulem}
 \usepackage{todonotes}
 \usepackage{wrapfig}
@@ -31,7 +31,7 @@
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
 
-\newcommand{\sectionbreak}{\clearpage}
+%\newcommand{\sectionbreak}{\clearpage}
 \chapterstyle{companion}
 
 \newif\ifblog
@@ -43,6 +43,19 @@
 \relpenalty=10000
 \binoppenalty=10000 
 \setlength\parindent{0cm}
+
+\addtolength\headheight{12pt}
+
+\makeatletter
+\renewcommand\@chapapp{Series}
+\makeatother
+
+\newcommand\myauthor[1]{Written by #1}
+
+\makeatletter
+\newcommand\href@footnote[2]{#2\footnote{\url{#1}}}%\hyper@linkurl{\Hurl{#1}}{#1}}}
+\DeclareRobustCommand{\href}{\hyper@normalise\href@footnote}
+\makeatother
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}

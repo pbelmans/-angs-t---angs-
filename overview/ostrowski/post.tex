@@ -25,7 +25,7 @@ The following calculations show that~$v_P$ has the good properties and can be ex
   \item $v_P(F + F') \geq \min(v_P(F), v_P(F'))$ because if~$P^n$ divides both~$F$ and~$F'$, then it will also divide their sum. That it is not an equality, shows the example~$P = (T - 1), F = T, F' = -1$.
 \end{itemize}
 
-Obviously, we can now extend~$v_P$ to the fraction field~$K$ by posing~$v_P(\frac{F}{G}) = v_P(F) - v_P(G)$.
+Obviously, we can now extend the map~$v_P$ to the fraction field~$K$ of~$k[T]$ by defining~$v_P(\frac{F}{G})\coloneqq v_P(F) - v_P(G)$.
 
 We will now try to classify the absolute values on~$K$. This will take several steps:
 \begin{itemize}
@@ -36,7 +36,7 @@ We will now try to classify the absolute values on~$K$. This will take several s
 
 Suppose~$|\cdot|$ an absolute value on~$K$, such that~$|\cdot|$ is trivial on~$k$ ($\forall a \in k^*: |a| = 1$). We want to show that~$|\cdot|$ must be non-archimedian. When~$k$ itself is a field of prime characteristic, this is the case for any absolute value (use the Frobenius morphism). Thus assume~$k$ of characteristic 0, and consider the following computation (with~$F,G \in K$):
 \begin{equation}
-  |F + G|^n = |(F+G)^n| = \left|\sum_{i=0}^n {n \choose i}F^i G^{n-i} \right| \leq \sum_{i=0}^n \left| F^i G^{n-i} \right|.
+  |F + G|^n = |(F+G)^n| = \left|\sum_{i=0}^n \dbinom{n}{i}F^i G^{n-i} \right| \leq \sum_{i=0}^n \left| F^i G^{n-i} \right|.
 \end{equation}
 From here we can see
 \begin{equation}

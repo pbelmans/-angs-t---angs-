@@ -7,7 +7,7 @@ Let~$\phi\colon C_1 \mapsto C_2$ be a cover of curves defined over~$k$, then the
   2 \genus_{C_1} - 2 \geq \deg(\phi) (2 \genus_{C_1} -2) + \sum^{\text{scheme}}_{P \in C_1} (e_{\phi}(P)-1) \deg(P)
 \end{equation}
 
-In the special case, when~$f$ is a non-constant rational function in~$k(C)$ and~$f\colon C \mapsto \mathbb{P}^1_k$ is the corresponding cover, this reads
+In the special case, when~$f$ is a non-constant rational function in~$k(C)$ and the corresponding cover is~$f\colon C \mapsto \mathbb{P}^1_k$, this reads
 \begin{equation}
   2\genus_C-2 \geq -2 \deg(f) + \sum^{\text{scheme}}_{P \in C} (e_f(P)-1) \deg(P)
 \end{equation}
@@ -33,7 +33,7 @@ Recall that the fiber over the point~$[d] \in \mathbb{P}^1 / \mathbb{F}_1$ consi
 
 <img src="http://matrix.cmi.ua.ac.be/ngeometry/DATA/pimap.jpg" alt="pi-map" />
 
-It is tempting to define the ramification index~$e_q(p)$ for the map~$q$ in the prime~$p$ lying in the fiber~$q^{-1}([d])$ to be the largest power of~$p$ dividing~$m^d-n^d$. Likewise, for~$p \in q^{-1}([0])$ (resp. in~$q^{-1}([\infty])$) take for~$e_q(p)$ the largest power of~$p$ dividing~$m$ (resp. dividing~$n$). Finally, take~$e_q(\infty) = \log(q)$.
+It is tempting to define the ramification index~$e_q(p)$ for the map~$q$ in the prime~$p$ lying in the fiber~$q^{-1}([d])$ to be the largest power of~$p$ dividing~$m^d-n^d$. Likewise, for~$p \in q^{-1}([0])$ (resp.\ in~$q^{-1}([\infty])$) take for~$e_q(p)$ the largest power of~$p$ dividing~$m$ (resp. dividing~$n$). Finally, take~$e_q(\infty) = \log(q)$.
 
 Combine this with our previous definitions for the degree of~$p$ to be~$\log(p)$ and of the degree of the map~$q$ to be~$\log(m)$, to define the arithmetic defect of~$q$ in the prime~$p$ to be
 \begin{equation}
@@ -44,7 +44,7 @@ We can now define the total defect of the cover~$q$ over the point~$[d] \in \mat
   \delta_{[d]} = \sum_{\mathclap{p \in q^{-1}([d])}} \delta(p).
 \end{equation}
 
-It is easy to work out these total defects for the four~$\mathbb{F}_1$-rational points of~$\mathbb{P}^1 / \mathbb{F}_1$:~$\{ [0],[1],[2],[\infty] \}$ (the primes lying on the blue lines in the graph). 
+It is easy to work out these total defects for the four~$\mathbb{F}_1$-rational points of~$\mathbb{P}^1 / \mathbb{F}_1$:\ $\{ [0],[1],[2],[\infty] \}$ (the primes lying on the blue lines in the graph). 
 
 For a natural number~$a$ let~$a_0$ be its square-free part and~$a_1 = \tfrac{a}{a_0}$ the remaining part. Then
 \begin{equation}
@@ -90,7 +90,6 @@ Well, take~$m=c$ and~$n=\min(a,b)$ then in the conjectural Hurwitz inequality fo
   \end{aligned}
 \end{equation}
 (the latter inequality because~$m-n \geq \frac{m}{2}$ and so~$\log(m-n) \geq \log(m)-\log(2)$). Plug this into the inequality above and get
-
 \begin{equation}
   3-\frac{\log(n_0m_0(m-n)_0)}{\log(m)} \leq 2 + \epsilon + \frac{c(\epsilon) + 1 + \log(2)}{\log(m)}
 \end{equation}

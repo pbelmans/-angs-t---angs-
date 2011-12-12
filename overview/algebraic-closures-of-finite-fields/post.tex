@@ -42,7 +42,7 @@ We will use capital letters for abstract Steinitz numbers and lowercase letters 
 For a Steinitz number~$N$, we define~$$\mathbb{F}_{q^N} = \bigcup_{d \in \mathbb{N},d|N} \mathbb{F}_{q^d}.$$ It is easy to verify that this is a field (if~$n$ and~$m$ divide~$N$, then so does~$n \vee m$ and so the compositum~$\mathbb{F}_{q^n}\mathbb{F}_{q^m} = \mathbb{F}_{q^{n\vee m}}$ is a part of~$\mathbb{F}_{q^N}$, so the product of 2 elements is always defined, since all elements belong to finite fields). If~$n \in \mathbb{N}$, then~$\mathbb{F}_{q^n}$ is finite. It is also true that~$\mathbb{F}_{q^N} \subseteq \mathbb{F}_{q^M}$ iff~$N|M$. Moreover, one sees immediately that there is a bijection between Steinitz numbers and subfields of~$\overline{\mathbb{F}_{q}}$. We shall prove this.
 
 \begin{theorem}
-  There exists a bijection~$\phi\colon \mathbb{E} \rightarrow \{\text{ subfields of } \overline{\mathbb{F}_q} \}$ defined by~$\phi(N) = \mathbb{F}_{q^N}$.
+  There exists a bijection~$\phi\colon \mathbb{E} \rightarrow \{\text{ subfields of } \overline{\mathbb{F}_q} \}$ defined by the map~$\phi(N) = \mathbb{F}_{q^N}$.
   \begin{proof}
     To see that~$\phi$ is injective, take 2 different Steinitz numbers~$N=\prod_{i=1}^\infty {p_i}^{e_{i}}$ and~$M=\prod_{i=1}^\infty {p_i}^{f_{i}}$. Since they are different, there exists a prime~$p_i$ so that~$e_i \neq f_i$, so we take~$e_i < f_i$. But then we have that~$\mathbb{F}_{q^{p^{e_i+1}}} \subseteq \mathbb{F}_{q^M}$, but~$\mathbb{F}_{q^{p^{e_i+1}}} \nsubseteq \mathbb{F}_{q^N}$. So they aren't equal and thus~$\phi$ is injective.
 
