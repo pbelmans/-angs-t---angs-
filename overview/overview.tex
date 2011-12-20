@@ -37,6 +37,12 @@
   \vfill
 \end{titlingpage}
 
+\makeatletter
+\newcommand\href@footnote[2]{#2\footnote{\scriptsize\url{#1}}}%\hyper@linkurl{\Hurl{#1}}{#1}}}
+\DeclareRobustCommand{\href}{\hyper@normalise\href@footnote}
+\makeatother
+
+
 \tableofcontents*
 
 \clearpage
@@ -106,6 +112,7 @@ List of todos
 \chapter{Ordinals and algebraic closures}
 \myauthor{Pieter \textsc{Goetschalckx}}
 \input{on-no-and-on/sec1.tex}
+\input{on-no-and-on/sec2.tex}
 
 
 
@@ -166,6 +173,6 @@ List of todos
 \input{prime-number-theorem/post.tex}
 
 \bibliographystyle{alpha}
-\bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography,the-smirnov-letters/bibliography,playing-witt-rings/bibliography,chebotarev-density/bibliography,0-geometry/bibliography,understanding-wz/bibliography,kronecker-weber/bibliography,what-is-p1/bibliography}
+\bibliography{m-schemes/bibliography,abc-and-mason-stothers/bibliography,the-smirnov-letters/bibliography,playing-witt-rings/bibliography,chebotarev-density/bibliography,0-geometry/bibliography,understanding-wz/bibliography,kronecker-weber/bibliography,what-is-p1/bibliography,on-no-and-on/bibliography}
 
 \end{document}

@@ -51,11 +51,6 @@
 
 \newcommand\myauthor[1]{Written by #1\par}
 
-\makeatletter
-\newcommand\href@footnote[2]{#2\footnote{\url{#1}}}%\hyper@linkurl{\Hurl{#1}}{#1}}}
-\DeclareRobustCommand{\href}{\hyper@normalise\href@footnote}
-\makeatother
-
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -81,6 +76,8 @@
 \DeclareMathOperator\id{id}
 \DeclareMathOperator\identity{id}
 \DeclareMathOperator\lcm{lcm}
+\DeclareMathOperator\mex{mex}
+\DeclareMathOperator\On{\mathsf{On}}
 \DeclareMathOperator\ord{ord}
 \DeclareMathOperator\Proj{Proj}
 \DeclareMathOperator\quality{q}

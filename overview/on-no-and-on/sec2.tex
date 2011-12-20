@@ -1,0 +1,146 @@
+\section{On \texorpdfstring{$\On_2$}{On\_2}}
+In the previous section of this series I promised to do something with fields with characteristic two, and instead I did weird things with surreal numbers and ordinals. Neither of them has characteristic two, because we used the wrong arithmetic. In this post, I will give three new definitions of addition and multiplication in~$\mathsf{On}$, and prove that they are actually the same. This will turn~$\mathsf{On}$ into a field of characteristic two, which we shall call~$\On_2$. From know on, we distinguish the ordinary operations from those in~$\On_2$ by the use of square brackets. All expressions between~$[$ and~$]$ are meant in the sense of ordinary arithmetic.
+
+\subsection{Arithmetic in~$\On_2$}
+\paragraph{Simplicity rules}
+The most obvious and at the same time unusual way of defining an addition is by starting from zero and working up. We will find the \emph{simplest} addition and multiplication which make~$\On$ into a field.
+
+There is no reason why~$0+0$ cannot be~$0$, because there are fields (\emph{any} field) with an element satisfying~$x+x=x$. This is the first entry in our addition-table. This implies that~$0$ must be the zero element, so we must have~$0+\alpha=\alpha+0=\alpha$ for all~$\alpha$. The first row and column are already filled. What about~$1+1$? The least possible answer is~$0$, which gives us characteristic two. Next is~$1+2$. This cannot be~$0$,~$1$ or~$2$, so we must take~$3$. We can go on like this, and make sure that~$\alpha + \beta$ is compatible with~$\alpha' + \beta$,~$\alpha + \beta'$ and~$\alpha' + \beta'$ (with~$\alpha' < \alpha$ and~$\beta' < \beta$).
+
+We do the same for multiplication.~$0.\alpha$ can be~$0$, so~$0$ must be the zero of the field. Because~$1.1 = 1$ is possible,~$1$ is the one. The first two rows and columns are filled with~$0.\alpha$,~$\alpha.0$,~$1.\alpha$ and~$\alpha.1$. It is obvious that~$2.2$ cannot be~$0$,~$1$ or~$2$. Since there are fields (e.g.\ $\mathbb{F}_4$) with elements that satisfy~$x^2 = x + 1$,~$3$ is possible. Note that the product has to be compatible with previous entries and with the whole addition-table.
+
+\begin{remark}
+  These definitions are rather difficult to work with, because we must prove a theorem every time we want to fill in an entry. Besides, it is not obvious that these definitions really define a field.
+\end{remark}
+
+\subsection{Inductive definitions}
+Define the minimal excluded number~$\mex(S)$ as the least ordinal not in the set~$S$. This can be used for the following inductive definitions:
+\begin{itemize}
+  \item~$\alpha + \beta = \mex(\alpha' + \beta, \alpha + \beta')$;
+	\item~$\alpha\beta = \mex(\alpha'\beta + \alpha\beta' + \alpha'\beta')$.
+\end{itemize}
+It is easy to verify that~$\alpha + \alpha = 0$, because~$\alpha + \alpha'$ cannot be zero. We can now prove that this definitions are equivalent to the former.
+
+If~$\alpha + \beta < \mex(\alpha' + \beta, \alpha + \beta')$, there exists an~$\alpha' < \alpha$ such that~$\alpha + \beta = \alpha' + \beta$. This implies~$\alpha = \alpha'$, which is impossible. Therefore,
+\begin{equation}
+  \alpha + \beta \geq \mex(\alpha' + \beta, \alpha + \beta').
+\end{equation}
+
+If~$\alpha\beta < \mex(\alpha'\beta + \alpha\beta' + \alpha'\beta')$, there exist~$\alpha'$ and~$\beta'$ so that~$\alpha\beta = \alpha'\beta + \alpha\beta' + \alpha'\beta'$. This is equivalent to
+\begin{gather}
+  \alpha\beta + \alpha'\beta + \alpha\beta' + \alpha'\beta' = 0 \\
+  (\alpha + \alpha')(\beta + \beta') = 0 ,
+\end{gather}
+which implies~$\alpha = \alpha'$ or~$\beta = \beta'$. Both are impossible. It follows that
+\begin{equation}
+  \alpha\beta \geq \mex(\alpha'\beta + \alpha\beta' + \alpha'\beta').
+\end{equation}
+
+If we can prove that these inductive definitions form a field, it must be the \emph{smallest possible} field, as defined before. This is a standard verification.
+
+\subsection{Nim-arithmetic}
+The inductive definition of the sum is known as \emph{nim-addition} (frequently used in the theory of the game of \href{http://en.wikipedia.org/wiki/Nim}{Nim}). An easy rule to perform nim-addition is:
+\begin{enumerate}
+  \item The nim-sum of a number of distinct~$2$-powers is their ordinary sum.
+	\item The nim-sum of two equal numbers is 0.
+\end{enumerate}
+This rule allows us to compute the nim-sum of finite and infinite ordinals. A similar rule for nim-multiplication is:
+\begin{enumerate}
+  \item The nim-product of a number of distinct Fermat~$2$-powers (numbers of the form~$2^{2^n}$) is their ordinary product.
+  \item The square of a Fermat~$2$-power is its \emph{sesquimultiple} (multiplying by~$\frac{3}{2}$ in the ordinary sense).
+\end{enumerate}
+Unfortunately, this rule applies only to finite ordinals. A more general rule is explained at \href{http://www.neverendingbooks.org/index.php/on2-conways-nim-arithmetics.html}{neverendingbooks}.
+
+\subsection{Groups in~$\On_2$}
+The ordinals that are groups are precisely the~$2$-powers. This can be proved with the \emph{simplest extension theorems}.
+
+\begin{theorem}
+  If~$\Delta$ is not a group (under addition), then~$\Delta = \alpha + \beta$, where~$(\alpha, \beta)$ is any lexicographically earliest pair of numbers in~$\Delta$ whose sum is not in~$\Delta$.
+  \label{theorem:on-2-1}
+\end{theorem}
+
+\begin{theorem}
+  If~$\Delta$ is a group, we have~$[\Delta\alpha] + \beta = [\Delta\alpha + \beta]$, for all~$\alpha$, and all~$\beta \in \Delta$.
+  \label{theorem:on-2-2}
+\end{theorem}
+
+If~$\Delta$ is a group, and~$\Gamma$ is a group with~$\Delta < \Gamma < [\Delta.2]$, we can write~$\Gamma = [\Delta + \delta]$ with~$\delta < \Delta$. This is a contradiction, because~$\Gamma > \Delta + \delta$ follows from the inductive definitions, and~$[\Delta + \delta]  = \Delta + \delta$ according to Theorem~\ref{theorem:on-2-2}.
+
+If~$\alpha, \beta \in [\Delta.2]$, there are three possible cases.
+\begin{enumerate}
+  \item~$\alpha < \Delta$ and~$\beta < \Delta$. Then~$\alpha + \beta < \Delta < [\Delta.2]$</li>
+  \item~$\alpha \geq \Delta$ and~$\beta < \Delta$. By Theorem~\ref{theorem:on-2-2}:
+    \begin{equation}
+      \alpha + \beta = [\Delta + \delta] + \beta = \Delta + \delta + \beta = \Delta + \delta' = [\Delta + \delta'] < [\Delta.2].
+    \end{equation}
+  \item~$\alpha \geq \Delta$ and~$\beta \geq \Delta$. By Theorem~\ref{theorem:on-2-2} and~$\alpha + \alpha = 0$:
+    \begin{equation}
+      \alpha + \beta = [\Delta + \delta] + [\Delta + \delta'] = \Delta + \Delta + \delta + \delta' = \delta + \delta' < \Delta < [\Delta.2].
+    \end{equation}
+\end{enumerate}
+This proves that if~$\Delta$ is any group, then the next group is~$[\Delta.2]$. Because~$2$ is a group, it follows that the groups are the~$2$-powers. This justifies the rule for the calculation of nim-sums.
+
+\subsection{Fields in~$\On_2$}
+Similar theorems exist for fields in~$\On_2$. Complete proofs can be found in~\cite{on-numbers-and-games}.
+
+\begin{theorem}
+  If~$\Delta$ is a group but not a ring, then~$\Delta = \alpha\beta$, where~$(\alpha, \beta)$ is any lexicographically earliest pair of numbers in~$\Delta$ whose product is not in~$\Delta$.
+  \label{theorem:on-2-3}
+\end{theorem}
+
+\begin{theorem}
+  If~$\Delta$ is a ring but not a field, then~$\Delta = \alpha^{-1}$, where~$\alpha$ is the earliest non-zero number in~$\Delta$ which has no inverse in~$\Delta$.
+  \label{theorem:on-2-4}
+\end{theorem}
+
+\begin{theorem}
+  If~$\Delta$ is a field but not algebraically closed, then~$\Delta$ is a root of the lexicographically earliest polynomial having no root in~$\Delta$.
+  \label{theorem:on-2-5}
+\end{theorem}
+
+
+\subsection{Finite ordinals}
+We will prove by induction that the finite ordinals that are fields are precisely the Fermat~$2$-powers. We suppose that the following statements are true for~$n$, and prove them for~$n + 1$:
+\begin{enumerate}
+  \item~$[2^{2^n}]$ is a field;
+	\item~$[2^{2^{n-1}}]^2 = [\frac{3}{2}2^{2^{n-1}}]$;
+	\item~$x^2 + x$ takes precisely the values~$0, 1, \dotsc, [2^{2^n-1}-1]$ as~$x$ varies in~$[2^{2^n}]$.
+\end{enumerate}
+The lexicographically earliest irreducible polynomial over~$[2^{2^n}]$ is~$x^2 + x = [2^{2^n-1}]$, because~$x^2 = \alpha$ always has a root in finite field of characteristic~$2$, and~$x^2 + x = \alpha$ has a root for earlier~$\alpha$ according to statement 3. We know by Theorem 5 that~$[2^{2^n}]$ is a root of~$x^2 + x = [2^{2^n-1}]$, hence
+\begin{equation}
+  \textstyle [2^{2^n}]^2 = [2^{2^n}] + [2^{2^n-1}] = [2^{2^n} + 2^{2^n-1}] = [\frac{3}{2}2^{2^n}]. 
+\end{equation}
+We obtain the field~$[2^{2^{n+1}}]$ as a vectorspace over the field~$[2^{2^n}]$ with typical element~$X = [2^{2^n}]x + y$. We examine the polynomial
+\begin{align}
+  X^2 + X &= ([2^{2^n}]x + y)^2 + [2^{2^n}]x + y \\
+  &= [2^{2^n}]^2 x^2 + y^2 + [2^{2^n}]x + y \\
+  &= [2^{2^n}](x^2 + x) + ([2^{2^n-1}]x^2 + y^2 + y).
+\end{align}
+By induction,~$x^2 + x$ can take any value in~$[2^{2^n-1}]$. Note that~$x^2 + x$ remains unchanged when we replace~$x$ by~$x + 1$. The same is true for~$y^2 + y$. It follows that~$[2^{2^n-1}]x^2 + y^2 + y$ can be made to take any value in~$[2^{2^n}]$ without affecting the value of~$x^2 + x$. This implies that the values of~$X^2 + X$ can be written as~$[2^{2^n}]\alpha + \beta$, where~$\alpha < [2^{2^n-1}]$ and~$\beta < [2^{2^n}]$, which are precisely the values less than~$[2^{2^{n+1}-1}]$.
+
+This and Theorem~\ref{theorem:on-2-5} justify the rule for the calculation of nim-products.
+
+\subsection{Infinite ordinals}
+Consider the sequence
+\begin{equation}
+  [\omega^{\omega^k}], [\omega^{\omega^k p_k}], [\omega^{\omega^k p_k^2}], \dotsc, [\omega^{\omega^k p_k^n}], \dotsc 
+\end{equation}
+where~$p_k$ is the~$(k+1)$'st prime. Then the following statements are true for each~$k > 0$:
+\begin{enumerate}
+  \item Each term in the sequence is a field;
+	\item The field~$[\omega^{\omega^k p_k^n}]$ is the union of all finite fields~$\mathbb{F}_{2^{p_0^{n_0} p_1^{n_1} \dotsm p_k^{n_k}}}$ with~$n_i < \omega$ for~$0 \leq i \leq k - 1$ and~$n_k \leq n$;
+	\item Each term is the~$p_k$'th power of its successor, and~$[\omega^{\omega^k}]$ is the~$p_k$'th root of~$\alpha_{p_k}$, which is the least number in~$[\omega^{\omega^k}]$ with no~$p_k$'th root in~$[\omega^{\omega^k}]$.
+\end{enumerate}
+We will prove this by induction on~$k$.
+
+Let~$\boldsymbol{n = 0}$. Now~$[\omega^{\omega^{k+1}}]$ is the union of all fields~$[\omega^{\omega^k p_k^n}]$. It is obvious that this defines a field, and there are no fields in between. This proves statement 1, and statement 2 follows immediately. Because of Theorem 5,~$[\omega^{\omega^{k+1}}]$ is the root of the lexicographically earliest polynomial having no root in~$[\omega^{\omega^{k+1}}]$. If~$f(x)$ is a polynomial of degree~$d < p_{k+1}$, all coefficients are contained in a finite field~$\mathbb{F}_{2^{p_0^{n_0} \dotsm p_k^{n_k}}}$. Therefore, the root of~$f(x)$ is an element of the field~$\mathbb{F}_{2^{p_0^{n_0} \dotsm p_k^{n_k} d}} = \mathbb{F}_{2^{p_0^{m_0} \dotsm p_k^{m_k}}}$, which is a subfield of~$[\omega^{\omega^{k+1}}]$. It follows that the earliest irreducible polynomial is~$x^{p_{k+1}} = \alpha_{p_{k+1}}$ with~$\alpha_{p_{k+1}}$ as defined in statement 3.
+
+Let~$\boldsymbol{n > 0}$. Assume~$\Gamma = [\omega^{\omega^{k+1} p_{k+1}^{n-1}}]$ is a field, and~$\Delta$ is the lexicographically earliest algebraic extension. The field~$\Gamma$ is not closed for polynomials of degree~$p_{k+1}$, because~$\mathbb{F}_{2^{p_{k+1}^n}}$ is a field extension of~$\mathbb{F}_{2^{p_{k+1}^{n-1}}} \subset \Gamma$ of degree~$p_{k+1}$, and~$\mathbb{F}_{2^{p_{k+1}^n}}$ is not contained in~$\Gamma$. This means that~$[\Delta:\Gamma]$ is at most~$p_{k+1}$. Therefore, every element~$\alpha \in \Delta$ is the root of a polynomial~$f(x)$ of degree~$d \leq p_{k+1}$. By induction, all coefficients of~$f(x)$ are contained in a field~$\mathbb{F}_{2^{p_0^{n_0} \dotsm p_{k+1}^{n_{k+1}}}}$ with~$n_{k+1} \leq n - 1$. It follows that the root of~$f(x)$ is contained in~$\mathbb{F}_{2^{p_0^{n_0} \dotsm p_{k+1}^{n_{k+1}}d}} = \mathbb{F}_{2^{p_0^{m_0} \dotsm p_{k+1}^{m_{k+1}}}}$ with~$m_{k+1} \leq n$. If~$d < p_{k+1}$, this is a subfield of~$\Gamma$ and~$f(x)$ is not irreducible. We can conclude that~$[\Delta:\Gamma] = p_{k+1}$, and~$\Delta = [\omega^{\omega^{k+1} p_{k+1}^{n}}]$. This proves statements 1 and 2.
+
+If~$f(x)$ is a polynomial~$x^{p_{k+1}} = \alpha$ with~$\alpha \in [\omega^{\omega^{k+1} p_{k+1}^{n-1}}]$, we know by induction that~$\alpha$ is contained in~$\mathbb{F}_{2^{p_0^{n_0} \dotsm p_{k+1}^{n_{k+1}}}}$ with~$n_{k+1} \leq n - 1$. The root of~$f(x)$ is thus contained in~$\mathbb{F}_{2^{p_0^{m_0} \dotsm p_{k+1}^{m_{k+1}}}}$ with~$m_{k+1} \leq n$, which is a subfield of~$[\omega^{\omega^{k+1} p_{k+1}^{n}}]$. It follows that the earliest irreducible polynomial is~$x^{p_{k+1}} = [\omega^{\omega^{k+1} p_{k+1}^{n-1}}]$. By Theorem 5,~$[\omega^{\omega^{k+1} p_{k+1}^n}]$ is a root of this polynomial. This proves statement 3.
+
+From this, we can conclude that~$[\omega^{\omega^\omega}]$ is the algebraic closure of~$2$.
+
+\begin{remark}
+  The computation of~$\alpha_p$ is not a trivial task. Conway did stop at~$\alpha_7$. Hendrik Lenstra described an effective method in his paper~\cite{lenstra-closure}, and computed~$\alpha_p$ for~$p \leq 43$. Lieven Le Bruyn \href{http://www.neverendingbooks.org/index.php/on2-extending-lenstras-list.html}{extended the list}.
+\end{remark}
