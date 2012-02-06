@@ -8,10 +8,10 @@
 From now on the main object of study is~$\mathbb{F}_1$. I will first elaborate on what Kapranov-Smirnov calls the ``folklore imagery'', trying to understand the motivation behind a statement like
 
 \begin{quote}
-  A vectorspace of~$\mathbb{F}_1$ is just a set.
+  A vector space of~$\mathbb{F}_1$ is just a set.
 \end{quote}
 
-Afterwards I will draw some conclusions from these observations, motivating some of the approaches outlined in \iftex\cite{mapping-fun}\fi\ifblog Mapping $\mathbb{F}_1$-land\fi.
+Afterwards I will draw some conclusions from these observations, motivating some of the approaches outlined in \iftex\cite{mapping-fun}\fi\ifblog\href{http://www.neverendingbooks.org/index.php/f_un-and-braid-groups.html}{Mapping $\mathbb{F}_1$-land}\fi.
 
 
 \iftex
@@ -20,17 +20,23 @@ Afterwards I will draw some conclusions from these observations, motivating some
 \ifblog
 \subsection{Demystifying the $\mathbb{F}_1$-lore}
 \fi
-In \iftex \cite{projective-geometry-over-f1} \fi\ifblog \href{http://arxiv.org/abs/math/0407093}{Projective geometry over $\mathbb{F}_1$ and the Gaussian binomial coefficient} \fi a nice build-up is given. I will summarize and give my own viewpoint.
+In \iftex \cite{projective-geometry-over-f1} \fi\ifblog \href{http://arxiv.org/abs/math/0407093}{Projective geometry over $\mathbb{F}_1$ and the Gaussian binomial coefficient} \fi a nice build-up is given. I will summarise and give my own viewpoint.
 
-We already know that~$\mathbb{F}_1$ doesn't exist as a field (because we need~$0\neq 1$). But what if we say the trivial ring should be taken as~$\mathbb{F}_1$. In that cases modules over this ring are in relation with vectorspaces over~$\mathbb{F}_1$. But there are only trivial modules over the trivial ring, hence no nontrivial vectorspaces. This approach doesn't work. The conclusion after generalizing:
+We already know that~$\mathbb{F}_1$ doesn't exist as a field (because we need~$0\neq 1$). But what if we say the trivial ring should be taken as~$\mathbb{F}_1$? In that case modules over this ring are in relationship with vector spaces over~$\mathbb{F}_1$. But there are only trivial modules over the trivial ring, hence no nontrivial vector spaces. This approach obviously doesn't work. A conclusion I like to make after vastly generalising this approach:
 
 \begin{quote}
   Setting~$\mathbb{F}_1$ to be \emph{something} doesn't work.
 \end{quote}
 
-The idea of looking at vectorspaces looks promising though: given a field it's the most obvious structure built upon it. We know that the cardinality of an~$n$\nobreakdash-dim\-ensional vectorspace~$V$ over a finite field~$\mathbb{F}_q$ is~$q^n$. Applying this to~$\mathbb{F}_1$ we get a single point. So far so good, but we also know that a \emph{basis} for~$V$ consists of~$n$ elements. The problem with this approach is that it's too direct: we cannot \emph{construct} objects over~$\mathbb{F}_1$, we need to get there by an analogy that avoids contradictions like this. Applying this for instance to~$\mathbb{F}_1[t]$ we see that this doesn't yield any satisfying definition either. The conclusion after generalizing:
+The idea of looking at vector spaces looks promising though: given a field it is the most obvious structure built upon it, so we want to make sense of it over $\mathbb{F}_1$. We know that the cardinality of an~$n$\nobreakdash-dimensional vector space~$V$ over a finite field~$\mathbb{F}_q$ is~$q^n$. Applying this to~$\mathbb{F}_1$ we get a single point. So far so good, but we also know that a \emph{basis} for~$V$ consists of~$n$ elements. The problem with this approach is that it's too direct: we cannot \emph{construct} objects over~$\mathbb{F}_1$, we need to get there by an analogy that avoids contradictions like this. Applying this for instance to~$\mathbb{F}_1[t]$ we see that this doesn't yield any satisfying definition either. The conclusion after another round of generalisation:
 
-So we need a simple object over~$\mathbb{F}_1$ where we can avoid an explicit construction, getting facts about that object purely by analogy without running into contradictions. Let's try this for~$\mathbb{P}^n/\mathbb{F}_1$. The construction of this over an actual field~$k$ consists of constructing~$\mathbb{A}^{n+1}/k$ (an~$n+1$\nobreakdash-dimensional vectorspace over~$k$) and setting~$\mathbb{P}^n/k$ to be the set of lines through the origin.
+\begin{quote}
+  Look at induced objects.
+\end{quote}
+
+The same applies to noncommutative geometry by the way. But let's focus on~$\mathbb{F}_1$ for the moment.
+
+So we need a simple object over~$\mathbb{F}_1$ where we can avoid an explicit construction, getting facts about that object only by analogy without running into contradictions. Let's try this for~$\mathbb{P}^n/\mathbb{F}_1$. The construction of this over an actual field~$k$ consists of constructing~$\mathbb{A}^{n+1}/k$ (an~$n+1$\nobreakdash-dimensional vector space over~$k$) and setting~$\mathbb{P}^n/k$ to be the set of lines through the origin.
 
 If we take~$k=\mathbb{F}_q$ the number of points in~$\mathbb{A}^{n+1}/\mathbb{F}_q$ is~$q^{n+1}$. The number of lines through the origin is~$(q^{n+1}-1)/(q-1)$: just take any point in~$\mathbb{A}^{n+1}/\mathbb{F}_q\setminus\left\{ 0 \right\}$, this defines a line through the origin, but there are~$q$ points (including the origin) on this line, therefore we divide by~$q-1$. If we write down the polynomial function counting the number of points in~$\mathbb{P}^n/\mathbb{F}_q$ (i.e.,~$q^n+q^{n-1}+\ldots+1$) and evaluate in~$q=1$ we see something that leads to a nontrivial object! 
 
@@ -38,4 +44,61 @@ If we take~$k=\mathbb{F}_q$ the number of points in~$\mathbb{A}^{n+1}/\mathbb{F}
   The projective geometry~$\mathbb{P}^1/\mathbb{F}_1$ contains~$n$ points.
 \end{quote}
 
+What we have actually done is changing the construction of~$\mathbb{P}^n/\mathbb{F}_1$ from an \emph{algebraic-geometric} viewpoint to a \emph{gubernatorial-geometric} viewpoint, something that is quintessential in finite geometry (and I guess I'm the angs+'er with the most background in this kind of stuff :)). If people are interested in a write-up about this, I'd be happy to provide one but I suspect my fellow seminarians are not that into finite geometry and combinatorics. The only important observation we need to make is that a line in~$\mathbb{P}^n/\mathbb{F}_1$ contains exactly two points in this sense, as a line in~$\mathbb{P}^n/\mathbb{F}_q$ contains~$q+1$ points by the axioms of a combinatorial-geometric projective space.
+
+Now taking $\mathbb{F}_1$-vector spaces to be sets actually makes sense: $\mathbb{A}^{n+1}/\mathbb{F}_1$ is an~$(n+1)$-set, taking any point as the distinguished base point (or origin) and considering ``lines'' through the origin, or more appropriately $2$-subsets, of which we have exactly~$n$ as we started with~$n+1$ elements and fixed an origin. This notion of fixing an origin will have benefits later on, so keep this in mind.
+
 \subsection{Implications}
+
+Now we can switch our attention to \iftex\cite{kapranov-smirnov}\fi\ifblog Kapranov's and Smirnov's unfinished paper\fi. If Wittgenstein were an algebraic geometer interested in $\mathbb{F}_1$-geometry I guess he would have written a Tractatus Absoluto-Geometricus, which could have looked (in a \emph{very} crude sense) like this
+\begin{enumerate}
+  \item Geometry over~$\mathbb{F}_1$ can only be understood through induced objects.
+    \item Vector spaces over~$\mathbb{F}_1$ are plain sets.
+      \begin{enumerate}
+        \item Dimension equals cardinality.
+        \item $\mathrm{GL}_n(\mathbb{F}_1)=\mathrm{S}_n$.
+        \item $\mathrm{SL}_n(\mathbb{F}_1)=\mathrm{A}_n$.
+        \item $\det\colon\mathrm{GL}_n(\mathbb{F}_1)\to\mathbb{F}_1^\times$ is the sign homomorphism.
+        \item The Grassmannian~$\mathrm{Gr}(k,n)(\mathbb{F}_1)$ is the set of~$k$-subsets.
+      \end{enumerate}
+
+    \item The polynomial ring $\mathbb{F}_1[t]$ can only be understood through its automorphisms.
+      \begin{enumerate}
+        \item Polynomial automorphisms are a generalisation of field automorphisms by evaluation at ``zero''.
+        \item We have $\mathrm{GL}_n(\mathbb{F}_1[t])\to\mathrm{GL}_n(\mathbb{F}_1)$.
+        \item $\mathrm{GL}_n(\mathbb{F}_1[t])=\mathrm{B}_n$ the braid group on~$n$ strings, by analogy of the canonical~$\mathrm{B}_n\to\mathrm{S}_n$.
+        \item For more information I refer you to the grandmaster himself and his blog post \href{http://www.neverendingbooks.org/index.php/f_un-and-braid-groups.html}{$\mathbb{F}_1$ and braid groups}.
+      \end{enumerate}
+
+    \item Finite fields (and therefore $\mathbb{F}_1$) have finite extensions and algebraic closures.
+      \begin{enumerate}
+        \item $\mathbb{F}_{1^n}$ as a vector space over~$\mathbb{F}_1$ is the (pointed) set consisting of the $n$-th roots of unity~$\mu_n$ and the origin.
+        \item $\mathbb{A}^1/\mathbb{F}_1$ as a scheme is~$\Spec\mathbb{F}_1[t]$.
+        \item $\Spec\mathbb{F}_1[t]$ describes the algebraic closure of $\mathbb{F}_1$.
+        \item $\overline{\mathbb{F}_1}$ therefore corresponds to $\mathrm{\mu}_\infty\cup\left\{ 0 \right\}$.
+      \end{enumerate}
+
+    \item We can generalise linear algebra to finite extensions.
+      \begin{enumerate}
+        \item The action of $\mathbb{F}_{1^n}$ on~$V$ is the action of $\mu_n$ on~$V\setminus\left\{ 0 \right\}$.
+        \item $\mathbb{F}_{1^n}$-vector spaces are nothing but $\mu_n$-sets.
+        \item This action is multiplicative, there is no additive structure.
+        \item The lack of additive structure agrees with the notion of vector spaces as (pointed) sets.
+        \item A $\mathbb{F}_{1^n}$-basis is a set containing a representative of every orbit under the $\mu_n$-action.
+      \end{enumerate}
+\end{enumerate}
+
+For the real Wittgenstein aficionado, my apologies for not using his actual numbering system. This post mostly served as a way for me to get all my $\mathbb{F}_1$-folklore straight, so that I can explain to a complete outsider why stuff in the $\mathbb{F}_1$ is taken as what it is. If you feel any gaps present, please tell me so.
+
+If you followed me this far you should be familiar enough with the ideas and twists of mind necessary to understanding parts of Kapranov-Smirnov, or you have made up your mind and will take all $\mathbb{F}_1$-stuff to be dadaist nonsense. But before tackling Kapranov-Smirnov I suggest you read the series of posts developing the same theme as this one did but in far greater depth:
+\begin{enumerate}
+  \item \href{http://www.neverendingbooks.org/index.php/the-f_un-folklore.html}{The $\mathbb{F}_1$ folklore}
+  \item \href{http://www.neverendingbooks.org/index.php/absolute-linear-algebra.html}{Absolute linear algebra}
+  \item \href{http://www.neverendingbooks.org/index.php/f_un-and-braid-groups.html}{$\mathbb{F}_1$ and braid groups}
+\end{enumerate}
+
+For the next (and last) post of this series, the main idea will be
+\begin{quote}
+  Stuff over $\mathbb{F}_1$ contains multiplicative structure, not additive structure.
+\end{quote}
+
