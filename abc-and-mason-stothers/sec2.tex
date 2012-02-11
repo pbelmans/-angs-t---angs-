@@ -17,7 +17,7 @@ Enough conjectural stuff, time for some \emph{facts}. Did you know~$\mathbb{Z}$ 
   An Euclidean domain can be equipped with \emph{several} Euclidean functions. When there exists a single function we can call~$R$ Euclidean, but all scalar multiples suffice too for instance.
 \end{remark}
 
-But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$. This will be necessary: we'll split polynomials into linear factors and we'll use the first derivative. This will break in non-algebraically closed fields or fields with characteristic different from~$0$. What happens in~$\mathbb{F}_1$ is left as a trivial exercise for the interested reader.
+But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomial ring~$k[X]$ over a field~$k$ can be used too! Now take~$k$ to be an algebraically closed field of characteristic~$0$. This will be necessary: we'll split polynomials into linear factors and we'll use the first derivative. This will break in non-algebraically closed fields or fields with characteristic different from~$0$. What happens in~$\mathbb{F}_1$ is left as a trivial exercise for the interested reader.
 
 \begin{theorem}[Mason-Stothers]
   \label{theorem:mason-stothers}
@@ -35,7 +35,7 @@ But~$\mathbb{Z}$ is not the only Euclidean domain. The polynomials~$k[X]$ over a
 The function~$\rad\colon k[X]\to k[X]$ now maps a polynomial~$f(X)$ to the polynomial of minimal degree such that it has the same roots as~$f$. Under the assumption of an algebraically closed field this is the same as removing the multiplicities of the linear terms. Can you see the analogy?
 
 \begin{remark}
-  My statement of the~$abc$\nobreakdash-conjecture was phrased in terms non-negative integers, removing the need for a maximum over the values of the Euclidean function~$|\cdot|$. The original post introducing the~$abc$\nobreakdash-conjecture states the inequality in this more general form. In the statement of the Mason-Stothers theorem the presence of an Euclidean function is more obvious, so let's phrase the $abc$-conjecture in the Euclidean way for completeness' sake:
+  My statement of the~$abc$\nobreakdash-conjecture was phrased in terms of non-negative integers, removing the need for a maximum over the values of the Euclidean function~$|\cdot|$. The original post introducing the~$abc$\nobreakdash-conjecture states the inequality in this more general form. In the statement of the Mason-Stothers theorem the presence of an Euclidean function is more obvious, so let's phrase the $abc$-conjecture in the Euclidean way for completeness' sake:
 \end{remark}
 
 \begin{conjecture}
@@ -49,18 +49,18 @@ The function~$\rad\colon k[X]\to k[X]$ now maps a polynomial~$f(X)$ to the polyn
   \end{equation}
 \end{conjecture}
 
-But have you noticed it? The statement of the Mason-Stothers theorem doesn't require an~$\epsilon$ and there are not finitely many counterexamples: there simply are \emph{no} counterexamples to the inequality! See \iftex Section~\ref{section:proof-and-consequences}\fi\ifblog my next post\fi for an actual proof. But first I want to throw some dates at you.
+But have you noticed it? The statement of the Mason-Stothers theorem doesn't require an~$\epsilon$ and there are not finitely many counterexamples: there simply are \emph{no} counterexamples to the inequality! See \iftex Section~\ref{section:proof-and-consequences}\fi\ifblog my next post\fi~for an actual proof. But first I want to throw some dates at you.
 
 \subsection{History}
 
 For the actual overview I need a preliminary remark, restating the~$abc$\nobreakdash-conjecture.
 \begin{remark}
   \label{remark:abc-with-factor}
-  We could also phrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
+  We could also rephrase the~$abc$\nobreakdash-conjecture in terms of a constant~$K_{\epsilon}$. In that case we have for~$\epsilon>0$ the existence of a~$K_{\epsilon}>1$ such that
   \begin{equation}
     c\leq K_{\epsilon}\rad(abc)^{1+\epsilon}.
   \end{equation}
-  Hence the constant~$K_{\epsilon}$ swallows all finitely many counterexamples of the inequality \iftex in~\eqref{equation:abc-inequality}\fi\ifblog$c>\rad(abc)^{1+\epsilon}$\fi.
+  Hence the constant~$K_{\epsilon}$ swallows all (finitely many) counterexamples of the inequality \iftex in~\eqref{equation:abc-inequality}\fi\ifblog$c>\rad(abc)^{1+\epsilon}$\fi.
 \end{remark}
 
 \begin{description}
