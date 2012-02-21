@@ -4,3 +4,68 @@
 \ifblog
 \section{$\mathcal{M}$-schemes, or the approach of Kato and Deitmar}
 \fi
+
+In this final instalment of my series on $\mathbb{F}_1$-geometry I will finally discuss an actual approach, in casu the notion of $\mathcal{M}$-schemes, as introduced by Kato and refined Deitmar in \url{http://arxiv.org/abs/math/0404185}. The set-up from the previous posts will prove to be the ideal way of introducing these, and alongside I will briefly sketch the relations between $\mathcal{M}$-schemes and the other approaches, in particular Borger's $\Lambda$-geometry.
+
+\subsection{A few more words on the approach}
+Recall the mantra of the previous post:
+\begin{quote}
+  Stuff over $\mathbb{F}_1$ contains only multiplicative structure, there is no additive structure.
+\end{quote}
+So when we define a $\mathbb{F}_1$-geometry we want the forgetful functor from regular schemes to $\mathbb{F}_1$-schemes to strip of this additive structure. What object comes to your mind that only contains multiplicative structure (or better: just one as opposed to two structures)? If you said groups, you are close, but these contain too much structure for our approach (they will more or less play the role of fields though!). In this case we opt for \emph{monoids}. Recall that (commutative) monoids are like (abelian) groups, but there is not necessarily an inverse. Of course, taking this answer is what happens if you completely want to mimic the set-up of ``classical'' algebraic geometry, by introducing an anti-equivalence of categories as framework. You are of course free to do something else, just like Connes, Soul\'e and Borger did, which puts you in pleasant company.
+
+One more interesting consequence of ``stripping of additive structure'' is contained in Section 5 of Deitmar's paper. Recall that one defines~$\mathrm{GL}_n(R)=\mathrm{Aut}_R(R^n)$ for any commutative ring~$R$. Now in the mantra of defining $\mathbb{F}_1$-geometry by induced objects, we would like to know what~$\mathrm{GL}_n(\mathbb{F}_1)$ by knowing what~$\mathbb{F}_1^n$ and more generally what $\mathbb{F}_1$-modules look like. As $\mathbb{Z}$-modules are abelian groups which only contain additive structure, stripping this off yields just plain sets.
+
+\subsection{Refurbishing algebraic geometry}
+We need a category of rings over $\mathbb{F}_1$ to place on the right-hand side of the anti-equivalences introduced in \href{http://www.noncommutative.org/index.php/series/la-carte-et-le-territoire-understanding-schemes-and-mathcalm-schemes}{the first post of this series}. This will be the category of commutative monoids, hence we obtain
+\begin{equation}
+  \label{equation:scheme-anti-equivalence}
+  \text{affine $\mathbb{F}_1$-schemes} \underset{\text{equivalence}}{\overset{\text{anti-}}{\longleftrightarrow}} \text{commutative monoids}.
+\end{equation}
+We wish to have a forgetful functor from the category of schemes to the category of $\mathbb{F}_1$-schemes, together with an adjoint functor. To obtain this we define the \emph{base extension} of a commutative monoid $A$ to $\mathbb{Z}$ by setting
+\begin{equation}
+  A\otimes_{\mathbb{F}_1}\mathbb{Z}=\mathbb{Z}[A]
+\end{equation}
+the monoidal ring, analogous to the probably more familiar group ring. This yields us the following theorem
+\begin{theorem}
+  The base extension functor $-\otimes_{\mathbb{F}_1}\mathbb{Z}$ is left adjoint to the forgetful functor~$\mathrm{F}$ from the category of rings $\textsf{Rings}$ to the category of commutative monoids by $(R,+,\times)\mapsto(R,\times)$, i.e.
+  \begin{equation}
+    \mathrm{Hom}_{\textsf{Rings}}(A\otimes_{\mathbb{F}_1}\mathbb{Z},R)\cong\mathrm{Hom}_{\mathbb{F}_1}(A,\mathrm{F}(R))
+  \end{equation}
+  for every (commutative and unital) ring~$R$ and commutative monoid~$A$.
+
+  \begin{proof}
+    Consider $\varphi\colon A\otimes_{\mathbb{F}_1}\mathbb{Z}=\mathbb{Z}[A]\to R$, this gives by restricting to~$A$ a morphism in the category of commutative monoids from~$A$ to~$\mathrm{F}(A)$. This gives us the map of morphisms.
+    
+    To prove its bijectivity you just have to realise that what happens at the level of the monoid determines everything, the monoidal ring structure has to preserve the product in the monoid so its restriction and extension are determined uniquely. This is closely connected to the fact that $\mathbb{Z}$ is an initial object in the category of rings.
+  \end{proof}
+\end{theorem}
+The same adjointness can be found in many of the approaches, especially in Borger's. If you are familiar with topos theory, go ahead!
+
+Now we will define the constructions with monoids necessary to define an algebraic geometry, i.e., to mimic the divine trinity of schemes: the underlying set, the topology and the structure sheaf.
+\begin{enumerate}
+  \item An \emph{ideal} $\mathfrak{a}$ is a subset of $a$ such that $A\mathfrak{a}\subset A$, just like in the case of rings but we don't need it to be an additive group. An ideal is \emph{prime} if~$xy\in\mathfrak{a}$ implies $x\in\mathfrak{a}$ or~$y\in\mathfrak{a}$. Chris Martin sings: nobody says it was easy, but in this case it is. If you can come up the obvious definition of a submonoid (don't forget to include the identity) this is equivalent to $A\setminus\mathfrak{a}$ being one. There is a special prime ideal too, namely $A\setminus A^\times$. Do you see where my statement ``groups are like fields'' comes from? Anyway, the \emph{spectrum} of $A$ is nothing but the set of all prime ideals.
+
+  \item To define a topology, we define what it means to be closed in the topology of an affine $\mathbb{F}_1$-scheme, just like before. In complete analogy we define the empty set and sets of the form
+    \begin{equation}
+      \mathrm{V}(\mathfrak{a})=\left\{ \mathfrak{p}\in\operatorname{Spec}A\,|\,\mathfrak{p}\supset\mathfrak{a} \right\}
+    \end{equation}
+    and the fact that this defines a topology is left as an exercise. Remark that we again have special closed sets
+    \begin{equation}
+      \mathrm{V}(f)=\left\{ \mathfrak{p}\in\operatorname{Spec}A\,|\,f\in\mathfrak{p} \right\}
+    \end{equation}
+    by setting $\mathfrak{a}=Af$ to be the corresponding ``principal ideal''.
+
+
+  \item To define the structure sheaf we need a good notion of localisation. Unlike the ring case where we use ideals instead of subrings, we have to use submonoids as there is no other multiplicatively closed structure possible. But a moment's thought will reveal that submonoids correspond to ideals, whereas subrings don't have an analogue. The localisation $S^{-1}A$ of $A$ at a submonoid $S$ is now defined by equipping the set $A\times S$ with the equivalence relation $(m,s)\sim(m',s')$ if and only if we have an $s''\in S$ such that $s''s'm=s''sm'$ (just think about the cancellation of denominators in the ring case). By the obvious universal property this construction is unique up to isomorphism in its role of localisation.
+
+    Now we invoke a little sheaf theory. A sheaf is determined by the values in its stalks, so let's just define it that way. The set of sections~$\mathcal{O}(U)$ over an open set $U$ is the set of maps $s\colon U\to\coprod_{\mathfrak{p}\in U}A_{\mathfrak{p}}$ such that $s(\mathfrak{p}\in A_{\mathfrak{p}}$ where $A_{\mathfrak{p}}$ is the localisation at $A\setminus\mathfrak{p}$. So in a neighbourhood $V$ of a point $\mathfrak{p}$ in $U$ there are elements $a,f\in A$ where $f$ has the property that for every $\mathfrak{q}\in V$ we have $f\notin\mathfrak{q}$ and $s(\mathfrak{q})=a/f$ in $A_{\mathfrak{q}}$.
+
+    With this construction the stalk in $\mathfrak{p}$ of the structure sheaf coincide with the localication $A_{\mathfrak{p}}$ and we can recover $A$ from the monoid of global sections.
+\end{enumerate}
+
+Having done this we can define a \emph{monoidal space} (analogous to a ringed space).
+
+
+
+\subsection{Final remarks}
